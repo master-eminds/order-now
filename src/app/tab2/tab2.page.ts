@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Plugins } from '@capacitor/core';
+const { Toast } = Plugins;
 
 @Component({
   selector: 'app-tab2',
@@ -12,6 +14,10 @@ export class Tab2Page {
 
   performScan() {
     this.barcodeScanner.scan().then(barcodeData => {
+      Toast.show({
+        duration: 'long',
+        text: JSON.stringify(barcodeData)
+      });
       console.log('Barcode data', barcodeData);
      }).catch(err => {
          console.log('Error', err);
