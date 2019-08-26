@@ -24,3 +24,31 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.rating-container {
+    rating {
+
+        [ion-button][disabled] {
+            opacity: 1;
+        }
+        ion-buttons {
+            display: flex;
+            justify-content: left !important;
+            font-size: 20px !important;
+
+            ion-button {
+                margin: 0;
+            }
+        }
+        
+        ion-icon {  
+            font-size: 20px !important;
+  
+          &.filled {
+              font-size: 20px !important;   
+            }
+        }
+    }
+
+}
