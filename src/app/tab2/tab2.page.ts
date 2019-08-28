@@ -1,8 +1,5 @@
+import { TestService } from './test.service';
 import { Component } from '@angular/core';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { Plugins } from '@capacitor/core';
-const { Toast } = Plugins;
-
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -10,17 +7,11 @@ const { Toast } = Plugins;
 })
 export class Tab2Page {
 
-  constructor(private barcodeScanner: BarcodeScanner) { }
+  constructor(private testService: TestService) { }
 
-  performScan() {
-    this.barcodeScanner.scan().then(barcodeData => {
-      Toast.show({
-        duration: 'long',
-        text: JSON.stringify(barcodeData)
-      });
-      console.log('Barcode data', barcodeData);
-     }).catch(err => {
-         console.log('Error', err);
-     });
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.testService.getMenu();
   }
 }
