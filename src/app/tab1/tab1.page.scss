@@ -1,0 +1,25 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+:host ::ng-deep ion-card {
+  box-shadow: 0 17px 33px rgba(0,0,0,0.30)
+}
+:host ::ng-deep ion-card-header {
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+
+:host ::ng-deep ion-card-subtitle {
+  text-transform: none;
+}
+
+:host ::ng-deep ion-card-content {
+  padding-top: 5px;
+}
+
+.social-container {
+      ion-button {
+      font-size:12px;
+    }
+}

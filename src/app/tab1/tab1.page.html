@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Restaurants
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card" *ngFor="let restaurant of restaurants">
+    <img [src]="restaurant.image" alt="" />
+    <ion-card-header class="card-header">
+      <ion-card-subtitle>
+        {{restaurant.subtitle}}
+      </ion-card-subtitle>
+      <ion-card-title>Welcome to {{restaurant.name}} </ion-card-title>
+      <div class="rating-container">
+        <rating [(ngModel)]="restaurant.rate" readonly="false" size="small" (ngModelChange)="onRateChange($event)">
+        </rating>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{restaurant.description | truncate : 150}} <ion-button fill="clear" routerLink="details" routerDirection="forward">
+          <ion-icon slot="end" name="arrow-round-forward"></ion-icon>
+        </ion-button></p>
+    </ion-card-content>
+    <ion-row class="social-container">
+      <ion-col>
+        <ion-button class="btn-t" icon-start clear small (click)="increaseLikes(restaurant)">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{restaurant.likes}} Likes</div>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </ion-button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="performScan()">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
