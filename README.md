@@ -14,7 +14,8 @@ and all you need to do to create an ios/android build is to run the following co
 
 > npx cap copy // copy web assets only, which is faster if you know you don't need to update native dependencies.
 
-or > npx cap sync // syncronize your bundles with platform build
+or 
+> npx cap sync // syncronize your bundles with platform build
 
 and the last one to start the app on emulator preconfigured:
 
