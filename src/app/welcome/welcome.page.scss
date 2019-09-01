@@ -1,0 +1,11 @@
+ion-content.welcome-page{
+    --background: url(../../assets/welcome-waiter.jpg) 0 0/100% 100% no-repeat;
+    text-align: center;
+
+    ion-button {
+    text-align: center;
+    width: 35%;
+    margin: 120% auto 0 auto;
+    display: block !important;
+    }
+}

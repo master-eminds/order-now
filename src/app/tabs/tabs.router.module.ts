@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-
+import { RestaurantResolver } from './../restaurant-resolver.service';
 const routes: Routes = [
   {
     path: 'tabs',
@@ -18,9 +18,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab1/details',
+        path: 'tab1/details/:id',
         loadChildren: () =>
-              import('../details/details.module').then(m => m.DetailsPageModule)
+              import('../details/details.module').then(m => m.DetailsPageModule),
+        resolve: {
+          restaurant: RestaurantResolver
+        }
       },
       {
         path: 'tab2',
@@ -44,14 +47,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'tabs/tab1',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: 'tabs/tab1',
     pathMatch: 'full'
   }
 ];
