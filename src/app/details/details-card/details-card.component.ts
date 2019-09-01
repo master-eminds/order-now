@@ -12,4 +12,14 @@ export class DetailsCardComponent implements OnInit {
 
   ngOnInit() {}
 
+  increaseLikes(restaurant) {
+    restaurant.likes++;
+  }
+  onRateChange(e) {
+    console.log(e);
+  }
+
+  viewDetailsPage() {
+  }
+  
 }

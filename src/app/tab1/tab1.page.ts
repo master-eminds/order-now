@@ -30,14 +30,4 @@ export class Tab1Page implements OnInit {
          console.log('Error', err);
      });
   }
-
-  increaseLikes(restaurant) {
-    restaurant.likes++;
-  }
-  onRateChange(e) {
-    console.log(e);
-  }
-
-  viewDetailsPage() {
-  }
 }
