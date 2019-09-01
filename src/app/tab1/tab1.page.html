@@ -12,15 +12,11 @@
     <div class="card-title">{{restaurant.name}}</div>
     <div class="card-subtitle">{{restaurant.subtitle}}</div>
     <div class="card-action">
-      <ion-button fill="solid" size="small" [routerLink]="['details/', restaurant.id]">
+      <ion-button class="details-btn" fill="solid" size="small" [routerLink]="['details/', restaurant.id]">
           <ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
           Details
       </ion-button>
     </div>
   </ion-card>
-  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" (click)="performScan()">
-      <ion-icon name="qr-scanner"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+ 
 </ion-content>

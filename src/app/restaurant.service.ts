@@ -9,6 +9,9 @@ export class RestaurantService {
   RESTAURANTS = [{
     id: 0,
     image: '/assets/image1.jpeg',
+    slides: [
+
+    ],
     name: 'Yraqi',
     subtitle: '9 Ridiculously Good Lebanese Foods You Need to Try',
     rate: 2,
@@ -26,6 +29,11 @@ export class RestaurantService {
     rate: 3,
     subtitle: 'Gusta preparate speciale italienesti',
     likes: 20,
+    slides: [
+      '../assets/slides/slide1.jpeg',
+      '../assets/slides/slide2.jpeg',
+      '../assets/slides/slide3.jpeg'
+    ],
     description: `In cadrul Trattoriei Roz Cafe beneficiezi de servcii de calitate 
     si iti petreci timpul alaturi de oameni ce aduc cu ei povesti si ganduri, 
     oferind dinamism şi energie intregului local. Trattoria Roz Cafe creeaza o
@@ -40,6 +48,9 @@ export class RestaurantService {
     subtitle: 'Relax enjoying special food',
     rate: 4,
     likes: 18,
+    slides: [
+
+    ],
     description: `AQUA embodies and urbane sophistication serving
      simple yet accomplished dishes of Mediterranean cuisine. 
      With its luxurious setting, flawless services, fashionable
@@ -52,6 +63,9 @@ export class RestaurantService {
     subtitle: 'Urban kitcken with light summer meals',
     rate: 5,
     likes: 3,
+    slides: [
+
+    ],
     description: `It’s the second venue belonging to Funky Lounge chain
     . A summer terrace that catches the attention by being positioned 
     on the shore of Herastrau Lake and by the impressive sunsets that 
@@ -64,6 +78,9 @@ export class RestaurantService {
     subtitle: 'Relax while eating in the nature',
     rate: 4,
     likes: 35,
+    slides: [
+
+    ],
     description: `Complexul Turistic Cornul Vanatorului vine in ajutorul vostru pentru evenimentele speciale din viata,
      cu meniuri pregatite cu grija, sali moderne si armonioase si multe surprize pe care va invitam sa le descoperiti`
   }];

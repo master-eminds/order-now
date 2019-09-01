@@ -1,5 +1,3 @@
-import { RestaurantResolver } from './../restaurant-resolver.service';
-import { RestaurantService } from 'src/app/restaurant.service';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

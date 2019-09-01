@@ -1,6 +1,7 @@
 <ion-content>
   <ion-card class="welcome-card">
-    <img [src]="restaurant.image" alt="" />
+    <!-- <img [src]="restaurant.image" alt="" /> -->
+    <app-slide-header [slides]="restaurant.slides"></app-slide-header>
     <ion-card-header class="card-header">
       <ion-card-subtitle>
         {{restaurant.subtitle}}
@@ -34,9 +35,4 @@
       </ion-col>
     </ion-row>
   </ion-card>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="performScan()">
-      <ion-icon name="qr-scanner"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

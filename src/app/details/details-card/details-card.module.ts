@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { IonicRatingModule } from 'ionic4-rating';
 import { TruncateModule } from '@yellowspot/ng-truncate';
+import { SlideHeaderModule } from './slide-header/slide-header.module';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { TruncateModule } from '@yellowspot/ng-truncate';
         CommonModule,
         FormsModule,
         IonicRatingModule,
-        TruncateModule
+        TruncateModule,
+        SlideHeaderModule
     ],
     declarations: [
         DetailsCardComponent

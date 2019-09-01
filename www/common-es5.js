@@ -475,6 +475,294 @@ var openURL = function (url, ev, direction) { return tslib__WEBPACK_IMPORTED_MOD
 
 
 
+/***/ }),
+
+/***/ "./node_modules/@yellowspot/ng-truncate/fesm5/yellowspot-ng-truncate.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@yellowspot/ng-truncate/fesm5/yellowspot-ng-truncate.js ***!
+  \******************************************************************************/
+/*! exports provided: TRUNCATE_PIPES, TruncateModule, ɵa, ɵb */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRUNCATE_PIPES", function() { return TRUNCATE_PIPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TruncateModule", function() { return TruncateModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return TruncateCharactersPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return TruncateWordsPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var TruncateCharactersPipe = /** @class */ (function () {
+    function TruncateCharactersPipe() {
+    }
+    /**
+     * @param {?} value
+     * @param {?=} limit
+     * @param {?=} trail
+     * @return {?}
+     */
+    TruncateCharactersPipe.prototype.transform = /**
+     * @param {?} value
+     * @param {?=} limit
+     * @param {?=} trail
+     * @return {?}
+     */
+    function (value, limit, trail) {
+        if (limit === void 0) { limit = 40; }
+        if (trail === void 0) { trail = '…'; }
+        if (!value) {
+            value = '';
+        }
+        if (limit < 0) {
+            limit *= -1;
+            return value.length > limit ? trail + value.substring(value.length - limit, value.length) : value;
+        }
+        else {
+            return value.length > limit ? value.substring(0, limit) + trail : value;
+        }
+    };
+    TruncateCharactersPipe.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"], args: [{
+                    name: 'truncate'
+                },] }
+    ];
+    return TruncateCharactersPipe;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var TruncateWordsPipe = /** @class */ (function () {
+    function TruncateWordsPipe() {
+    }
+    /**
+     * @param {?} value
+     * @param {?=} limit
+     * @param {?=} trail
+     * @return {?}
+     */
+    TruncateWordsPipe.prototype.transform = /**
+     * @param {?} value
+     * @param {?=} limit
+     * @param {?=} trail
+     * @return {?}
+     */
+    function (value, limit, trail) {
+        if (limit === void 0) { limit = 40; }
+        if (trail === void 0) { trail = '…'; }
+        /** @type {?} */
+        var result = value || '';
+        if (value) {
+            /** @type {?} */
+            var words = value.split(/\s+/);
+            if (words.length > Math.abs(limit)) {
+                if (limit < 0) {
+                    limit *= -1;
+                    result = trail + words.slice(words.length - limit, words.length).join(' ');
+                }
+                else {
+                    result = words.slice(0, limit).join(' ') + trail;
+                }
+            }
+        }
+        return result;
+    };
+    TruncateWordsPipe.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"], args: [{
+                    name: 'words'
+                },] }
+    ];
+    return TruncateWordsPipe;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var TRUNCATE_PIPES = [TruncateCharactersPipe, TruncateWordsPipe];
+var TruncateModule = /** @class */ (function () {
+    function TruncateModule() {
+    }
+    TruncateModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    declarations: [TRUNCATE_PIPES],
+                    exports: [TRUNCATE_PIPES]
+                },] }
+    ];
+    return TruncateModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=yellowspot-ng-truncate.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ionic4-rating/dist/components/rating.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/ionic4-rating/dist/components/rating.js ***!
+  \**************************************************************/
+/*! exports provided: RatingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RatingComponent", function() { return RatingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var RatingComponent = /** @class */ (function () {
+    function RatingComponent() {
+        this.size = 'default';
+        this.rateChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    RatingComponent_1 = RatingComponent;
+    RatingComponent.prototype.onClick = function (rate) {
+        this.rate = rate;
+        this.rateChange.emit(this.rate);
+        this._onChange(this.rate);
+    };
+    RatingComponent.prototype.writeValue = function (value) {
+        if (value !== undefined) {
+            this.rate = value;
+        }
+    };
+    RatingComponent.prototype.registerOnChange = function (fn) {
+        this._onChange = fn;
+    };
+    RatingComponent.prototype.registerOnTouched = function (fn) { };
+    RatingComponent.prototype.setDisabledState = function (isDisabled) {
+        this.readonly = isDisabled;
+    };
+    var RatingComponent_1;
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], RatingComponent.prototype, "rate", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], RatingComponent.prototype, "readonly", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], RatingComponent.prototype, "size", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], RatingComponent.prototype, "rateChange", void 0);
+    RatingComponent = RatingComponent_1 = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "rating",
+            template: "\n    <ion-buttons>\n      <ion-button [disabled]=\"readonly\" fill=\"clear\" [size]=\"size\" *ngFor=\"let current of [1, 2, 3, 4, 5]; let i = index\"\n        (click)=\"onClick(i + 1)\" (mouseover)=\"hoverRate = i + 1\" (mouseleave)=\"hoverRate = 0\">\n        <ion-icon slot=\"icon-only\" name=\"star\" [class.filled]=\"(i + 1 <= hoverRate || (!hoverRate && i + 1 <= rate))\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  ",
+            styles: [
+                "\n      ion-buttons {\n        display: flex;\n        justify-content: center;\n      }\n\n      [ion-button][disabled] {\n        opacity: 1;\n      }\n\n      ion-icon {\n        color: gray;\n      }\n\n      ion-icon.filled {\n        color: orange;\n      }\n    "
+            ],
+            providers: [
+                {
+                    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
+                    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return RatingComponent_1; }),
+                    multi: true
+                }
+            ]
+        })
+    ], RatingComponent);
+    return RatingComponent;
+}());
+
+//# sourceMappingURL=rating.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ionic4-rating/dist/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/ionic4-rating/dist/index.js ***!
+  \**************************************************/
+/*! exports provided: IonicRatingModule, RatingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ionic_rating_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ionic-rating.module */ "./node_modules/ionic4-rating/dist/ionic-rating.module.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IonicRatingModule", function() { return _ionic_rating_module__WEBPACK_IMPORTED_MODULE_0__["IonicRatingModule"]; });
+
+/* harmony import */ var _components_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/rating */ "./node_modules/ionic4-rating/dist/components/rating.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RatingComponent", function() { return _components_rating__WEBPACK_IMPORTED_MODULE_1__["RatingComponent"]; });
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/ionic4-rating/dist/ionic-rating.module.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/ionic4-rating/dist/ionic-rating.module.js ***!
+  \****************************************************************/
+/*! exports provided: IonicRatingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IonicRatingModule", function() { return IonicRatingModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _components_rating__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/rating */ "./node_modules/ionic4-rating/dist/components/rating.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var IonicRatingModule = /** @class */ (function () {
+    function IonicRatingModule() {
+    }
+    IonicRatingModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonicModule"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"]],
+            exports: [_components_rating__WEBPACK_IMPORTED_MODULE_4__["RatingComponent"]],
+            declarations: [_components_rating__WEBPACK_IMPORTED_MODULE_4__["RatingComponent"]]
+        })
+    ], IonicRatingModule);
+    return IonicRatingModule;
+}());
+
+//# sourceMappingURL=ionic-rating.module.js.map
+
 /***/ })
 
 }]);
