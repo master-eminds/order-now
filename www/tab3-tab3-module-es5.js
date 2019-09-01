@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Three\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Tab Three\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n        <ion-list-header>\n          Your order\n        </ion-list-header>\n        <ion-item-sliding *ngFor=\"let product of orderList\">\n          <ion-item>\n            <ion-avatar item-start>\n              <img [src]=\"product.image\">\n            </ion-avatar>\n            <h5>{{product.name}}</h5>\n            <div class=\"item-price\" size=\"6\">\n                <p>Status</p>\n                <p>{{ product.status }}</p>\n              </div>\n              <div class=\"item-status\" size=\"6\">\n                  <p>Price</p>\n                  <p>{{ product.price | currency }}</p>\n              </div>\n          </ion-item>\n          <ion-item-options>\n            <ion-button color=\"light\" size=\"large\" icon-start>\n              <ion-icon name=\"ios-more\"></ion-icon>\n              More\n            </ion-button>\n            <ion-button color=\"danger\" size=\"large\" icon-start>\n              <ion-icon name=\"text\"></ion-icon>\n              Cancel\n            </ion-button>\n          </ion-item-options>\n        </ion-item-sliding>\n        </ion-list>\n        <h2> TOTAL: {{ total | currency }}</h2>\n</ion-content>\n"
 
 /***/ }),
 
@@ -81,8 +81,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
 
+var orderList = [
+    {
+        id: 0,
+        name: 'Bere Heineken',
+        price: '7',
+        cantitate: 2,
+        status: 'done',
+        image: './../../assets/order/beer.jpg'
+    },
+    {
+        id: 1,
+        name: 'Pizza quatro formaggi',
+        price: '27',
+        cantitate: 1,
+        status: 'pending',
+        image: './../../assets/order/pizza.jpg'
+    },
+    {
+        id: 2,
+        name: 'Clatite',
+        price: '18',
+        cantitate: 2,
+        status: 'pending',
+        image: './../../assets/order/clatite.jpg'
+    },
+    {
+        id: 3,
+        name: 'Mojito',
+        price: '27',
+        cantitate: 1,
+        status: 'done',
+        image: './../../assets/order/mojito.jpg'
+    }
+];
 var Tab3Page = /** @class */ (function () {
     function Tab3Page() {
+        var _this = this;
+        this.orderList = orderList;
+        this.total = 0;
+        orderList.forEach(function (order) {
+            _this.total += order.cantitate * order.price;
+        });
     }
     Tab3Page = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

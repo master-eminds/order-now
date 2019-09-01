@@ -6,4 +6,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+          Your order
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let product of orderList">
+          <ion-item>
+            <ion-avatar item-start>
+              <img [src]="product.image">
+            </ion-avatar>
+            <h5>{{product.name}}</h5>
+            <div class="item-price" size="6">
+                <p>Status</p>
+                <p>{{ product.status }}</p>
+              </div>
+              <div class="item-status" size="6">
+                  <p>Price</p>
+                  <p>{{ product.price | currency }}</p>
+              </div>
+          </ion-item>
+          <ion-item-options>
+            <ion-button color="light" size="large" icon-start>
+              <ion-icon name="ios-more"></ion-icon>
+              More
+            </ion-button>
+            <ion-button color="danger" size="large" icon-start>
+              <ion-icon name="text"></ion-icon>
+              Cancel
+            </ion-button>
+          </ion-item-options>
+        </ion-item-sliding>
+        </ion-list>
+        <h2> TOTAL: {{ total | currency }}</h2>
+</ion-content>
