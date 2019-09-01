@@ -1,10 +1,12 @@
+import { RestaurantService } from './../restaurant.service';
+import { DetailsCardModule } from './details-card/details-card.module';
+import { DetailsCardComponent } from './details-card/details-card.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
 import { DetailsPage } from './details.page';
 
 const routes: Routes = [
@@ -16,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    DetailsCardModule,
     CommonModule,
     FormsModule,
     IonicModule,

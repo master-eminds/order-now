@@ -1,25 +1,40 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
-}
-:host ::ng-deep ion-card {
-  box-shadow: 0 17px 33px rgba(0,0,0,0.30)
-}
-:host ::ng-deep ion-card-header {
-  padding-bottom: 5px;
-  padding-top: 10px;
-}
+.card-background-page {
 
-:host ::ng-deep ion-card-subtitle {
-  text-transform: none;
-}
+  ion-card {
+    position: relative;
+    text-align: center;
+    max-height: 35vh;
+    overflow: hidden;
+    box-shadow: 0 17px 33px rgba(0,0,0,0.30)
 
-:host ::ng-deep ion-card-content {
-  padding-top: 5px;
-}
+  }
 
-.social-container {
-      ion-button {
-      font-size:12px;
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .card-action {
+    top: 68%;
+    position: absolute;
+    width: 100%;
+  }
+
+  ion-button {
+      --background: var(--ion-color-secondary);
+      --border-color: var(--ion-color-primary);
     }
 }
