@@ -10,13 +10,13 @@ ion-tab-button {
     bottom: 10%;
     width: 40%;
     right: 5%;
-  
+    
     .suggestion-btn {
       margin-bottom: 25%;
       animation: fadein 3s;
       margin-right: 45%;
-      --border-color: var(--ion-color-primary-contrast);
-      --color	: var(--ion-color-primary-contrast);
+      --border-color: var(--ion-color-dark);
+      --color	: var(--ion-color-dark);
       --background: rgb(255,255,255, 0.8);
       ion-icon {
         margin-top: 5px;

@@ -19,7 +19,7 @@ ion-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         ion-avatar {
             border: 1px solid var(--ion-color-dark);
         }
@@ -42,7 +42,7 @@ ion-item {
         @include item-flex;
     }
 
-    .item-quantity { 
+    .item-quantity {
         height: 100%;
         div {
             display: flex;
@@ -54,6 +54,12 @@ ion-item {
         ion-icon {
             font-size: 25px;
             padding: 5px;
+        }
+    }
+
+    .btn-more {
+        ion-button {
+            height: 90%;
         }
     }
 }

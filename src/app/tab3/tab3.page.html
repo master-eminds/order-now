@@ -34,13 +34,13 @@
         </div>
       </ion-item>
       <ion-item-options>
-        <ion-button color="light" size="large" icon-start>
+        <ion-button class="btn-more" color="light" size="large" icon-start>
           <ion-icon name="ios-more"></ion-icon>
           More
         </ion-button>
         <ion-button color="danger" [disabled]="order.status === 'done'"
          (click)="removeProduct(index)" size="large" icon-start>
-          <ion-icon name="text"></ion-icon>
+         <ion-icon name="trash"></ion-icon>
           Remove
         </ion-button>
       </ion-item-options>
