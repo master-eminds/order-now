@@ -108,4 +108,10 @@ export class Tab3Page {
     });
   }
 
+  removeProduct(index) {
+    //allow removing if  order is in pending
+    this.orderList.splice(index, 1);
+    this.changeTotal();
+  }
+
 }

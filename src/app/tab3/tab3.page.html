@@ -9,13 +9,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let order of orderList">
+    <ion-item-sliding *ngFor="let order of orderList; let index = index;">
       <ion-item>
         <div class="item-avatar-container">
             <ion-avatar item-start>
                 <img [src]="order.image">
               </ion-avatar>
-              <p [ngStyle]="{'color':order.status === 'pending' ? 'yellow' : 'green' }">{{order.status}}</p>
+              <p [ngStyle]="{'color':order.status === 'pending' ? '#FFFF4C' : 'green' }">{{order.status}}</p>
         </div>
         <div class="item-name">
           <p>{{order.name}}</p>
@@ -38,9 +38,10 @@
           <ion-icon name="ios-more"></ion-icon>
           More
         </ion-button>
-        <ion-button color="danger" size="large" icon-start>
+        <ion-button color="danger" [disabled]="order.status === 'done'"
+         (click)="removeProduct(index)" size="large" icon-start>
           <ion-icon name="text"></ion-icon>
-          Cancel
+          Remove
         </ion-button>
       </ion-item-options>
     </ion-item-sliding>
