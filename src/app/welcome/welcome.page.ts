@@ -1,5 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(public translate: TranslateService) {
+    console.log(translate);
+  }
 
   ngOnInit() {
+  }
+
+  changeLanguage(lang) {
+    this.translate.use(lang);
   }
 
 }

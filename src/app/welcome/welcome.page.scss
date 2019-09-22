@@ -2,12 +2,27 @@ ion-content.welcome-page{
     --background: url(../../assets/welcome-waiter.jpg) 0 0/100% 100% no-repeat;
     text-align: center;
 
-    ion-button {
-    text-align: center;
-    width: 35%;
-    margin: 145% auto 0 auto;
-    display: block !important;
+    .welcome-actions {
+      position: relative;
+      top: 70%;
     }
+}
+
+.language-container {
+  display: flex;
+  margin: auto;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background: transparent;
+    img {
+      width: 25%;
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+  }
 }
 
 *{
