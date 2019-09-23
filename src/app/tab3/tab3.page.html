@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="order-page-content">
   <ion-list>
     <ion-item-sliding *ngFor="let order of orderList; let index = index;">
       <ion-item>
@@ -34,11 +34,11 @@
         </div>
       </ion-item>
       <ion-item-options>
-        <ion-button class="btn-more" color="light" size="large" icon-start>
+        <ion-button class="btn-resize" color="light" size="large" icon-start>
           <ion-icon name="ios-more"></ion-icon>
           More
         </ion-button>
-        <ion-button color="danger" [disabled]="order.status === 'done'"
+        <ion-button class="btn-resize" color="danger" [disabled]="order.status === 'done'"
          (click)="removeProduct(index)" size="large" icon-start>
          <ion-icon name="trash"></ion-icon>
           Remove

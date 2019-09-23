@@ -8,64 +8,61 @@
     flex-direction: column;
 }
 
-ion-item {
-    display: flex;
-    justify-content:  space-between;
-    align-items: center;
-
-    .item-avatar-container {
-        flex-basis: 20%;
-        height: 75%;
+.order-page-content {
+    ion-item {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
 
-        ion-avatar {
-            border: 1px solid var(--ion-color-dark);
-        }
-
-        p {
-            margin: 5px 0 0 0;
-            font-size: 10px;
-            padding: 2px;
-            background-color: gainsboro;
-        }
-    }
-
-    .item-name {
-        flex-basis: 30%;
-        font-size: 17px;
-        text-align: center;
-    }
-
-    div.item-name ~ div {
-        @include item-flex;
-    }
-
-    .item-quantity {
-        height: 100%;
-        div {
+        .item-avatar-container {
+            flex-basis: 20%;
+            height: 75%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 5px;
+
+            ion-avatar {
+                border: 1px solid var(--ion-color-dark);
+            }
+
+            p {
+                margin: 5px 0 0 0;
+                font-size: 10px;
+                padding: 2px;
+                background-color: gainsboro;
+            }
         }
 
-        ion-icon {
-            font-size: 25px;
-            padding: 5px;
+        .item-name {
+            flex-basis: 30%;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        div.item-name~div {
+            @include item-flex;
+        }
+
+        .item-quantity {
+            height: 100%;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+
+            ion-icon {
+                font-size: 25px;
+                padding: 5px;
+            }
         }
     }
 
-    .btn-more {
-        ion-button {
-            height: 90%;
-        }
+    .total-order {
+        position: sticky;
+        top: 20%;
+        left: 50%;
     }
-}
-
-.total-order {
-    position: sticky;
-    top: 20%;
-    left: 50%;
 }

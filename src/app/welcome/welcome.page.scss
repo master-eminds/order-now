@@ -78,3 +78,37 @@ ion-content.welcome-page{
     }
   }
   
+
+  .try-button {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
+  }
+  @-webkit-keyframes glowing {
+    0% { background-color: var(--ion-color-secondary); -webkit-box-shadow: 0 0 3px var(--ion-color-secondary); }
+    50% { background-color: var(--ion-color-secondary-shade); -webkit-box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
+    100% { background-color: var(--ion-color-secondary); -webkit-box-shadow: 0 0 3px var(--ion-color-secondary); }
+  }
+  
+  @-moz-keyframes glowing {
+    0% { background-color: var(--ion-color-secondary); -moz-box-shadow: 0 0 3px var(--ion-color-secondary); }
+    50% { background-color: var(--ion-color-secondary-shade); -moz-box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
+    100% { background-color: var(--ion-color-secondary); -moz-box-shadow: 0 0 3px var(--ion-color-secondary); }
+  }
+  
+  @-o-keyframes glowing {
+    0% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+    50% { background-color: var(--ion-color-secondary-shade); box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
+    100% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+  }
+  
+  @keyframes glowing {
+    0% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+    50% { background-color: var(--ion-color-secondary-shade); box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
+    100% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+  }

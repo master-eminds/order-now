@@ -11,6 +11,9 @@ export class SlideHeaderComponent implements OnInit {
     autoplay : {
       delay: 2000,
     },
+    coverflowEffect: {
+      stretch: 100
+    },
     autoHeight: true,
     effect: 'cube'
   };

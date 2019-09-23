@@ -30,9 +30,10 @@ export class RestaurantService {
     subtitle: 'Gusta preparate speciale italienesti',
     likes: 20,
     slides: [
-      '../assets/slides/slide1.jpeg',
-      '../assets/slides/slide2.jpeg',
-      '../assets/slides/slide3.jpeg'
+      '../assets/slides/slide1.jpg',
+      '../assets/slides/slide2.jpg',
+      '../assets/slides/slide3.jpg',
+      '../assets/slides/slide4.jpg'
     ],
     description: `In cadrul Trattoriei Roz Cafe beneficiezi de servcii de calitate 
     si iti petreci timpul alaturi de oameni ce aduc cu ei povesti si ganduri, 
