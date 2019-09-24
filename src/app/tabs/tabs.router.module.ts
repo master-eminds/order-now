@@ -8,17 +8,17 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'RestaurantsList',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../restaurants-list/restaurants-list.module').then(m => m.RestaurantsListPageModule)
           }
         ]
       },
       {
-        path: 'tab1/details/:id',
+        path: 'RestaurantsList/details/:id',
         loadChildren: () =>
               import('../details/details.module').then(m => m.DetailsPageModule),
         resolve: {
@@ -31,7 +31,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../online-order/online-order.module').then(m => m.OnlineOrderPageModule)
           }
         ]
       },
@@ -41,20 +41,20 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../order-status/order-status.module').then(m => m.OrderStatusPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: 'tabs/tab1',
+        redirectTo: 'tabs/RestaurantsList',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs/tab1',
+    redirectTo: 'tabs/RestaurantsList',
     pathMatch: 'full'
   }
 ];
