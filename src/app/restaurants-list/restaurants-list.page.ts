@@ -3,11 +3,11 @@ import { RestaurantService } from '../restaurant.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-restaurants-list',
+  templateUrl: 'restaurants-list.page.html',
+  styleUrls: ['restaurants-list.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class RestaurantsListPage implements OnInit {
   restaurants$: Observable<any>;
   constructor(private restaurantService: RestaurantService) {
    }

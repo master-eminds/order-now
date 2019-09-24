@@ -1,11 +1,11 @@
 import { TestService } from './test.service';
 import { Component } from '@angular/core';
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-online-order',
+  templateUrl: 'online-order.page.html',
+  styleUrls: ['online-order.page.scss']
 })
-export class Tab2Page {
+export class OnlineOrderPage {
 
   constructor(private testService: TestService) { }
 
