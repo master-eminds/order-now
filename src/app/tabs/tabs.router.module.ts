@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'RestaurantsList',
+        path: 'restaurants-list',
         children: [
           {
             path: '',
@@ -18,7 +18,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'RestaurantsList/details/:id',
+        path: 'restaurants-list/details/:id',
         loadChildren: () =>
               import('../details/details.module').then(m => m.DetailsPageModule),
         resolve: {
@@ -26,7 +26,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'tab2',
+        path: 'online-order',
         children: [
           {
             path: '',
@@ -36,7 +36,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'order-status',
         children: [
           {
             path: '',
@@ -47,14 +47,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'tabs/RestaurantsList',
+        redirectTo: 'tabs/restaurans-list',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs/RestaurantsList',
+    redirectTo: 'tabs/restaurants-list',
     pathMatch: 'full'
   }
 ];

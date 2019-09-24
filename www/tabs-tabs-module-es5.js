@@ -2352,7 +2352,7 @@ var Toast = new ToastPluginWeb();
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\n    <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n        <ion-tab-bar slot=\"bottom\">\n          <ion-tab-button tab=\"tab1\">\n            <ion-icon name=\"pizza\"></ion-icon>\n            <ion-label>Restaurants</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab2\">\n            <ion-icon name=\"globe\"></ion-icon>\n            <ion-label>Online Order</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab3\">\n            <ion-icon name=\"clipboard\"></ion-icon>\n            <ion-label>Order Status</ion-label>\n          </ion-tab-button>\n        </ion-tab-bar>\n      </ion-tabs>\n    <div class=\"scan-container\" *ngIf=\"currentTab === 'tab1'\">\n        <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n              <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n              Scan menu\n          </ion-button>\n          <ion-fab  vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n              <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n                <ion-icon name=\"qr-scanner\"></ion-icon>\n              </ion-fab-button>\n            </ion-fab>\n      </div>\n</ion-content>\n"
+module.exports = "<ion-content>\n    <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n        <ion-tab-bar slot=\"bottom\">\n          <ion-tab-button tab=\"RestaurantsList\">\n            <ion-icon name=\"pizza\"></ion-icon>\n            <ion-label>Restaurants</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab2\">\n            <ion-icon name=\"globe\"></ion-icon>\n            <ion-label>Online Order</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab3\">\n            <ion-icon name=\"clipboard\"></ion-icon>\n            <ion-label>Order Status</ion-label>\n          </ion-tab-button>\n        </ion-tab-bar>\n      </ion-tabs>\n    <div class=\"scan-container\" *ngIf=\"currentTab === 'RestaurantsList'\">\n        <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n              <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n              Scan menu\n          </ion-button>\n          <ion-fab  vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n              <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n                <ion-icon name=\"qr-scanner\"></ion-icon>\n              </ion-fab-button>\n            </ion-fab>\n      </div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -2505,18 +2505,18 @@ var routes = [
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_3__["TabsPage"],
         children: [
             {
-                path: 'tab1',
+                path: 'RestaurantsList',
                 children: [
                     {
                         path: '',
                         loadChildren: function () {
-                            return Promise.all(/*! import() | tab1-tab1-module */[__webpack_require__.e("common"), __webpack_require__.e("tab1-tab1-module")]).then(__webpack_require__.bind(null, /*! ../tab1/tab1.module */ "./src/app/tab1/tab1.module.ts")).then(function (m) { return m.Tab1PageModule; });
+                            return Promise.all(/*! import() | restaurants-list-restaurants-list-module */[__webpack_require__.e("common"), __webpack_require__.e("restaurants-list-restaurants-list-module")]).then(__webpack_require__.bind(null, /*! ../restaurants-list/restaurants-list.module */ "./src/app/restaurants-list/restaurants-list.module.ts")).then(function (m) { return m.RestaurantsListPageModule; });
                         }
                     }
                 ]
             },
             {
-                path: 'tab1/details/:id',
+                path: 'RestaurantsList/details/:id',
                 loadChildren: function () {
                     return Promise.all(/*! import() | details-details-module */[__webpack_require__.e("common"), __webpack_require__.e("details-details-module")]).then(__webpack_require__.bind(null, /*! ../details/details.module */ "./src/app/details/details.module.ts")).then(function (m) { return m.DetailsPageModule; });
                 },
@@ -2530,7 +2530,7 @@ var routes = [
                     {
                         path: '',
                         loadChildren: function () {
-                            return __webpack_require__.e(/*! import() | tab2-tab2-module */ "tab2-tab2-module").then(__webpack_require__.bind(null, /*! ../tab2/tab2.module */ "./src/app/tab2/tab2.module.ts")).then(function (m) { return m.Tab2PageModule; });
+                            return __webpack_require__.e(/*! import() | online-order-online-order-module */ "online-order-online-order-module").then(__webpack_require__.bind(null, /*! ../online-order/online-order.module */ "./src/app/online-order/online-order.module.ts")).then(function (m) { return m.OnlineOrderPageModule; });
                         }
                     }
                 ]
@@ -2541,21 +2541,21 @@ var routes = [
                     {
                         path: '',
                         loadChildren: function () {
-                            return __webpack_require__.e(/*! import() | tab3-tab3-module */ "tab3-tab3-module").then(__webpack_require__.bind(null, /*! ../tab3/tab3.module */ "./src/app/tab3/tab3.module.ts")).then(function (m) { return m.Tab3PageModule; });
+                            return __webpack_require__.e(/*! import() | order-status-order-status-module */ "order-status-order-status-module").then(__webpack_require__.bind(null, /*! ../order-status/order-status.module */ "./src/app/order-status/order-status.module.ts")).then(function (m) { return m.OrderStatusPageModule; });
                         }
                     }
                 ]
             },
             {
                 path: '',
-                redirectTo: 'tabs/tab1',
+                redirectTo: 'tabs/RestaurantsList',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: 'tabs/tab1',
+        redirectTo: 'tabs/RestaurantsList',
         pathMatch: 'full'
     }
 ];

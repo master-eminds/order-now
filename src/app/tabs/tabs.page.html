@@ -2,23 +2,23 @@
     <ion-tabs #tabs (ionTabsDidChange)="getSelectedTab()">
 
         <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="RestaurantsList">
+          <ion-tab-button tab="restaurants-list">
             <ion-icon name="pizza"></ion-icon>
             <ion-label>Restaurants</ion-label>
           </ion-tab-button>
       
-          <ion-tab-button tab="tab2">
+          <ion-tab-button tab="online-rder">
             <ion-icon name="globe"></ion-icon>
             <ion-label>Online Order</ion-label>
           </ion-tab-button>
       
-          <ion-tab-button tab="tab3">
+          <ion-tab-button tab="order-status">
             <ion-icon name="clipboard"></ion-icon>
             <ion-label>Order Status</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
       </ion-tabs>
-    <div class="scan-container" *ngIf="currentTab === 'RestaurantsList'">
+    <div class="scan-container" *ngIf="currentTab === 'restaurants-list'">
         <ion-button class="suggestion-btn" size="small" fill="solid">
               <ion-icon slot="end" src="./../../assets/arrow-suggestion.svg"></ion-icon>
               Scan menu
