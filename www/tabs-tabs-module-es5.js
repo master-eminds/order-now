@@ -2352,7 +2352,7 @@ var Toast = new ToastPluginWeb();
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\n    <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n        <ion-tab-bar slot=\"bottom\">\n          <ion-tab-button tab=\"RestaurantsList\">\n            <ion-icon name=\"pizza\"></ion-icon>\n            <ion-label>Restaurants</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab2\">\n            <ion-icon name=\"globe\"></ion-icon>\n            <ion-label>Online Order</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"tab3\">\n            <ion-icon name=\"clipboard\"></ion-icon>\n            <ion-label>Order Status</ion-label>\n          </ion-tab-button>\n        </ion-tab-bar>\n      </ion-tabs>\n    <div class=\"scan-container\" *ngIf=\"currentTab === 'RestaurantsList'\">\n        <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n              <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n              Scan menu\n          </ion-button>\n          <ion-fab  vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n              <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n                <ion-icon name=\"qr-scanner\"></ion-icon>\n              </ion-fab-button>\n            </ion-fab>\n      </div>\n</ion-content>\n"
+module.exports = "<ion-content>\n    <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n        <ion-tab-bar slot=\"bottom\">\n          <ion-tab-button tab=\"restaurants-list\">\n            <ion-icon name=\"pizza\"></ion-icon>\n            <ion-label>Restaurants</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"online-rder\">\n            <ion-icon name=\"globe\"></ion-icon>\n            <ion-label>Online Order</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"order-status\">\n            <ion-icon name=\"clipboard\"></ion-icon>\n            <ion-label>Order Status</ion-label>\n          </ion-tab-button>\n        </ion-tab-bar>\n      </ion-tabs>\n    <div class=\"scan-container\" *ngIf=\"currentTab === 'restaurants-list'\">\n        <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n              <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n              Scan menu\n          </ion-button>\n          <ion-fab  vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n              <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n                <ion-icon name=\"qr-scanner\"></ion-icon>\n              </ion-fab-button>\n            </ion-fab>\n      </div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -2505,7 +2505,7 @@ var routes = [
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_3__["TabsPage"],
         children: [
             {
-                path: 'RestaurantsList',
+                path: 'restaurants-list',
                 children: [
                     {
                         path: '',
@@ -2516,7 +2516,7 @@ var routes = [
                 ]
             },
             {
-                path: 'RestaurantsList/details/:id',
+                path: 'restaurants-list/details/:id',
                 loadChildren: function () {
                     return Promise.all(/*! import() | details-details-module */[__webpack_require__.e("common"), __webpack_require__.e("details-details-module")]).then(__webpack_require__.bind(null, /*! ../details/details.module */ "./src/app/details/details.module.ts")).then(function (m) { return m.DetailsPageModule; });
                 },
@@ -2525,7 +2525,7 @@ var routes = [
                 }
             },
             {
-                path: 'tab2',
+                path: 'online-order',
                 children: [
                     {
                         path: '',
@@ -2536,7 +2536,7 @@ var routes = [
                 ]
             },
             {
-                path: 'tab3',
+                path: 'order-status',
                 children: [
                     {
                         path: '',
@@ -2548,14 +2548,14 @@ var routes = [
             },
             {
                 path: '',
-                redirectTo: 'tabs/RestaurantsList',
+                redirectTo: 'tabs/restaurans-list',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: 'tabs/RestaurantsList',
+        redirectTo: 'tabs/restaurants-list',
         pathMatch: 'full'
     }
 ];
