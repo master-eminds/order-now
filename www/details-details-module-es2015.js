@@ -18,7 +18,7 @@ module.exports = "<ion-content>\n  <ion-card class=\"welcome-card\">\n    <!-- <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-slides pager=\"true\" [options]=\"slideOpts\">\n    <ion-slide *ngFor=\"let slide of slides\">\n        <img [src]=\"slide\"/>\n      </ion-slide>\n  </ion-slides>"
+module.exports = "<ion-slides pager=\"true\" [options]=\"slideOpts\">\n    <ion-slide  *ngFor=\"let slide of slides\">\n        <img [src]=\"slide\"/>\n      </ion-slide>\n  </ion-slides>"
 
 /***/ }),
 
@@ -147,7 +147,7 @@ DetailsCardModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RldGFpbHMvZGV0YWlscy1jYXJkL3NsaWRlLWhlYWRlci9zbGlkZS1oZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */"
+module.exports = ":host ion-slide {\n  height: inherit;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3dvcmtzcGFjZS9vcmRlci1ub3cvc3JjL2FwcC9kZXRhaWxzL2RldGFpbHMtY2FyZC9zbGlkZS1oZWFkZXIvc2xpZGUtaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9kZXRhaWxzL2RldGFpbHMtY2FyZC9zbGlkZS1oZWFkZXIvc2xpZGUtaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksZUFBQTtFQUNBLFdBQUE7QUNBUiIsImZpbGUiOiJzcmMvYXBwL2RldGFpbHMvZGV0YWlscy1jYXJkL3NsaWRlLWhlYWRlci9zbGlkZS1oZWFkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7IFxuICAgIGlvbi1zbGlkZSB7XG4gICAgICAgIGhlaWdodDogaW5oZXJpdDtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxufSIsIjpob3N0IGlvbi1zbGlkZSB7XG4gIGhlaWdodDogaW5oZXJpdDtcbiAgd2lkdGg6IDEwMCU7XG59Il19 */"
 
 /***/ }),
 
@@ -170,6 +170,9 @@ let SlideHeaderComponent = class SlideHeaderComponent {
         this.slideOpts = {
             autoplay: {
                 delay: 2000,
+            },
+            coverflowEffect: {
+                stretch: 100
             },
             autoHeight: true,
             effect: 'cube'

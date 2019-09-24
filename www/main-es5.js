@@ -748,9 +748,10 @@ var RestaurantService = /** @class */ (function () {
                 subtitle: 'Gusta preparate speciale italienesti',
                 likes: 20,
                 slides: [
-                    '../assets/slides/slide1.jpeg',
-                    '../assets/slides/slide2.jpeg',
-                    '../assets/slides/slide3.jpeg'
+                    '../assets/slides/slide1.jpg',
+                    '../assets/slides/slide2.jpg',
+                    '../assets/slides/slide3.jpg',
+                    '../assets/slides/slide4.jpg'
                 ],
                 description: "In cadrul Trattoriei Roz Cafe beneficiezi de servcii de calitate \n    si iti petreci timpul alaturi de oameni ce aduc cu ei povesti si ganduri, \n    oferind dinamism \u015Fi energie intregului local. Trattoria Roz Cafe creeaza o\n     lume in care arta, pasiunea si talentul isi dau intalnire doar pentru tine.\n     Ambientul placut si linistitor te vor face sa te scufunzi in timp literalmente. \n     Va asteptam cu drag la Trattoria Roz Cafe!"
             },
