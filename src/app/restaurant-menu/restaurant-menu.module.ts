@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { OnlineOrderPage } from './online-order.page';
+import { RestaurantMenuPage } from './restaurant-menu.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: OnlineOrderPage }])
+    RouterModule.forChild([{ path: '', component: RestaurantMenuPage }])
   ],
-  declarations: [OnlineOrderPage]
+  declarations: [RestaurantMenuPage]
 })
 export class OnlineOrderPageModule {}

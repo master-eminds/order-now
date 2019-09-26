@@ -26,12 +26,12 @@ const routes: Routes = [
         }
       },
       {
-        path: 'online-order',
+        path: 'restaurant-menu',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../online-order/online-order.module').then(m => m.OnlineOrderPageModule)
+              import('../restaurant-menu/restaurant-menu.module').then(m => m.OnlineOrderPageModule)
           }
         ]
       },

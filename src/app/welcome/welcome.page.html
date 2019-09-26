@@ -1,22 +1,80 @@
-<ion-content class="welcome-page" padding>
+<ion-header translucent>
+      <ion-toolbar>
+            <ion-title>Preview</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen padding scroll-y="false" class="welcome-page">
+      <ion-slides class="welcome-page__slides" pager="true">
+            <ion-slide>
+                  <div class="welcome-message">
+                        <span class="text1">{{ 'WELCOME_TO' | translate }}</span>
+                        <span class="text2">ORDER NOW</span>
+                  </div>
+                  <img src="../../assets/test.jpg" />
+                  <div>
+                        <p>The <b>Order Now App</b> is specially designed to automate your order management.
+                              It helps your waiters to take their orders precisely and
+                              convey them to the kitchen so that all your dine-in and takeaway orders get properly
+                              organised.
+                        </p>
+                  </div>
+            </ion-slide>
+
+            <ion-slide>
+                  <img src="../../assets/welcome-page2.gif" />
+                  <h2>How to use our app</h2>
+                  <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code 
+                        and preview the menu for your favourite restaurant. </p>
+            </ion-slide>
+
+            <ion-slide>
+                  <img src="../../assets/crop-welcome-waiter.jpg" />
+                  <h2>Wana try our app?</h2>
+                  <div class="welcome-actions">
+                        <ion-button class="try-button" color="secondary" routerLink="tabs" router-direction="forward"
+                              size="default">
+                              <ion-icon name="arrow-dropright-circle"></ion-icon>
+                              Continue
+                        </ion-button>
+                        <div class="language-container">
+                              <button (click)="changeLanguage('en')" block>
+                                    <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
+                                          src="../../assets/en-flag.jpg">
+                              </button>
+                              <p>{{ 'SELECT_LANG' | translate }}</p>
+                              <button (click)="changeLanguage('ro')" block>
+                                    <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
+                                          src="../../assets/ro-flag.jpg">
+                              </button>
+                        </div>
+                  </div>
+            </ion-slide>
+      </ion-slides>
+</ion-content>
+
+
+<!-- <ion-content class="welcome-page" padding>
       <div class="welcome-message">
             <!-- <span class="text1">{{ 'WELCOME' | translate }}</span> -->
-            <span class="text2">ORDER NOW</span>
+<!-- <span class="text2">ORDER NOW</span>
+</div>
+
+<div class="welcome-actions">
+      <ion-button class="try-button" color="secondary" routerLink="tabs" router-direction="forward" size="default">
+            <ion-icon slot="" name="arrow-dropright-circle"></ion-icon>
+            Try it now!
+      </ion-button>
+      <div class="language-container">
+            <button (click)="changeLanguage('en')" block>
+                  <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
+                        src="../../assets/en-flag.jpg">
+            </button>
+            <p>{{ 'SELECT_LANG' | translate }}</p>
+            <button (click)="changeLanguage('ro')" block>
+                  <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
+                        src="../../assets/ro-flag.jpg">
+            </button>
       </div>
-      
-      <div class="welcome-actions">
-            <ion-button class="try-button" color="secondary" routerLink="tabs" router-direction="forward" size="default">
-                  <ion-icon slot="" name="arrow-dropright-circle"></ion-icon>
-                  Try it now!
-            </ion-button>
-            <div class="language-container">
-                  <button (click)="changeLanguage('en')" block>
-                        <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }" src="../../assets/en-flag.jpg">
-                  </button>
-                  <p>{{ 'SELECT_LANG' | translate }}</p>
-                  <button (click)="changeLanguage('ro')" block>
-                        <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }" src="../../assets/ro-flag.jpg">
-                  </button>
-            </div>
-      </div>
-</ion-content>
+</div>
+</ion-content> --> -->

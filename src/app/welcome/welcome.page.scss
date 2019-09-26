@@ -1,83 +1,78 @@
-ion-content.welcome-page{
-    --background: url(../../assets/welcome-waiter2.jpg) 0 0/100% 100% no-repeat;
-    text-align: center;
-
-    .welcome-actions {
-      position: relative;
-      top: 70%;
-    }
-}
-
-.language-container {
-  display: flex;
-  margin: auto;
-  margin-top: 10%;
-  align-items: center;
-  justify-content: center;
-
-  button {
-    background: transparent;
-    img {
-      width: 25%;
-      border: 2px solid white;
-      border-radius: 50%;
-    }
+.welcome-page {  
+  .swiper-slide {
+    display: block;
   }
-}
 
-*{
-    padding: 0;
+  ion-slide:first-child > img {
+    width: 280px;
+    max-height: 50%;
+    max-width: 100%;
     margin: 0;
-    font-family: sans-serif;
   }
-  body{
-    background:transparent;
+
+  ion-slide:nth-child(3) > img {
+    width: 80%;
   }
-  .welcome-message{
+
+  .language-container {
+    display: flex;
+    margin: auto;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      background: transparent;
+      img {
+        width: 25%;
+        border: 2px solid white;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .welcome-message {
     text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     width: 100%;
+    height: 125px;
   }
-  .welcome-message span{
+
+  .welcome-message span {
     text-transform: uppercase;
     display: block;
   }
-  .text2{
-    color: white;
-    font-size: 60px;
+  .text2 {
+    color: black;
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: 8px;
     margin-bottom: 20px;
-    background:transparent;
+    background: transparent;
     position: relative;
-    animation: text 5s 1;
+    animation: text 10s 1;
     text-shadow: 5px 3px 16px black;
   }
-  .text1{
+  .text1 {
     font-size: 30px;
     color: black;
     font-weight: bold;
-    text-shadow: 5px 3px 16px white;
+    text-shadow: 5px 3px 16px black;
   }
-  
+
   @keyframes text {
-    0%{
+    0% {
       color: black;
       margin-bottom: -40px;
     }
-    30%{
+    30% {
       letter-spacing: 25px;
       margin-bottom: -40px;
     }
-    85%{
+    85% {
       letter-spacing: 8px;
       margin-bottom: -40px;
     }
   }
-  
 
   .try-button {
     -webkit-border-radius: 10px;
@@ -90,25 +85,62 @@ ion-content.welcome-page{
     animation: glowing 1500ms infinite;
   }
   @-webkit-keyframes glowing {
-    0% { background-color: var(--ion-color-secondary); -webkit-box-shadow: 0 0 3px var(--ion-color-secondary); }
-    50% { background-color: var(--ion-color-secondary-shade); -webkit-box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
-    100% { background-color: var(--ion-color-secondary); -webkit-box-shadow: 0 0 3px var(--ion-color-secondary); }
+    0% {
+      background-color: var(--ion-color-secondary);
+      -webkit-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      -webkit-box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      -webkit-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
   }
-  
+
   @-moz-keyframes glowing {
-    0% { background-color: var(--ion-color-secondary); -moz-box-shadow: 0 0 3px var(--ion-color-secondary); }
-    50% { background-color: var(--ion-color-secondary-shade); -moz-box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
-    100% { background-color: var(--ion-color-secondary); -moz-box-shadow: 0 0 3px var(--ion-color-secondary); }
+    0% {
+      background-color: var(--ion-color-secondary);
+      -moz-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      -moz-box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      -moz-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
   }
-  
+
   @-o-keyframes glowing {
-    0% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
-    50% { background-color: var(--ion-color-secondary-shade); box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
-    100% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+    0% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
   }
-  
+
   @keyframes glowing {
-    0% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
-    50% { background-color: var(--ion-color-secondary-shade); box-shadow: 0 0 40px var(--ion-color-secondary-shade); }
-    100% { background-color: var(--ion-color-secondary); box-shadow: 0 0 3px var(--ion-color-secondary); }
+    0% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
   }
+}

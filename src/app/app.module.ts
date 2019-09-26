@@ -13,6 +13,10 @@ import { RestaurantResolver } from './restaurant-resolver.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
 @NgModule({
   declarations: [AppComponent],
   exports: [TranslateModule],
@@ -30,7 +34,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
         deps: [HttpClient]
       }
     }),
-  ],
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([])],
   providers: [
     StatusBar,
     SplashScreen,

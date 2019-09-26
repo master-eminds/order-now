@@ -56,3 +56,14 @@
         height: 90%;
     }
 }
+
+.welcome-page {
+    ion-slides {
+        div.swiper-pagination {
+            bottom: 0;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: var(--ion-color-secondary);
+        }
+    }
+}
