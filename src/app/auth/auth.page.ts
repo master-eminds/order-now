@@ -1,5 +1,7 @@
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
-  constructor(private googlePlus: GooglePlus) { }
+  currentUser: any;
+  constructor(private googlePlus: GooglePlus, private alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,8 +20,24 @@ export class AuthPage implements OnInit {
     this.googlePlus.login({
       scopes: 'https://www.googleapis.com/auth/plus.login'
     })
-    .then(res => console.log(res))
+    .then(res => {
+      this.currentUser = res;
+      this.presentAlert();
+      this.router.navigate(['tabs']);
+      console.log(res)
+    })
     .catch(err => console.error(err));
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: `${this.currentUser.email} logged in successfully`,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
