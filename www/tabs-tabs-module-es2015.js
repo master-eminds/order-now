@@ -2352,7 +2352,7 @@ var Toast = new ToastPluginWeb();
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\n    <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n        <ion-tab-bar slot=\"bottom\">\n          <ion-tab-button tab=\"restaurants-list\">\n            <ion-icon name=\"pizza\"></ion-icon>\n            <ion-label>Restaurants</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"online-rder\">\n            <ion-icon name=\"globe\"></ion-icon>\n            <ion-label>Online Order</ion-label>\n          </ion-tab-button>\n      \n          <ion-tab-button tab=\"order-status\">\n            <ion-icon name=\"clipboard\"></ion-icon>\n            <ion-label>Order Status</ion-label>\n          </ion-tab-button>\n        </ion-tab-bar>\n      </ion-tabs>\n    <div class=\"scan-container\" *ngIf=\"currentTab === 'restaurants-list'\">\n        <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n              <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n              Scan menu\n          </ion-button>\n          <ion-fab  vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n              <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n                <ion-icon name=\"qr-scanner\"></ion-icon>\n              </ion-fab-button>\n            </ion-fab>\n      </div>\n</ion-content>\n"
+module.exports = "<ion-content>\n  <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n\n    <ion-tab-bar slot=\"bottom\">\n      <ion-tab-button tab=\"restaurants-list\">\n        <ion-icon name=\"home\"></ion-icon>\n        <ion-label>Restaurants</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"restaurant-menu\">\n        <ion-icon name=\"restaurant\"></ion-icon>\n        <ion-label>Menu</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n        <ion-icon name=\"clipboard\"></ion-icon>\n        <ion-label>Order Status</ion-label>\n      </ion-tab-button>\n    </ion-tab-bar>\n  </ion-tabs>\n  <div class=\"scan-container\" *ngIf=\"currentTab === 'restaurants-list'\">\n    <ion-button class=\"suggestion-btn\" size=\"small\" fill=\"solid\">\n      <ion-icon slot=\"end\" src=\"./../../assets/arrow-suggestion.svg\"></ion-icon>\n      Scan menu\n    </ion-button>\n    <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button color=\"secondary\" (click)=\"performScan()\">\n        <ion-icon name=\"qr-scanner\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n  </div>\n</ion-content>"
 
 /***/ }),
 
@@ -2516,11 +2516,11 @@ const routes = [
                 }
             },
             {
-                path: 'online-order',
+                path: 'restaurant-menu',
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | online-order-online-order-module */ "online-order-online-order-module").then(__webpack_require__.bind(null, /*! ../online-order/online-order.module */ "./src/app/online-order/online-order.module.ts")).then(m => m.OnlineOrderPageModule)
+                        loadChildren: () => __webpack_require__.e(/*! import() | restaurant-menu-restaurant-menu-module */ "restaurant-menu-restaurant-menu-module").then(__webpack_require__.bind(null, /*! ../restaurant-menu/restaurant-menu.module */ "./src/app/restaurant-menu/restaurant-menu.module.ts")).then(m => m.OnlineOrderPageModule)
                     }
                 ]
             },

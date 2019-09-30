@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="io.eminds.ordernow" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Order Now</name>
+    <description>Order Now App</description>
+    <author email="iordache.emindsa@gmail.com">EMINDS Co</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -105,5 +105,8 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="phonegap-plugin-barcodescanner" spec="~8.1.0">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="My desc.." />
+    </plugin>
+     <plugin name="cordova-plugin-googleplus" spec="^5.3.2">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.145226042019-0pdhvrvvpm7t0r80klo0qiijb0i087j6"/>
     </plugin>
 </widget>

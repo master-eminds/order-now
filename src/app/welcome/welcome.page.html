@@ -4,7 +4,7 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen  scroll-y="false" class="welcome-page ion-padding">
+<ion-content fullscreen scroll-y="false" class="welcome-page ion-padding">
       <ion-slides class="welcome-page__slides" pager="true">
             <ion-slide>
                   <div class="welcome-message">
@@ -24,7 +24,7 @@
             <ion-slide>
                   <img src="../../assets/welcome-page2.gif" />
                   <h2>How to use our app</h2>
-                  <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code 
+                  <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code
                         and preview the menu for your favourite restaurant. </p>
             </ion-slide>
 
@@ -32,8 +32,7 @@
                   <img src="../../assets/crop-welcome-waiter.jpg" />
                   <h2>Wana try our app?</h2>
                   <div class="welcome-actions">
-                        <ion-button class="try-button" color="secondary" routerLink="tabs" router-direction="forward"
-                              size="default">
+                        <ion-button class="try-button" color="secondary" (click)="alertAuthMethod()" size="default">
                               <ion-icon name="arrow-dropright-circle"></ion-icon>
                               Continue
                         </ion-button>
@@ -52,29 +51,3 @@
             </ion-slide>
       </ion-slides>
 </ion-content>
-
-
-<!-- <ion-content class="welcome-page" padding>
-      <div class="welcome-message">
-            <!-- <span class="text1">{{ 'WELCOME' | translate }}</span> -->
-<!-- <span class="text2">ORDER NOW</span>
-</div>
-
-<div class="welcome-actions">
-      <ion-button class="try-button" color="secondary" routerLink="tabs" router-direction="forward" size="default">
-            <ion-icon slot="" name="arrow-dropright-circle"></ion-icon>
-            Try it now!
-      </ion-button>
-      <div class="language-container">
-            <button (click)="changeLanguage('en')" block>
-                  <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
-                        src="../../assets/en-flag.jpg">
-            </button>
-            <p>{{ 'SELECT_LANG' | translate }}</p>
-            <button (click)="changeLanguage('ro')" block>
-                  <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
-                        src="../../assets/ro-flag.jpg">
-            </button>
-      </div>
-</div>
-</ion-content> --> -->
