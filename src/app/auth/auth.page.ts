@@ -4,7 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'app-auth-page',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })

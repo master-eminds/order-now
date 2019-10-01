@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { WelcomePage } from './welcome.page';
 import { SharedModule } from '../shared-translate.module';
-import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {
@@ -24,6 +23,6 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [WelcomePage, AuthComponent]
+  declarations: [WelcomePage]
 })
 export class WelcomePageModule {}

@@ -17,7 +17,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-
 @NgModule({
   declarations: [AppComponent],
   exports: [TranslateModule],

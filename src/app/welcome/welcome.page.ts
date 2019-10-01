@@ -1,5 +1,10 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Plugins } from '@capacitor/core';
+
+const { Modals } = Plugins
 
 @Component({
   selector: 'app-welcome',
@@ -7,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService,
+     private alertController: AlertController,
+     private router: Router) {
   }
 
   ngOnInit() {
@@ -16,4 +23,21 @@ export class WelcomePage implements OnInit {
   changeLanguage(lang) {
     this.translate.use(lang);
   }
+
+;
+
+async showAlert() {
+  let alertRet = await Modals.confirm({
+    cancelButtonTitle: 'Incognito',
+    message : `You can authenticate using social media apps or run as incognito`,
+    okButtonTitle: 'Authenticate',
+    title : 'Authentication'
+  });
+
+  if(alertRet) {
+    this.router.navigate(['auth']);
+  } else {
+    this.router.navigate(['tabs']);
+  }
+}
 }
