@@ -1,53 +1,53 @@
 <ion-header translucent>
       <ion-toolbar>
-            <ion-title>Preview</ion-title>
+            <ion-title>Discover</ion-title>
       </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen scroll-y="false" class="welcome-page ion-padding">
       <ion-slides class="welcome-page__slides" pager="true">
-            <ion-slide>
-                  <div class="welcome-message">
-                        <span class="text1">{{ 'WELCOME_TO' | translate }}</span>
-                        <span class="text2">ORDER NOW</span>
-                  </div>
+            <ion-slide class="welcome-page__slide1">
                   <img src="../../assets/test.jpg" />
                   <div>
-                        <p>The <b>Order Now App</b> is specially designed to automate your order management.
+                        <h4 class="">Order Now</h4>
+                        <p>This app is specially designed to automate your order management.
                               It helps your waiters to take their orders precisely and
-                              convey them to the kitchen so that all your dine-in and takeaway orders get properly
-                              organised.
+                              convey them to the kitchen.
                         </p>
                   </div>
             </ion-slide>
 
-            <ion-slide>
+            <ion-slide  class="welcome-page__slide2">
                   <img src="../../assets/welcome-page2.gif" />
                   <h2>How to use our app</h2>
                   <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code
                         and preview the menu for your favourite restaurant. </p>
             </ion-slide>
 
-            <ion-slide>
+            <ion-slide  class="welcome-page__slide3">
                   <img src="../../assets/crop-welcome-waiter.jpg" />
                   <h2>Wana try our app?</h2>
-                  <div class="welcome-actions">
-                        <ion-button class="try-button" color="secondary" (click)="alertAuthMethod()" size="default">
-                              <ion-icon name="arrow-dropright-circle"></ion-icon>
-                              Continue
-                        </ion-button>
-                        <div class="language-container">
-                              <button (click)="changeLanguage('en')" block>
-                                    <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
-                                          src="../../assets/en-flag.jpg">
-                              </button>
-                              <p>{{ 'SELECT_LANG' | translate }}</p>
-                              <button (click)="changeLanguage('ro')" block>
-                                    <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
-                                          src="../../assets/ro-flag.jpg">
-                              </button>
-                        </div>
-                  </div>
             </ion-slide>
       </ion-slides>
+
+      <div class="welcome-actions">
+            <div class="welcome-page__auth-container">
+                  <app-auth></app-auth>
+            </div>
+            <ion-button class="try-button" color="secondary" (click)="alertAuthMethod()" size="default">
+                  <ion-icon name="arrow-dropright-circle"></ion-icon>
+                  Continue
+            </ion-button>
+            <div class="language-container">
+                  <button (click)="changeLanguage('en')" block>
+                        <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
+                              src="../../assets/en-flag.jpg">
+                  </button>
+                  <p>{{ 'SELECT_LANG' | translate }}</p>
+                  <button (click)="changeLanguage('ro')" block>
+                        <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
+                              src="../../assets/ro-flag.jpg">
+                  </button>
+            </div>
+      </div>
 </ion-content>

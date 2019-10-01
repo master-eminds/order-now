@@ -1,13 +1,18 @@
 .welcome-page {  
-  .swiper-slide {
-    display: block;
+  ion-slide {
+    flex-direction: column;
   }
-
-  ion-slide:first-child > img {
-    width: 280px;
-    max-height: 50%;
-    max-width: 100%;
-    margin: 0;
+  ion-slide:first-child {
+     img {
+      width: 280px;
+      max-height: 50%;
+      max-width: 100%;
+      margin: 0;
+     }
+     p {
+       font-size: 14px;
+       color: grey;
+     }
   }
 
   ion-slide:nth-child(3) > img {
@@ -29,34 +34,6 @@
         border-radius: 50%;
       }
     }
-  }
-
-  .welcome-message {
-    text-align: center;
-    width: 100%;
-    height: 125px;
-  }
-
-  .welcome-message span {
-    text-transform: uppercase;
-    display: block;
-  }
-  .text2 {
-    color: black;
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: 8px;
-    margin-bottom: 20px;
-    background: transparent;
-    position: relative;
-    animation: text 10s 1;
-    text-shadow: 5px 3px 16px black;
-  }
-  .text1 {
-    font-size: 30px;
-    color: black;
-    font-weight: bold;
-    text-shadow: 5px 3px 16px black;
   }
 
   @keyframes text {

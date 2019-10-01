@@ -65,4 +65,21 @@
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  //Social Media variables 
+  --ion-color-facebook:#3b5998;
+  --ion-color-gmail:#D44638;
+  --ion-color-email:#D44638;
+}
+
+.ion-color-facebook {
+  --ion-color-base: var(--ion-color-facebook);
+}
+
+.ion-color-gmail {
+  --ion-color-base: var(--ion-color-gmail);
+}
+
+.ion-color-email {
+  --ion-color-base: var(--ion-color-email);
 }
