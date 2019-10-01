@@ -1,4 +1,3 @@
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -11,22 +10,22 @@ import { Router } from '@angular/router';
 export class AuthPage implements OnInit {
 
   currentUser: any;
-  constructor(private googlePlus: GooglePlus, private alertController: AlertController, private router: Router) { }
+  constructor(private alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
 
   login() {
-    this.googlePlus.login({
-      scopes: 'https://www.googleapis.com/auth/plus.login'
-    })
-    .then(res => {
-      this.currentUser = res;
-      this.presentAlert();
-      this.router.navigate(['tabs']);
-      console.log(res)
-    })
-    .catch(err => console.error(err));
+    // this.googlePlus.login({
+    //   scopes: 'https://www.googleapis.com/auth/plus.login'
+    // })
+    // .then(res => {
+    //   this.currentUser = res;
+    //   this.presentAlert();
+    //   this.router.navigate(['tabs']);
+    //   console.log(res)
+    // })
+    // .catch(err => console.error(err));
   }
 
   async presentAlert() {

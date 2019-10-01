@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -17,6 +16,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+
 @NgModule({
   declarations: [AppComponent],
   exports: [TranslateModule],
@@ -46,7 +46,6 @@ import { EffectsModule } from '@ngrx/effects';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
-    GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RestaurantResolver
   ],

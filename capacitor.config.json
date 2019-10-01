@@ -3,5 +3,11 @@
   "appName": "order-now",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www"
+  "webDir": "www",
+  "plugins": {
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "145226042019-u5dcg9edl0qfjqookqq1q7n3qm3eggs9.apps.googleusercontent.com"
+    }
+  }
 }
