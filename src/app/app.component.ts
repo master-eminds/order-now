@@ -1,11 +1,10 @@
-import { registerWebPlugin } from '@capacitor/core';
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-
+import '@codetrix-studio/capacitor-google-auth';
+import '@rdlabo/capacitor-facebook-login';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,7 +18,6 @@ export class AppComponent {
     private statusBar: StatusBar,
     public translate: TranslateService
   ) {
-    registerWebPlugin(GoogleAuth);
     this.initializeApp();
     translate.addLangs(['en', 'ro']);
     translate.setDefaultLang('en');

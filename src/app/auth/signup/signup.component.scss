@@ -1,7 +1,9 @@
 .auth-container {
+    ion-col {
+        text-align: center;
+    }
     p {
         color: grey;
-        margin: 3px;
         font-size: 15px;
     }
 }
