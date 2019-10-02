@@ -1,0 +1,21 @@
+.auth-container {
+    ion-col {
+        text-align: center;
+    }
+    p {
+        color: grey;
+        font-size: 15px;
+    }
+
+    .email-btn {
+        border-radius: 50%;
+        border: 2px solid black;
+        height: 40px;
+        width: 40px;
+        button {
+            font-size: 15px;
+        }
+        
+    }
+}
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import { FacebookLoginResponse } from '@rdlabo/capacitor-facebook-login';
+// import { FacebookLoginResponse } from '@rdlabo/capacitor-facebook-login';
 
 const { FacebookLogin, GoogleAuth } = Plugins;
 const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
@@ -19,14 +19,16 @@ export class SignupComponent implements OnInit {
 
   async signIn(provider) {
     switch (provider) {
-      case 'GMAIL':
+      case 'GOOGLE':
         const googleUser = await GoogleAuth.signIn();
         console.log(googleUser);
         break;
-      case 'FACEBOOK' :
+      case 'FACEBOOK':
         const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS });
         console.log(result);
         break;
+      default:
+        console.log('DEFAULT login');
     }
   }
 }

@@ -1,0 +1,21 @@
+<div class="auth-container">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col>
+        <ion-button fill="clear" (click)="signIn('GOOGLE')" size="large">
+          <ion-icon slot="icon-only" src="./../../assets/google-plus.svg"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button class="email-btn" (click)="signIn('CUSTOM')" fill="clear" color="dark" size="large">
+              <ion-icon slot="icon-only"  name="mail"></ion-icon>
+          </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button fill="clear" (click)="signIn('FACEBOOK')" size="large">
+          <ion-icon slot="icon-only" src="./../../assets/facebook.svg"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

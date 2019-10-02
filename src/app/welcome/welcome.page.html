@@ -1,36 +1,61 @@
 <ion-header translucent>
-            <ion-toolbar>
-                  <ion-title>Preview</ion-title>
-            </ion-toolbar>
-      </ion-header>
-      
-      <ion-content fullscreen scroll-y="false" class="welcome-page ion-padding">
-            <ion-slides class="welcome-page__slides" pager="true">
-                  <ion-slide>
-                        <div class="welcome-message">
-                              <span class="text1">{{ 'WELCOME_TO' | translate }}</span>
-                              <span class="text2">ORDER NOW</span>
-                        </div>
-                        <img src="../../assets/test.jpg" />
-                        <div>
-                              <p>The <b>Order Now App</b> is specially designed to automate your order management.
-                                    It helps your waiters to take their orders precisely and
-                                    convey them to the kitchen so that all your dine-in and takeaway orders get properly
-                                    organised.
-                              </p>
-                        </div>
-                  </ion-slide>
-      
-                  <ion-slide>
-                        <img src="../../assets/welcome-page2.gif" />
-                        <h2>How to use our app</h2>
-                        <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code
-                              and preview the menu for your favourite restaurant. </p>
-                  </ion-slide>
-      
-                  <ion-slide>
-                        <img src="../../assets/crop-welcome-waiter.jpg" />
-                        <h2>Ready to order something?</h2>
+      <ion-toolbar>
+            <ion-title>Preview</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen scroll-y="false" class="welcome-page ion-padding">
+      <ion-slides class="welcome-page__slides" pager="true">
+            <ion-slide>
+                  <div class="welcome-message">
+                        <span class="text1">{{ 'WELCOME_TO' | translate }}</span>
+                        <span class="text2">ORDER NOW</span>
+                  </div>
+                  <img src="../../assets/waiter.jpg" />
+                  <div>
+                        <p>The <b>Order Now App</b> is specially designed to automate your order management.
+                              It helps your waiters to take their orders precisely and
+                              convey them to the kitchen so that all your dine-in and takeaway orders get properly
+                              organised.
+                        </p>
+                  </div>
+            </ion-slide>
+
+            <ion-slide>
+                  <img src="../../assets/welcome-page2.gif" />
+                  <h2>How to use our app</h2>
+                  <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code
+                        and preview the menu for your favourite restaurant. </p>
+            </ion-slide>
+            <ion-slide class="authnetication-slide">
+                  <img src="../../assets/waiter.jpg" />
+                  <ion-grid fixed="true">
+                        <ion-row class="ion-align-items-center">
+                              <ion-col>
+                                    <div class="authentication-container-description">
+                                          <p>
+                                                Social Login is single sign-on for end users. Using existing login
+                                                information from a social network
+                                                provider like Facebook or Google,
+                                                the user can sign into a third party application instead of creating a
+                                                new account specifically for
+                                                that
+                                                application.
+                                                This simplifies registrations and logins for end users.
+                                                You can also authenticate via custom email adress or you can still <br>
+                                                 <a [routerLink]="['/tabs']"><strong>use it without account </strong></a>
+                                          </p>
+                                    </div>
+
+                              </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center">
+                              <ion-col>
+                                    <app-signup></app-signup>
+                              </ion-col>
+                        </ion-row>
+                  </ion-grid>
+                  <!-- <h2>Ready to order something?</h2>
                         <div class="welcome-actions">
                               <ion-button class="try-button" color="secondary" (click)="showAlert()" size="default">
                                     <ion-icon name="arrow-dropright-circle"></ion-icon>
@@ -47,7 +72,9 @@
                                                 src="../../assets/ro-flag.jpg">
                                     </button>
                               </div>
-                        </div>
-                  </ion-slide>
-            </ion-slides>
-      </ion-content>
+                        </div> -->
+            </ion-slide>
+      </ion-slides>
+      <!-- <app-signup></app-signup> -->
+
+</ion-content>

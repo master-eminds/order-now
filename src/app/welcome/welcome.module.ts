@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { WelcomePage } from './welcome.page';
 import { SharedModule } from '../shared-translate.module';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [WelcomePage]
+  declarations: [WelcomePage, SignupComponent],
+  exports: [SignupComponent]
 })
 export class WelcomePageModule {}

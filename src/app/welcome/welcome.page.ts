@@ -1,10 +1,9 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 
-const { Modals } = Plugins
+const { Modals } = Plugins;
 
 @Component({
   selector: 'app-welcome',
@@ -13,8 +12,7 @@ const { Modals } = Plugins
 })
 export class WelcomePage implements OnInit {
   constructor(public translate: TranslateService,
-     private alertController: AlertController,
-     private router: Router) {
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -24,20 +22,18 @@ export class WelcomePage implements OnInit {
     this.translate.use(lang);
   }
 
-;
+  async showAlert() {
+    const alertRet = await Modals.confirm({
+      cancelButtonTitle: 'Incognito',
+      message: `You can authenticate using social media apps or run as incognito`,
+      okButtonTitle: 'Authenticate',
+      title: 'Authentication'
+    });
 
-async showAlert() {
-  let alertRet = await Modals.confirm({
-    cancelButtonTitle: 'Incognito',
-    message : `You can authenticate using social media apps or run as incognito`,
-    okButtonTitle: 'Authenticate',
-    title : 'Authentication'
-  });
-
-  if(alertRet) {
-    this.router.navigate(['auth']);
-  } else {
-    this.router.navigate(['tabs']);
+    if (alertRet) {
+      this.router.navigate(['auth']);
+    } else {
+      this.router.navigate(['tabs']);
+    }
   }
-}
 }
