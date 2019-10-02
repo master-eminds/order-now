@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/cubic-bezier-90d0df24.js":
+/***/ "./node_modules/@ionic/core/dist/esm/cubic-bezier-fc4a068b.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/cubic-bezier-90d0df24.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/cubic-bezier-fc4a068b.js ***!
   \********************************************************************/
 /*! exports provided: P, g */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -105,9 +105,9 @@ const solveCubicEquation = (a, b, c, d) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-00265c49.js":
+/***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js":
 /*!**************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-00265c49.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js ***!
   \**************************************************************************/
 /*! exports provided: a, d */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -154,9 +154,9 @@ const detachComponent = (delegate, element) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/haptic-4e92c885.js":
+/***/ "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js":
 /*!**************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/haptic-4e92c885.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js ***!
   \**************************************************************/
 /*! exports provided: a, b, c, h */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -215,126 +215,9 @@ const hapticSelectionEnd = () => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/helpers-c90aaa66.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/helpers-c90aaa66.js ***!
-  \***************************************************************/
-/*! exports provided: a, b, c, d, e, f, h, i, n, p, r */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return rIC; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return assert; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return clamp; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return debounceEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return debounce; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return findItemLabel; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hasShadowDom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return isEndSide; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return now; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return pointerCoord; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return renderHiddenInput; });
-const rIC = (callback) => {
-    if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(callback);
-    }
-    else {
-        setTimeout(callback, 32);
-    }
-};
-const hasShadowDom = (el) => {
-    return !!el.shadowRoot && !!el.attachShadow;
-};
-const findItemLabel = (componentEl) => {
-    const itemEl = componentEl.closest('ion-item');
-    if (itemEl) {
-        return itemEl.querySelector('ion-label');
-    }
-    return null;
-};
-const renderHiddenInput = (always, container, name, value, disabled) => {
-    if (always || hasShadowDom(container)) {
-        let input = container.querySelector('input.aux-input');
-        if (!input) {
-            input = container.ownerDocument.createElement('input');
-            input.type = 'hidden';
-            input.classList.add('aux-input');
-            container.appendChild(input);
-        }
-        input.disabled = disabled;
-        input.name = name;
-        input.value = value || '';
-    }
-};
-const clamp = (min, n, max) => {
-    return Math.max(min, Math.min(n, max));
-};
-const assert = (actual, reason) => {
-    if (!actual) {
-        const message = 'ASSERT: ' + reason;
-        console.error(message);
-        debugger; // tslint:disable-line
-        throw new Error(message);
-    }
-};
-const now = (ev) => {
-    return ev.timeStamp || Date.now();
-};
-const pointerCoord = (ev) => {
-    // get X coordinates for either a mouse click
-    // or a touch depending on the given event
-    if (ev) {
-        const changedTouches = ev.changedTouches;
-        if (changedTouches && changedTouches.length > 0) {
-            const touch = changedTouches[0];
-            return { x: touch.clientX, y: touch.clientY };
-        }
-        if (ev.pageX !== undefined) {
-            return { x: ev.pageX, y: ev.pageY };
-        }
-    }
-    return { x: 0, y: 0 };
-};
-/**
- * @hidden
- * Given a side, return if it should be on the end
- * based on the value of dir
- * @param side the side
- * @param isRTL whether the application dir is rtl
- */
-const isEndSide = (side) => {
-    const isRTL = document.dir === 'rtl';
-    switch (side) {
-        case 'start': return isRTL;
-        case 'end': return !isRTL;
-        default:
-            throw new Error(`"${side}" is not a valid value for [side]. Use "start" or "end" instead.`);
-    }
-};
-const debounceEvent = (event, wait) => {
-    const original = event._original || event;
-    return {
-        _original: event,
-        emit: debounce(original.emit.bind(original), wait)
-    };
-};
-const debounce = (func, wait = 0) => {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(func, wait, ...args);
-    };
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm/index-064a03a9.js":
+/***/ "./node_modules/@ionic/core/dist/esm/index-3476b023.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-064a03a9.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/index-3476b023.js ***!
   \*************************************************************/
 /*! exports provided: s */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -391,10 +274,10 @@ const sanitizeDOMString = (untrustedString) => {
          * non-allowed attribs
          */
         // IE does not support .children on document fragments, only .childNodes
-        const documentFragmentChildren = getElementChildren(documentFragment);
+        const dfChildren = getElementChildren(documentFragment);
         /* tslint:disable-next-line */
-        for (let childIndex = 0; childIndex < documentFragmentChildren.length; childIndex++) {
-            sanitizeElement(documentFragmentChildren[childIndex]);
+        for (let childIndex = 0; childIndex < dfChildren.length; childIndex++) {
+            sanitizeElement(dfChildren[childIndex]);
         }
         // Append document fragment to div
         const fragmentDiv = document.createElement('div');
@@ -447,8 +330,8 @@ const sanitizeElement = (element) => {
  * IE doesn't always support .children
  * so we revert to .childNodes instead
  */
-const getElementChildren = (element) => {
-    return (element.children != null) ? element.children : element.childNodes;
+const getElementChildren = (el) => {
+    return (el.children != null) ? el.children : el.childNodes;
 };
 const allowedAttributes = ['class', 'id', 'href', 'src', 'name', 'slot'];
 const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'embed'];
@@ -458,9 +341,9 @@ const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'emb
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/index-a15151df.js":
+/***/ "./node_modules/@ionic/core/dist/esm/index-cd19f367.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-a15151df.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/index-cd19f367.js ***!
   \*************************************************************/
 /*! exports provided: d, l, s, t */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -471,16 +354,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return lifecycle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setPageHidden; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return transition; });
-/* harmony import */ var _core_c02a05e9_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-c02a05e9.js */ "./node_modules/@ionic/core/dist/esm/core-c02a05e9.js");
-/* harmony import */ var _constants_94c4865f_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants-94c4865f.js */ "./node_modules/@ionic/core/dist/esm/constants-94c4865f.js");
+/* harmony import */ var _core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-57385ee8.js */ "./node_modules/@ionic/core/dist/esm/core-57385ee8.js");
+/* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 
 
 
-const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-96fe915f-js */ "ios-transition-96fe915f-js").then(__webpack_require__.bind(null, /*! ./ios.transition-96fe915f.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-96fe915f.js"));
-const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-bf76a31e-js */ "md-transition-bf76a31e-js").then(__webpack_require__.bind(null, /*! ./md.transition-bf76a31e.js */ "./node_modules/@ionic/core/dist/esm/md.transition-bf76a31e.js"));
+const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-becf5388-js */ "ios-transition-becf5388-js").then(__webpack_require__.bind(null, /*! ./ios.transition-becf5388.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-becf5388.js"));
+const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-f444ed6d-js */ "md-transition-f444ed6d-js").then(__webpack_require__.bind(null, /*! ./md.transition-f444ed6d.js */ "./node_modules/@ionic/core/dist/esm/md.transition-f444ed6d.js"));
 const transition = (opts) => {
     return new Promise((resolve, reject) => {
-        Object(_core_c02a05e9_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
+        Object(_core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
             beforeTransition(opts);
             runTransition(opts).then(result => {
                 if (result.animation) {
@@ -541,7 +424,7 @@ const animation = async (animationBuilder, opts) => {
     await waitForReady(opts, true);
     let trans;
     try {
-        const mod = await __webpack_require__.e(/*! import() | index-ae28cb4b-js */ "index-ae28cb4b-js").then(__webpack_require__.bind(null, /*! ./index-ae28cb4b.js */ "./node_modules/@ionic/core/dist/esm/index-ae28cb4b.js"));
+        const mod = await __webpack_require__.e(/*! import() | index-69c37885-js */ "index-69c37885-js").then(__webpack_require__.bind(null, /*! ./index-69c37885.js */ "./node_modules/@ionic/core/dist/esm/index-69c37885.js"));
         trans = await mod.create(animationBuilder, opts.baseEl, opts);
     }
     catch (err) {
@@ -610,12 +493,12 @@ const playTransition = (trans, opts) => {
     return promise;
 };
 const fireWillEvents = (enteringEl, leavingEl) => {
-    lifecycle(leavingEl, _constants_94c4865f_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
-    lifecycle(enteringEl, _constants_94c4865f_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
+    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["b"]);
+    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["L"]);
 };
 const fireDidEvents = (enteringEl, leavingEl) => {
-    lifecycle(enteringEl, _constants_94c4865f_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
-    lifecycle(leavingEl, _constants_94c4865f_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
+    lifecycle(enteringEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["a"]);
+    lifecycle(leavingEl, _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
 };
 const lifecycle = (el, eventName) => {
     if (el) {
@@ -671,9 +554,9 @@ const setZIndex = (enteringEl, leavingEl, direction) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/theme-353a032e.js":
+/***/ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/theme-353a032e.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
   \*************************************************************/
 /*! exports provided: c, g, h, o */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -730,9 +613,9 @@ const openURL = async (url, ev, direction) => {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/watch-options-56e2e31f.js":
+/***/ "./node_modules/@ionic/core/dist/esm/watch-options-2af96011.js":
 /*!*********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/watch-options-56e2e31f.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/watch-options-2af96011.js ***!
   \*********************************************************************/
 /*! exports provided: f, w */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -794,7 +677,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TruncateCharactersPipe {
     /**
@@ -824,7 +707,7 @@ TruncateCharactersPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TruncateWordsPipe {
     /**
@@ -860,7 +743,7 @@ TruncateWordsPipe.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TRUNCATE_PIPES = [TruncateCharactersPipe, TruncateWordsPipe];
@@ -875,17 +758,17 @@ TruncateModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 
-
 //# sourceMappingURL=yellowspot-ng-truncate.js.map
+
 
 /***/ }),
 
