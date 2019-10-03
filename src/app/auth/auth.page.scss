@@ -1,0 +1,29 @@
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    color: white;
+}
+
+ion-content {
+    background-image: url('../../assets/login-wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+
+    .auth-container {
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 5%;
+        margin: 0 5px;
+
+        ion-col {
+            text-align: center;
+        }
+        p {
+            font-size: 15px;
+            color:white;
+        }
+
+    }
+}
+
+

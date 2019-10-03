@@ -25,6 +25,9 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+p {
+    font-family: 'Open Sans', sans-serif;
+}
 .rating-container {
     rating {
 
@@ -65,14 +68,8 @@
     }
 }
 
-:host {
-    .email-btn {
-        border-radius: 50%;
-        border: 2px solid black;
-        height: 40px;
-        width: 40px;
-        button {
-            font-size: 15px;
-        }    
-    }
+ion-content {
+    --background: url('./assets/login-wallpaper.jpg') 0 0/100% 100% no-repeat;
+    // background-repeat: no-repeat;
+    // background-size:cover;
 }

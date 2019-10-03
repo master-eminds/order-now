@@ -7,74 +7,61 @@
 <ion-content fullscreen scroll-y="false" class="welcome-page ion-padding">
       <ion-slides class="welcome-page__slides" pager="true">
             <ion-slide>
-                  <div class="welcome-message">
-                        <span class="text1">{{ 'WELCOME_TO' | translate }}</span>
-                        <span class="text2">ORDER NOW</span>
-                  </div>
-                  <img src="../../assets/waiter.jpg" />
+                  <img src="../../assets/test.jpg" />
                   <div>
-                        <p>The <b>Order Now App</b> is specially designed to automate your order management.
+                        <h4>Order Now</h4>
+                        <p>The application is specially designed to automate your order management.
                               It helps your waiters to take their orders precisely and
                               convey them to the kitchen so that all your dine-in and takeaway orders get properly
                               organised.
                         </p>
                   </div>
             </ion-slide>
-
             <ion-slide>
                   <img src="../../assets/welcome-page2.gif" />
                   <h2>How to use our app</h2>
                   <p><b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code
                         and preview the menu for your favourite restaurant. </p>
             </ion-slide>
-            <ion-slide class="authnetication-slide">
-                  <img src="../../assets/waiter.jpg" />
+            <ion-slide>
+                  <img src="../../assets/test.jpg" />
                   <ion-grid fixed="true">
-                        <ion-row class="ion-align-items-center">
-                              <ion-col>
-                                    <div class="authentication-container-description">
-                                          <p>
-                                                Social Login is single sign-on for end users. Using existing login
-                                                information from a social network
-                                                provider like Facebook or Google,
-                                                the user can sign into a third party application instead of creating a
-                                                new account specifically for
-                                                that
-                                                application.
-                                                This simplifies registrations and logins for end users.
-                                                You can also authenticate via custom email adress or you can still <br>
-                                                 <a [routerLink]="['/tabs']"><strong>use it without account </strong></a>
-                                          </p>
-                                    </div>
-
+                        <ion-row class="ion-align-items-stretch">
+                              <ion-col size="12">
+                                    <h2>Ready to order something?</h2>
                               </ion-col>
-                        </ion-row>
-                        <ion-row class="ion-align-items-center">
-                              <ion-col>
-                                    <app-signup></app-signup>
+                              <ion-col size="12">
+                                    <ion-button class="try-button" color="secondary" [routerLink]="['auth']"
+                                          size="default">
+                                          <ion-icon name="arrow-dropright-circle"></ion-icon>
+                                          {{ 'CONTINUE' | translate}}
+                                    </ion-button>
+                              </ion-col>
+                              <ion-col size="12">
+                                    <ion-row class="ion-justify-content-end language-actions-container">
+                                          <ion-col size="4">
+                                                <ion-button fill="clear" (click)="changeLanguage('en')" size="large">
+                                                      <ion-icon
+                                                            [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
+                                                            slot="icon-only" src="./../../assets/en-flag.svg">
+                                                      </ion-icon>
+                                                </ion-button>
+                                          </ion-col>
+                                          <ion-col size="4">
+                                                {{ 'SELECT_LANG' | translate}}
+                                          </ion-col>
+                                          <ion-col size="4">
+                                                <ion-button fill="clear" (click)="changeLanguage('ro')" size="large">
+                                                      <ion-icon
+                                                            [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
+                                                            slot="icon-only" src="./../../assets/ro-flag.svg">
+                                                      </ion-icon>
+                                                </ion-button>
+                                          </ion-col>
+                                    </ion-row>
                               </ion-col>
                         </ion-row>
                   </ion-grid>
-                  <!-- <h2>Ready to order something?</h2>
-                        <div class="welcome-actions">
-                              <ion-button class="try-button" color="secondary" (click)="showAlert()" size="default">
-                                    <ion-icon name="arrow-dropright-circle"></ion-icon>
-                                    Continue
-                              </ion-button>
-                              <div class="language-container">
-                                    <button (click)="changeLanguage('en')" block>
-                                          <img [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }"
-                                                src="../../assets/en-flag.jpg">
-                                    </button>
-                                    <p>{{ 'SELECT_LANG' | translate }}</p>
-                                    <button (click)="changeLanguage('ro')" block>
-                                          <img [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }"
-                                                src="../../assets/ro-flag.jpg">
-                                    </button>
-                              </div>
-                        </div> -->
             </ion-slide>
       </ion-slides>
-      <!-- <app-signup></app-signup> -->
-
 </ion-content>

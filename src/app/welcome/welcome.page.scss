@@ -1,4 +1,12 @@
 .welcome-page {
+  ion-slides {
+    height:100%;
+
+    ion-row {
+      height: 90%;
+    }
+  }
+
   ion-slide {
     flex-direction: column;
     p {
@@ -6,30 +14,22 @@
       color: grey;
     }
   }
+
   ion-slide:first-child {
      img {
       max-height: 50%;
       max-width: 100%;
       margin: 0;
      }
-    
   }
+  
+  ion-slide:nth-child(3) {
+    img {
+      width: 80%;
+    }
 
-  ion-slide:nth-child(3) > img {
-    width: 80%;
-  }
-
-  .language-container {
-    display: flex;
-    margin: auto;
-    margin-top: 10%;
-    align-items: center;
-    justify-content: center;
-
-    button {
-      background: transparent;
-      img {
-        width: 25%;
+    .language-actions-container {
+      ion-icon {
         border: 2px solid white;
         border-radius: 50%;
       }
