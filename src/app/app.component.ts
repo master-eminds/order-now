@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import '@codetrix-studio/capacitor-google-auth';
 import '@rdlabo/capacitor-facebook-login';
-import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 import { TabsPage } from './tabs/tabs.page';
 import { WelcomePage } from './welcome/welcome.page';
 @Component({
@@ -15,16 +15,16 @@ import { WelcomePage } from './welcome/welcome.page';
 })
 export class AppComponent {
   rootPage: any = TabsPage;
-
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public translate: TranslateService,
-    private userService: UserService
+    private authService: AuthService
   ) {
 
-    if (this.userService.currentUser) {
+    if (this.authService.currentUser) {
       this.rootPage = TabsPage;
     } else {
       this.rootPage = WelcomePage;

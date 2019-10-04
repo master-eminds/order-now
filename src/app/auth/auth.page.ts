@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../user.service';
+import { AuthService } from '../auth.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth',
@@ -7,10 +10,48 @@ import { UserService } from './../user.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+  submitted = false;
+  authForm: FormGroup;
+  returnUrl: string;
+  loading = false;
 
-  constructor(public userService: UserService) { }
-
-  ngOnInit() {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              private authService: AuthService
+    ) {
+    this.router.navigate(['/']);
   }
 
+  ngOnInit() {
+    this.authForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    }, {});
+  }
+
+  onSubmit(value: any): void {
+    this.submitted = true;
+
+    // Stop if the form validation has failed
+    if (this.authForm.invalid) {
+        return;
+    }
+
+    this.loading = true;
+    this.authService.login({
+      email : this.frm.email.value,
+      password : this.frm.password.value }
+      ).pipe(first())
+        .subscribe(
+            data => {
+                this.loading = false;
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                this.loading = false;
+      });
+    }
+
+    get frm() { return this.authForm.controls; }
 }
