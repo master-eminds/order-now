@@ -6,11 +6,10 @@ ion-toolbar {
 }
 
 ion-content {
-    background-image: url('../../assets/login-wallpaper.jpg');
-    background-repeat: no-repeat;
-    background-size:cover;
-
-    .auth-container {
+    --background: url('../../assets/login-wallpaper.jpg') no-repeat center center / cover;
+    --background-size:cover;
+    
+    .auth-grid {
         background-color: rgba(0, 0, 0, 0.6);
         border-radius: 5%;
         margin: 0 5px;
@@ -23,6 +22,11 @@ ion-content {
             color:white;
         }
 
+        .authentication-container-description {
+            a {
+                color: var(--ion-color-secondary);
+            }
+        }
     }
 }
 

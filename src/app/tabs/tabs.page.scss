@@ -1,34 +1,18 @@
+.tabs-content {
+  ion-tab-button:nth-child(3) {
+    padding-left: 15%;
+  }
+  .scan-button {
+    animation: shadow-pulse 1s infinite;
+    border-radius: 50%;
+  }
 
-ion-tab-button {
-    --color	: var(--ion-color-secondary);
-}
-
-.scan-container {
-    display: flex;
-    justify-content: flex-end;
-    position:fixed;
-    bottom: 10%;
-    width: 40%;
-    right: 5%;
-    
-    .suggestion-btn {
-      margin-bottom: 25%;
-      animation: fadein 3s;
-      margin-right: 45%;
-      --border-color: var(--ion-color-dark);
-      --color	: var(--ion-color-dark);
-      --background: rgb(255,255,255, 0.8);
-      ion-icon {
-        margin-top: 5px;
-      }
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5);
     }
-
-    @keyframes fadein {
-        from {
-            opacity:0;
-        }
-        to {
-            opacity:1;
-        }
+    100% {
+      box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2);
     }
   }
+}
