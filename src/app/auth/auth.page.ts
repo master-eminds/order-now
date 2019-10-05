@@ -18,9 +18,8 @@ export class AuthPage implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
-              private authService: AuthService
+              public authService: AuthService
     ) {
-    this.router.navigate(['/']);
   }
 
   ngOnInit() {

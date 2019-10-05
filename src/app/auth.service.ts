@@ -7,6 +7,7 @@ const { FacebookLogin, GoogleAuth } = Plugins;
 const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
 const FACEBOOK_FIELDS = 'id,first_name,last_name,name,email,picture';
 const { Storage } = Plugins;
+declare var FB;
 
 @Injectable({
   providedIn: 'root'
@@ -36,17 +37,14 @@ export class AuthService {
       case 'FACEBOOK':
         const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS }) as FacebookLoginResponse;
         if (result.accessToken) {
-          const facebookUser = await FB.api('/me', { fields: FACEBOOK_FIELDS });
-          console.log(facebookUser);
+          await FB.api('/me', { fields: FACEBOOK_FIELDS }, async (res) => {
+                await Storage.set({key: 'currentUser', value: JSON.stringify(res)});
+                this.currentUserSubject.next(res);
+              });
+        } else {
+            console.log('Facebook API failed');
         }
         break;
-          //   res => async function() {
-          //       await Storage.set({key: 'currentUser', value: JSON.stringify(res)});
-          //       this.currentUserSubject.next(res);
-          //     });
-          //   } else {
-          //   console.log('Facebook API failed');
-          // }
       default:
         const dummyUser = { id: Math.random(), dummyUser: true };
         await Storage.set({ key: 'currentUser', value: JSON.stringify(dummyUser) });
