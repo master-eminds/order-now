@@ -11,7 +11,7 @@
                         <ion-row class="ion-align-items-center ion-justify-content-center">
                               <ion-col size="12">
                                     <p class="brand-banner">
-                                          Place your order faster then ever
+                                          Place your order faster than ever
                                           <span class="brand-name">
                                                 ORDER NOW
                                           </span>
@@ -40,11 +40,11 @@
                   <ion-grid fixed="true">
                         <ion-row class="ion-align-items-stretch">
                               <ion-col size="12">
-                                    <h2>Ready to order something?</h2>
+                                    <h2>{{ 'READY_TO_ORDER' | translate}}</h2>
                               </ion-col>
                               <ion-col size="12">
                                     <ion-button class="try-button" color="secondary" [routerLink]="['auth']" size="default">
-                                          <ion-icon name="arrow-dropright-circle"></ion-icon>
+                                          <ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
                                           {{ 'CONTINUE' | translate}}
                                     </ion-button>
                               </ion-col>
@@ -57,7 +57,7 @@
                                                 </ion-button>
                                           </ion-col>
                                           <ion-col size="4">
-                                                {{ 'SELECT_LANG' | translate}}
+                                          <p> {{ 'SELECT_LANG' | translate}} </p>
                                           </ion-col>
                                           <ion-col size="4">
                                                 <ion-button fill="clear" (click)="changeLanguage('ro')" size="large">
