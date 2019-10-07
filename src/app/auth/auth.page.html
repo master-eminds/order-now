@@ -56,7 +56,7 @@
             that application. This simplifies registrations and logins for end users. You can also authenticate via custom
             email adress or you can still
             <br>
-            <a [routerLink]="['/tabs']">
+            <a (click)="authService.signIn()">
               <strong>use it without account </strong>
             </a>
           </p>

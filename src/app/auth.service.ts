@@ -3,22 +3,26 @@ import { Plugins } from '@capacitor/core';
 import { FacebookLoginResponse } from '@rdlabo/capacitor-facebook-login';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import '@codetrix-studio/capacitor-google-auth';
+import '@rdlabo/capacitor-facebook-login';
 const { FacebookLogin, GoogleAuth } = Plugins;
 const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
 const FACEBOOK_FIELDS = 'id,first_name,last_name,name,email,picture';
 const { Storage } = Plugins;
+
 declare var FB;
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<any>;
+  private currentUserSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public currentUser: Observable<any>;
 
   constructor(private router: Router) {
     Storage.get({ key: 'currentUser' }).then(res => {
-      this.currentUserSubject = new BehaviorSubject<any>(res);
+      this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(res.value));
       this.currentUser = this.currentUserSubject.asObservable();
     });
   }
@@ -40,6 +44,8 @@ export class AuthService {
           await FB.api('/me', { fields: FACEBOOK_FIELDS }, async (res) => {
                 await Storage.set({key: 'currentUser', value: JSON.stringify(res)});
                 this.currentUserSubject.next(res);
+              }, (err) => {
+                console.log(err);
               });
         } else {
             console.log('Facebook API failed');
@@ -49,6 +55,7 @@ export class AuthService {
         const dummyUser = { id: Math.random(), dummyUser: true };
         await Storage.set({ key: 'currentUser', value: JSON.stringify(dummyUser) });
         this.currentUserSubject.next(dummyUser);
+        this.router.navigate(['tabs']);
     }
   }
 
