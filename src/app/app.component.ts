@@ -14,7 +14,28 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
+  public appPages = [
+    {
+      title: 'Restaurants',
+      url: 'tabs',
+      icon: 'restaurant'
+    },
+    {
+      title: 'Order Status',
+      url: 'tabs/tabs/order-status',
+      icon: 'clipboard'
+    },
+    {
+      title: 'Account',
+      url: 'user-profile',
+      icon: 'person'
+    },
+    {
+      title: 'Logout',
+      url: '',
+      icon: 'log-out'
+    }
+  ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

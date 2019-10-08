@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="secondary">
+      <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
     <ion-title>
       Your Order
       <div class="total-order"> TOTAL: {{ total | currency }}</div>
@@ -10,7 +13,7 @@
 <ion-content class="order-page-content">
   <ion-list>
     <ion-item-sliding *ngFor="let order of orderList; let index = index;">
-      <ion-item>
+      <ion-item detail="true" detail-icon="arrow-back">
         <div class="item-avatar-container">
             <ion-avatar item-start>
                 <img [src]="order.image">

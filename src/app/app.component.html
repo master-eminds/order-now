@@ -1,8 +1,20 @@
 <ion-app>
   <ion-split-pane>
-    <ion-menu>
-      <h1>Menu</h1>
+    <ion-menu side="end" max-edge-start="50">
+      <ion-header>
+        <ion-title> Menu </ion-title>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle *ngFor="let page of appPages">
+            <ion-item [routerLink]="page.url" [routerDirection]="'root'">
+              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-label>{{page.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
     </ion-menu>
-        <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
