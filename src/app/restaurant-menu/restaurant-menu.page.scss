@@ -1,1 +1,37 @@
 
+
+.menus-page {
+    --background: url('../../assets/menu-wallpaper.jpg') no-repeat center center / cover;
+    --background-size:cover;
+}
+
+ion-card {
+    margin: 0;
+    position: realtive;
+    text-align: end;
+    height: 100%;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    img {
+        height: 100%;
+    }
+
+    .card-title {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        border-radius: 5%;
+
+        p {
+            font: 700 15px "Oswald", sans-serif;
+            color: white;
+            font-weight: bold;
+            margin: 3px 5px 5px 0;
+        }
+      
+    }
+
+
+}

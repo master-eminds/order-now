@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RestaurantMenuPage } from './restaurant-menu.page';
 
+
 @NgModule({
   imports: [
     IonicModule,

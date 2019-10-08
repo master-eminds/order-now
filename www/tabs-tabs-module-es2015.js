@@ -1,5 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tabs-tabs-module"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/tabs/tabs.page.html":
+/*!***************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/tabs/tabs.page.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-content class=\"tabs-content\">\n  <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n    <ion-tab-bar slot=\"bottom\" color=\"primary\">\n      <ion-tab-button tab=\"restaurants-list\">\n        <ion-icon name=\"home\"></ion-icon>\n        <ion-label>Restaurants</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"restaurant-menu\">\n        <ion-icon name=\"restaurant\"></ion-icon>\n        <ion-label>Menu</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n        <ion-icon name=\"clipboard\"></ion-icon>\n        <ion-label>Order Status</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n          <ion-icon name=\"person\"></ion-icon>\n          <ion-label>Account</ion-label>\n        </ion-tab-button>\n    </ion-tab-bar>\n  </ion-tabs>\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n      <ion-fab-button class=\"scan-button\" color=\"secondary\" (click)=\"performScan()\">\n        <ion-icon name=\"qr-scanner\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n</ion-content>"
+
+/***/ }),
+
 /***/ "./src/app/tabs/tabs.module.ts":
 /*!*************************************!*\
   !*** ./src/app/tabs/tabs.module.ts ***!
@@ -37,6 +48,82 @@ TabsPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [_tabs_page__WEBPACK_IMPORTED_MODULE_6__["TabsPage"]]
     })
 ], TabsPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/tabs/tabs.page.scss":
+/*!*************************************!*\
+  !*** ./src/app/tabs/tabs.page.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tabs-content ion-tab-button:nth-child(3) {\n  padding-left: 15%; }\n\n.tabs-content .scan-button {\n  -webkit-animation: shadow-pulse 1s infinite;\n          animation: shadow-pulse 1s infinite;\n  border-radius: 50%; }\n\n@-webkit-keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5); }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2); } }\n\n@keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5); }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2); } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3ByYWN0aWNlL29yZGVyLW5vdy9zcmMvYXBwL3RhYnMvdGFicy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFSSxpQkFBaUIsRUFBQTs7QUFGckI7RUFLSSwyQ0FBbUM7VUFBbkMsbUNBQW1DO0VBQ25DLGtCQUFrQixFQUFBOztBQUdwQjtFQUNFO0lBQ0UsNENBQTRDLEVBQUE7RUFFOUM7SUFDRSw2Q0FBNkMsRUFBQSxFQUFBOztBQUxqRDtFQUNFO0lBQ0UsNENBQTRDLEVBQUE7RUFFOUM7SUFDRSw2Q0FBNkMsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvdGFicy90YWJzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50YWJzLWNvbnRlbnQge1xuICBpb24tdGFiLWJ1dHRvbjpudGgtY2hpbGQoMykge1xuICAgIHBhZGRpbmctbGVmdDogMTUlO1xuICB9XG4gIC5zY2FuLWJ1dHRvbiB7XG4gICAgYW5pbWF0aW9uOiBzaGFkb3ctcHVsc2UgMXMgaW5maW5pdGU7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB9XG5cbiAgQGtleWZyYW1lcyBzaGFkb3ctcHVsc2Uge1xuICAgIDAlIHtcbiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDBweCByZ2JhKDIyOSwgMTk3LCAwLCAwLjUpO1xuICAgIH1cbiAgICAxMDAlIHtcbiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDEwcHggcmdiYSgyMjksIDE5NywgMCwgMC4yKTtcbiAgICB9XG4gIH1cbn1cbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/tabs/tabs.page.ts":
+/*!***********************************!*\
+  !*** ./src/app/tabs/tabs.page.ts ***!
+  \***********************************/
+/*! exports provided: TabsPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPage", function() { return TabsPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/ngx/index.js");
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+
+
+
+
+
+
+const { Toast } = _capacitor_core__WEBPACK_IMPORTED_MODULE_5__["Plugins"];
+let TabsPage = class TabsPage {
+    constructor(barcodeScanner, route) {
+        this.barcodeScanner = barcodeScanner;
+        this.route = route;
+    }
+    getSelectedTab() {
+        this.currentTab = this.tabs.getSelected();
+    }
+    performScan() {
+        this.barcodeScanner.scan().then((barcodeData) => {
+            Toast.show({
+                duration: 'long',
+                text: JSON.stringify(barcodeData)
+            });
+            console.log('Barcode data', barcodeData);
+            this.route.navigate(['/details/' + JSON.parse(barcodeData.text).id]);
+        }).catch(err => {
+            console.log('Error', err);
+        });
+    }
+};
+TabsPage.ctorParameters = () => [
+    { type: _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_4__["BarcodeScanner"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])('tabs', { static: false }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonTabs"])
+], TabsPage.prototype, "tabs", void 0);
+TabsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        selector: 'app-tabs',
+        template: __webpack_require__(/*! raw-loader!./tabs.page.html */ "./node_modules/raw-loader/index.js!./src/app/tabs/tabs.page.html"),
+        styles: [__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_4__["BarcodeScanner"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+], TabsPage);
 
 
 
