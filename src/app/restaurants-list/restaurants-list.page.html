@@ -10,15 +10,22 @@
 </ion-header>
 
 <ion-content fullscreen *ngIf="restaurants$ | async as restaurants">
-  <ion-card *ngFor="let restaurant of restaurants">
-    <img [src]="restaurant.image" />
-    <div class="card-title">{{restaurant.name}}</div>
-    <div class="card-subtitle">{{restaurant.subtitle}}</div>
-    <div class="card-action">
-      <ion-button class="details-btn" fill="solid" size="small" [routerLink]="['details/', restaurant.id]">
-          <ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
-          Details
-      </ion-button>
-    </div>
-  </ion-card>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" *ngFor="let restaurant of restaurants">
+          <ion-card>
+              <img [src]="restaurant.image" />
+              <div class="card-title">{{restaurant.name}}</div>
+              <div class="card-subtitle">{{restaurant.subtitle}}</div>
+              <div class="card-action">
+                <ion-button class="details-btn" fill="solid" size="small" [routerLink]="['details/', restaurant.id]">
+                    <ion-icon slot="end" name="arrow-dropright-circle"></ion-icon>
+                    Details
+                </ion-button>
+              </div>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
 </ion-content>

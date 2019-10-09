@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { RestaurantResolver } from './../restaurant-resolver.service';
+import { MenuResolver } from '../menu-resolver.service';
 const routes: Routes = [
   {
     path: 'tabs',
@@ -31,9 +32,17 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../restaurant-menu/restaurant-menu.module').then(m => m.OnlineOrderPageModule)
+              import('../restaurant-menu/restaurant-menu.module').then(m => m.RestaurantMenuPageModule)
           }
         ]
+      },
+      {
+        path: 'restaurant-menu/menu/:id',
+        loadChildren: () =>
+              import('../restaurant-menu/menu-products/menu-products.module').then(m => m.MenuProductsPageModule),
+        resolve: {
+          menu: MenuResolver
+        }
       },
       {
         path: 'order-status',

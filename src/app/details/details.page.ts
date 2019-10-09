@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-  restaurant:any;
+  restaurant: any;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

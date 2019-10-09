@@ -15,4 +15,4 @@ import { RestaurantMenuPage } from './restaurant-menu.page';
   ],
   declarations: [RestaurantMenuPage]
 })
-export class OnlineOrderPageModule {}
+export class RestaurantMenuPageModule {}

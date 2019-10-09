@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="secondary">
-      <ion-buttons slot="start">
+      <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
     <ion-title>
@@ -12,8 +12,8 @@
 <ion-content class="menus-page">
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let menu of restaurantMenus" size="6">
-          <ion-card>
+      <ion-col *ngFor="let menu of restaurantMenus$ | async" size="6">
+          <ion-card [routerLink]="['menu', menu.id]">
               <img [src]="menu.image"/>
               <div class="card-title">
                 <p>{{menu.name}}</p>

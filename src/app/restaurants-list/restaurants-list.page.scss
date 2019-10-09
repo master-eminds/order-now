@@ -6,9 +6,10 @@ ion-content {
   ion-card {
     position: relative;
     text-align: center;
-    max-height: 35vh;
+    height: 100%;
     overflow: hidden;
-    box-shadow: 0 17px 33px rgba(0,0,0,0.30)
+    box-shadow: 0 17px 33px rgba(0,0,0,0.30);
+    margin: 0;
   }
 
   .card-title {
