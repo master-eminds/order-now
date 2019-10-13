@@ -478,7 +478,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu side=\"end\" max-edge-start=\"50\">\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item [routerLink]=\"page.url\" [routerDirection]=\"'root'\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-chip>\n          <ion-avatar>\n            <img [src]=\"authService.currentUserValue.imageUrl\">\n          </ion-avatar>\n          <ion-label>{{authService.currentUserValue.name}}</ion-label>\n        </ion-chip>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
+module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu side=\"end\" max-edge-start=\"50\">\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item [routerLink]=\"page.url\" [routerDirection]=\"'root'\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-chip>\n          <ion-avatar>\n            <img [src]=\"authService.currentUserValue?.imageUrl\">\n          </ion-avatar>\n          <ion-label>{{authService.currentUserValue?.name}}</ion-label>\n        </ion-chip>\n        <ion-button (click)=\"authService.logout()\">\n          <ion-icon slot=\"icon-only\" name=\"log-out\"></ion-icon>\n        </ion-button>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
 
 /***/ }),
 
@@ -588,11 +588,6 @@ var AppComponent = /** @class */ (function () {
                 title: 'Account',
                 url: 'user-profile',
                 icon: 'person'
-            },
-            {
-                title: 'Logout',
-                url: 'auth',
-                icon: 'log-out'
             }
         ];
         this.initializeApp();
@@ -809,11 +804,14 @@ var AuthService = /** @class */ (function () {
                     case 4: return [4 /*yield*/, FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS })];
                     case 5:
                         result = _b.sent();
-                        if (!result.accessToken) return [3 /*break*/, 7];
-                        return [4 /*yield*/, FB.api('/me', { fields: FACEBOOK_FIELDS }, function (res) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                        if (!result) return [3 /*break*/, 7];
+                        // FB.api(path, method, params, callback)
+                        return [4 /*yield*/, FB.api('/me', 'get', { fields: FACEBOOK_FIELDS }, function (res) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
                                 return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                                     switch (_a.label) {
-                                        case 0: return [4 /*yield*/, Storage.set({ key: 'currentUser', value: JSON.stringify(res) })];
+                                        case 0:
+                                            res.imageUrl = res.picture.data.url;
+                                            return [4 /*yield*/, Storage.set({ key: 'currentUser', value: JSON.stringify(res) })];
                                         case 1:
                                             _a.sent();
                                             this.currentUserSubject.next(res);
@@ -821,10 +819,9 @@ var AuthService = /** @class */ (function () {
                                             return [2 /*return*/];
                                     }
                                 });
-                            }); }, function (err) {
-                                console.log(err);
-                            })];
+                            }); })];
                     case 6:
+                        // FB.api(path, method, params, callback)
                         _b.sent();
                         return [3 /*break*/, 8];
                     case 7:
@@ -858,7 +855,7 @@ var AuthService = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 Storage.remove({ key: 'currentUser' });
                 this.currentUserSubject.next(null);
-                this.router.navigate(['/auth']);
+                this.router.navigate(['auth']);
                 return [2 /*return*/];
             });
         });

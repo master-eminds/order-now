@@ -41,7 +41,7 @@ export class AuthService {
         break;
       case 'FACEBOOK':
         const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS }) as FacebookLoginResponse;
-        if (result.accessToken) {
+        if (result) {
           // FB.api(path, method, params, callback)
           await FB.api('/me', 'get', { fields: FACEBOOK_FIELDS }, async (res) => {
                 res.imageUrl = res.picture.data.url;

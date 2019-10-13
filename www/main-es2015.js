@@ -472,7 +472,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu side=\"end\" max-edge-start=\"50\">\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item [routerLink]=\"page.url\" [routerDirection]=\"'root'\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-chip>\n          <ion-avatar>\n            <img [src]=\"authService.currentUserValue.imageUrl\">\n          </ion-avatar>\n          <ion-label>{{authService.currentUserValue.name}}</ion-label>\n        </ion-chip>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
+module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu side=\"end\" max-edge-start=\"50\">\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item [routerLink]=\"page.url\" [routerDirection]=\"'root'\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-chip>\n          <ion-avatar>\n            <img [src]=\"authService.currentUserValue?.imageUrl\">\n          </ion-avatar>\n          <ion-label>{{authService.currentUserValue?.name}}</ion-label>\n        </ion-chip>\n        <ion-button (click)=\"authService.logout()\">\n          <ion-icon slot=\"icon-only\" name=\"log-out\"></ion-icon>\n        </ion-button>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
 
 /***/ }),
 
@@ -579,11 +579,6 @@ let AppComponent = class AppComponent {
                 title: 'Account',
                 url: 'user-profile',
                 icon: 'person'
-            },
-            {
-                title: 'Logout',
-                url: 'auth',
-                icon: 'log-out'
             }
         ];
         this.initializeApp();
@@ -776,14 +771,14 @@ let AuthService = class AuthService {
                     break;
                 case 'FACEBOOK':
                     const result = yield FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS });
-                    if (result.accessToken) {
-                        yield FB.api('/me', { fields: FACEBOOK_FIELDS }, (res) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    if (result) {
+                        // FB.api(path, method, params, callback)
+                        yield FB.api('/me', 'get', { fields: FACEBOOK_FIELDS }, (res) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                            res.imageUrl = res.picture.data.url;
                             yield Storage.set({ key: 'currentUser', value: JSON.stringify(res) });
                             this.currentUserSubject.next(res);
                             this.router.navigate(['tabs']);
-                        }), (err) => {
-                            console.log(err);
-                        });
+                        }));
                     }
                     else {
                         console.log('Facebook API failed');
@@ -809,7 +804,7 @@ let AuthService = class AuthService {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             Storage.remove({ key: 'currentUser' });
             this.currentUserSubject.next(null);
-            this.router.navigate(['/auth']);
+            this.router.navigate(['auth']);
         });
     }
 };
