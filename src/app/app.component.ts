@@ -29,11 +29,6 @@ export class AppComponent {
       title: 'Account',
       url: 'user-profile',
       icon: 'person'
-    },
-    {
-      title: 'Logout',
-      url: '',
-      icon: 'log-out'
     }
   ];
   constructor(
@@ -41,7 +36,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public translate: TranslateService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) {
     this.initializeApp();

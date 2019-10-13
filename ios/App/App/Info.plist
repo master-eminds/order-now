@@ -36,15 +36,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>145226042019-0pdhvrvvpm7t0r80klo0qiijb0i087j6.apps.googleusercontent.com</string>
-			</array>
-			<key>CFBundleURLTypes</key>
-			<array>
-				<dict>
-					<key>CFBundleURLSchemes</key>
-					<array>
-						<string>fb1153499074849281</string>
-					</array>
-				</dict>
+				<string>fb1153499074849281</string>
 			</array>
 			<key>FacebookAppID</key>
 			<string>1153499074849281</string>
@@ -101,6 +93,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1153499074849281</string>
+	<key>FacebookDisplayName</key>
+	<string>com.ordernow.app</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>

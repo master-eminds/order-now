@@ -23,7 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 /* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
 /* harmony import */ var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./framework-delegate-c2e2e1f4.js */ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
-/* harmony import */ var _index_cd19f367_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index-cd19f367.js */ "./node_modules/@ionic/core/dist/esm/index-cd19f367.js");
+/* harmony import */ var _index_4f661cec_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index-4f661cec.js */ "./node_modules/@ionic/core/dist/esm/index-4f661cec.js");
 /* harmony import */ var _cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cubic-bezier-fc4a068b.js */ "./node_modules/@ionic/core/dist/esm/cubic-bezier-fc4a068b.js");
 
 
@@ -484,7 +484,9 @@ const handleToolbarIntersection = (ev, mainHeaderIndex, scrollHeaderIndex) => {
         const intersectionArea = intersection.width * intersection.height;
         const rootArea = event.rootBounds.width * event.rootBounds.height;
         const isPageHidden = intersectionArea === 0 && rootArea === 0;
-        const isPageTransitioning = intersectionArea > 0 && (intersection.left !== event.rootBounds.left || intersection.right !== event.rootBounds.right);
+        const leftDiff = Math.abs(intersection.left - event.boundingClientRect.left);
+        const rightDiff = Math.abs(intersection.right - event.boundingClientRect.right);
+        const isPageTransitioning = intersectionArea > 0 && (leftDiff >= 5 || rightDiff >= 5);
         if (isPageHidden || isPageTransitioning) {
             return;
         }
@@ -692,7 +694,7 @@ const RouterOutlet = class {
                 else {
                     newStepValue += Object(_cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__["g"])(new _cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__["P"](0, 0), new _cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__["P"](0.32, 0.72), new _cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__["P"](0, 1), new _cubic_bezier_fc4a068b_js__WEBPACK_IMPORTED_MODULE_7__["P"](1, 1), step);
                 }
-                this.ani.progressEnd(shouldComplete, newStepValue, dur);
+                this.ani.progressEnd(shouldComplete ? 1 : 0, newStepValue, dur);
             }
         });
         this.swipeHandlerChanged();
@@ -761,7 +763,7 @@ const RouterOutlet = class {
         const { el, mode } = this;
         const animated = this.animated && _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('animated', true);
         const animationBuilder = this.animation || opts.animationBuilder || _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].get('navAnimation');
-        await Object(_index_cd19f367_js__WEBPACK_IMPORTED_MODULE_6__["t"])(Object.assign({ mode,
+        await Object(_index_4f661cec_js__WEBPACK_IMPORTED_MODULE_6__["t"])(Object.assign({ mode,
             animated,
             animationBuilder,
             enteringEl,

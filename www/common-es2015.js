@@ -341,9 +341,9 @@ const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'emb
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/index-cd19f367.js":
+/***/ "./node_modules/@ionic/core/dist/esm/index-4f661cec.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-cd19f367.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/index-4f661cec.js ***!
   \*************************************************************/
 /*! exports provided: d, l, s, t */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -359,8 +359,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-becf5388-js */ "ios-transition-becf5388-js").then(__webpack_require__.bind(null, /*! ./ios.transition-becf5388.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-becf5388.js"));
-const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-f444ed6d-js */ "md-transition-f444ed6d-js").then(__webpack_require__.bind(null, /*! ./md.transition-f444ed6d.js */ "./node_modules/@ionic/core/dist/esm/md.transition-f444ed6d.js"));
+const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-56d4bc47-js */ "ios-transition-56d4bc47-js").then(__webpack_require__.bind(null, /*! ./ios.transition-56d4bc47.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-56d4bc47.js"));
+const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-3d062e94-js */ "md-transition-3d062e94-js").then(__webpack_require__.bind(null, /*! ./md.transition-3d062e94.js */ "./node_modules/@ionic/core/dist/esm/md.transition-3d062e94.js"));
 const transition = (opts) => {
     return new Promise((resolve, reject) => {
         Object(_core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
@@ -432,16 +432,14 @@ const animation = async (animationBuilder, opts) => {
     }
     fireWillEvents(opts.enteringEl, opts.leavingEl);
     const didComplete = await playTransition(trans, opts);
-    // TODO: Remove AnimationBuilder
-    trans.hasCompleted = didComplete;
     if (opts.progressCallback) {
         opts.progressCallback(undefined);
     }
-    if (trans.hasCompleted) {
+    if (didComplete) {
         fireDidEvents(opts.enteringEl, opts.leavingEl);
     }
     return {
-        hasCompleted: trans.hasCompleted,
+        hasCompleted: didComplete,
         animation: trans
     };
 };
@@ -475,7 +473,16 @@ const notifyViewReady = async (viewIsReady, enteringEl) => {
 const playTransition = (trans, opts) => {
     const progressCallback = opts.progressCallback;
     // TODO: Remove AnimationBuilder
-    const promise = new Promise(resolve => trans.onFinish(resolve));
+    const promise = new Promise(resolve => {
+        trans.onFinish((currentStep) => {
+            if (typeof currentStep === 'number') {
+                resolve(currentStep === 1);
+            }
+            else if (trans.hasCompleted !== undefined) {
+                resolve(trans.hasCompleted);
+            }
+        });
+    });
     // cool, let's do this, start the transition
     if (progressCallback) {
         // this is a swipe to go back, just get the transition progress ready

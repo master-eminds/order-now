@@ -7,7 +7,46 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content class=\"tabs-content\">\n  <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n    <ion-tab-bar slot=\"bottom\" color=\"primary\">\n      <ion-tab-button tab=\"restaurants-list\">\n        <ion-icon name=\"home\"></ion-icon>\n        <ion-label>Restaurants</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"restaurant-menu\">\n        <ion-icon name=\"restaurant\"></ion-icon>\n        <ion-label>Menu</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n        <ion-icon name=\"clipboard\"></ion-icon>\n        <ion-label>Order Status</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n          <ion-icon name=\"person\"></ion-icon>\n          <ion-label>Account</ion-label>\n        </ion-tab-button>\n    </ion-tab-bar>\n  </ion-tabs>\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n      <ion-fab-button class=\"scan-button\" color=\"secondary\" (click)=\"performScan()\">\n        <ion-icon name=\"qr-scanner\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n</ion-content>"
+module.exports = "<ion-content class=\"tabs-content\">\n  <ion-tabs #tabs (ionTabsDidChange)=\"getSelectedTab()\">\n    <ion-tab-bar slot=\"bottom\" color=\"primary\">\n      <ion-tab-button tab=\"restaurants-list\">\n        <ion-icon name=\"home\"></ion-icon>\n        <ion-label>Restaurants</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"restaurant-menu\">\n        <ion-icon name=\"restaurant\"></ion-icon>\n        <ion-label>Menu</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"order-status\">\n        <ion-icon name=\"clipboard\"></ion-icon>\n        <ion-label>Order Status</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"user-profile\">\n          <ion-icon name=\"person\"></ion-icon>\n          <ion-label>Account</ion-label>\n        </ion-tab-button>\n    </ion-tab-bar>\n  </ion-tabs>\n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n      <ion-fab-button class=\"scan-button\" color=\"secondary\" (click)=\"performScan()\">\n        <ion-icon name=\"qr-scanner\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/menu-resolver.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/menu-resolver.service.ts ***!
+  \******************************************/
+/*! exports provided: MenuResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuResolver", function() { return MenuResolver; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _restaurant_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./restaurant.service */ "./src/app/restaurant.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+
+var MenuResolver = /** @class */ (function () {
+    function MenuResolver(restaurantService) {
+        this.restaurantService = restaurantService;
+    }
+    MenuResolver.prototype.resolve = function (route) {
+        return this.restaurantService.getMenu(+route.paramMap.get('id'));
+    };
+    MenuResolver.ctorParameters = function () { return [
+        { type: _restaurant_service__WEBPACK_IMPORTED_MODULE_1__["RestaurantService"] }
+    ]; };
+    MenuResolver = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_restaurant_service__WEBPACK_IMPORTED_MODULE_1__["RestaurantService"]])
+    ], MenuResolver);
+    return MenuResolver;
+}());
+
+
 
 /***/ }),
 
@@ -63,7 +102,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".tabs-content ion-tab-button:nth-child(3) {\n  padding-left: 15%; }\n\n.tabs-content .scan-button {\n  -webkit-animation: shadow-pulse 1s infinite;\n          animation: shadow-pulse 1s infinite;\n  border-radius: 50%; }\n\n@-webkit-keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5); }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2); } }\n\n@keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5); }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2); } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3ByYWN0aWNlL29yZGVyLW5vdy9zcmMvYXBwL3RhYnMvdGFicy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFSSxpQkFBaUIsRUFBQTs7QUFGckI7RUFLSSwyQ0FBbUM7VUFBbkMsbUNBQW1DO0VBQ25DLGtCQUFrQixFQUFBOztBQUdwQjtFQUNFO0lBQ0UsNENBQTRDLEVBQUE7RUFFOUM7SUFDRSw2Q0FBNkMsRUFBQSxFQUFBOztBQUxqRDtFQUNFO0lBQ0UsNENBQTRDLEVBQUE7RUFFOUM7SUFDRSw2Q0FBNkMsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvdGFicy90YWJzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50YWJzLWNvbnRlbnQge1xuICBpb24tdGFiLWJ1dHRvbjpudGgtY2hpbGQoMykge1xuICAgIHBhZGRpbmctbGVmdDogMTUlO1xuICB9XG4gIC5zY2FuLWJ1dHRvbiB7XG4gICAgYW5pbWF0aW9uOiBzaGFkb3ctcHVsc2UgMXMgaW5maW5pdGU7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB9XG5cbiAgQGtleWZyYW1lcyBzaGFkb3ctcHVsc2Uge1xuICAgIDAlIHtcbiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDBweCByZ2JhKDIyOSwgMTk3LCAwLCAwLjUpO1xuICAgIH1cbiAgICAxMDAlIHtcbiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDEwcHggcmdiYSgyMjksIDE5NywgMCwgMC4yKTtcbiAgICB9XG4gIH1cbn1cbiJdfQ== */"
+module.exports = ".tabs-content ion-tab-button:nth-child(3) {\n  padding-left: 15%;\n}\n.tabs-content .scan-button {\n  -webkit-animation: shadow-pulse 1s infinite;\n          animation: shadow-pulse 1s infinite;\n  border-radius: 50%;\n}\n@-webkit-keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5);\n  }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2);\n  }\n}\n@keyframes shadow-pulse {\n  0% {\n    box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5);\n  }\n  100% {\n    box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3dvcmtzcGFjZS9vcmRlci1ub3cvc3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIiwic3JjL2FwcC90YWJzL3RhYnMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UsaUJBQUE7QUNBSjtBREVFO0VBQ0UsMkNBQUE7VUFBQSxtQ0FBQTtFQUNBLGtCQUFBO0FDQUo7QURHRTtFQUNFO0lBQ0UsNENBQUE7RUNESjtFREdFO0lBQ0UsNkNBQUE7RUNESjtBQUNGO0FETEU7RUFDRTtJQUNFLDRDQUFBO0VDREo7RURHRTtJQUNFLDZDQUFBO0VDREo7QUFDRiIsImZpbGUiOiJzcmMvYXBwL3RhYnMvdGFicy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGFicy1jb250ZW50IHtcbiAgaW9uLXRhYi1idXR0b246bnRoLWNoaWxkKDMpIHtcbiAgICBwYWRkaW5nLWxlZnQ6IDE1JTtcbiAgfVxuICAuc2Nhbi1idXR0b24ge1xuICAgIGFuaW1hdGlvbjogc2hhZG93LXB1bHNlIDFzIGluZmluaXRlO1xuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgfVxuXG4gIEBrZXlmcmFtZXMgc2hhZG93LXB1bHNlIHtcbiAgICAwJSB7XG4gICAgICBib3gtc2hhZG93OiAwIDAgMCAwcHggcmdiYSgyMjksIDE5NywgMCwgMC41KTtcbiAgICB9XG4gICAgMTAwJSB7XG4gICAgICBib3gtc2hhZG93OiAwIDAgMCAxMHB4IHJnYmEoMjI5LCAxOTcsIDAsIDAuMik7XG4gICAgfVxuICB9XG59XG4iLCIudGFicy1jb250ZW50IGlvbi10YWItYnV0dG9uOm50aC1jaGlsZCgzKSB7XG4gIHBhZGRpbmctbGVmdDogMTUlO1xufVxuLnRhYnMtY29udGVudCAuc2Nhbi1idXR0b24ge1xuICBhbmltYXRpb246IHNoYWRvdy1wdWxzZSAxcyBpbmZpbml0ZTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuQGtleWZyYW1lcyBzaGFkb3ctcHVsc2Uge1xuICAwJSB7XG4gICAgYm94LXNoYWRvdzogMCAwIDAgMHB4IHJnYmEoMjI5LCAxOTcsIDAsIDAuNSk7XG4gIH1cbiAgMTAwJSB7XG4gICAgYm94LXNoYWRvdzogMCAwIDAgMTBweCByZ2JhKDIyOSwgMTk3LCAwLCAwLjIpO1xuICB9XG59Il19 */"
 
 /***/ }),
 
@@ -149,6 +188,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _tabs_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs.page */ "./src/app/tabs/tabs.page.ts");
 /* harmony import */ var _restaurant_resolver_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../restaurant-resolver.service */ "./src/app/restaurant-resolver.service.ts");
+/* harmony import */ var _menu_resolver_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../menu-resolver.service */ "./src/app/menu-resolver.service.ts");
+
 
 
 
@@ -185,10 +226,19 @@ var routes = [
                     {
                         path: '',
                         loadChildren: function () {
-                            return __webpack_require__.e(/*! import() | restaurant-menu-restaurant-menu-module */ "restaurant-menu-restaurant-menu-module").then(__webpack_require__.bind(null, /*! ../restaurant-menu/restaurant-menu.module */ "./src/app/restaurant-menu/restaurant-menu.module.ts")).then(function (m) { return m.OnlineOrderPageModule; });
+                            return __webpack_require__.e(/*! import() | restaurant-menu-restaurant-menu-module */ "restaurant-menu-restaurant-menu-module").then(__webpack_require__.bind(null, /*! ../restaurant-menu/restaurant-menu.module */ "./src/app/restaurant-menu/restaurant-menu.module.ts")).then(function (m) { return m.RestaurantMenuPageModule; });
                         }
                     }
                 ]
+            },
+            {
+                path: 'restaurant-menu/menu/:id',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | restaurant-menu-menu-products-menu-products-module */ "restaurant-menu-menu-products-menu-products-module").then(__webpack_require__.bind(null, /*! ../restaurant-menu/menu-products/menu-products.module */ "./src/app/restaurant-menu/menu-products/menu-products.module.ts")).then(function (m) { return m.MenuProductsPageModule; });
+                },
+                resolve: {
+                    menu: _menu_resolver_service__WEBPACK_IMPORTED_MODULE_5__["MenuResolver"]
+                }
             },
             {
                 path: 'order-status',

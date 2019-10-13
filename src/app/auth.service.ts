@@ -37,15 +37,17 @@ export class AuthService {
         const googleUser = await GoogleAuth.signIn();
         await Storage.set({ key: 'currentUser', value: JSON.stringify(googleUser) });
         this.currentUserSubject.next(googleUser);
+        this.router.navigate(['tabs']);
         break;
       case 'FACEBOOK':
         const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS }) as FacebookLoginResponse;
         if (result.accessToken) {
-          await FB.api('/me', { fields: FACEBOOK_FIELDS }, async (res) => {
+          // FB.api(path, method, params, callback)
+          await FB.api('/me', 'get', { fields: FACEBOOK_FIELDS }, async (res) => {
+                res.imageUrl = res.picture.data.url;
                 await Storage.set({key: 'currentUser', value: JSON.stringify(res)});
                 this.currentUserSubject.next(res);
-              }, (err) => {
-                console.log(err);
+                this.router.navigate(['tabs']);
               });
         } else {
             console.log('Facebook API failed');
@@ -71,6 +73,6 @@ export class AuthService {
   public async logout() {
     Storage.remove({ key: 'currentUser' });
     this.currentUserSubject.next(null);
-    this.router.navigate(['/auth']);
+    this.router.navigate(['auth']);
   }
 }

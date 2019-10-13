@@ -58,9 +58,9 @@ var detachComponent = function (delegate, element) {
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/index-cd19f367.js":
+/***/ "./node_modules/@ionic/core/dist/esm-es5/index-4f661cec.js":
 /*!*****************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/index-cd19f367.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm-es5/index-4f661cec.js ***!
   \*****************************************************************/
 /*! exports provided: d, l, s, t */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -77,8 +77,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var iosTransitionAnimation = function () { return __webpack_require__.e(/*! import() | ios-transition-becf5388-js */ "ios-transition-becf5388-js").then(__webpack_require__.bind(null, /*! ./ios.transition-becf5388.js */ "./node_modules/@ionic/core/dist/esm-es5/ios.transition-becf5388.js")); };
-var mdTransitionAnimation = function () { return __webpack_require__.e(/*! import() | md-transition-f444ed6d-js */ "md-transition-f444ed6d-js").then(__webpack_require__.bind(null, /*! ./md.transition-f444ed6d.js */ "./node_modules/@ionic/core/dist/esm-es5/md.transition-f444ed6d.js")); };
+var iosTransitionAnimation = function () { return __webpack_require__.e(/*! import() | ios-transition-56d4bc47-js */ "ios-transition-56d4bc47-js").then(__webpack_require__.bind(null, /*! ./ios.transition-56d4bc47.js */ "./node_modules/@ionic/core/dist/esm-es5/ios.transition-56d4bc47.js")); };
+var mdTransitionAnimation = function () { return __webpack_require__.e(/*! import() | md-transition-3d062e94-js */ "md-transition-3d062e94-js").then(__webpack_require__.bind(null, /*! ./md.transition-3d062e94.js */ "./node_modules/@ionic/core/dist/esm-es5/md.transition-3d062e94.js")); };
 var transition = function (opts) {
     return new Promise(function (resolve, reject) {
         Object(_core_57385ee8_js__WEBPACK_IMPORTED_MODULE_1__["w"])(function () {
@@ -185,16 +185,14 @@ var animation = function (animationBuilder, opts) { return Object(tslib__WEBPACK
                 return [4 /*yield*/, playTransition(trans, opts)];
             case 7:
                 didComplete = _a.sent();
-                // TODO: Remove AnimationBuilder
-                trans.hasCompleted = didComplete;
                 if (opts.progressCallback) {
                     opts.progressCallback(undefined);
                 }
-                if (trans.hasCompleted) {
+                if (didComplete) {
                     fireDidEvents(opts.enteringEl, opts.leavingEl);
                 }
                 return [2 /*return*/, {
-                        hasCompleted: trans.hasCompleted,
+                        hasCompleted: didComplete,
                         animation: trans
                     }];
         }
@@ -257,7 +255,16 @@ var notifyViewReady = function (viewIsReady, enteringEl) { return Object(tslib__
 var playTransition = function (trans, opts) {
     var progressCallback = opts.progressCallback;
     // TODO: Remove AnimationBuilder
-    var promise = new Promise(function (resolve) { return trans.onFinish(resolve); });
+    var promise = new Promise(function (resolve) {
+        trans.onFinish(function (currentStep) {
+            if (typeof currentStep === 'number') {
+                resolve(currentStep === 1);
+            }
+            else if (trans.hasCompleted !== undefined) {
+                resolve(trans.hasCompleted);
+            }
+        });
+    });
     // cool, let's do this, start the transition
     if (progressCallback) {
         // this is a swipe to go back, just get the transition progress ready

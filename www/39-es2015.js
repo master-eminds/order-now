@@ -13,12 +13,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-57385ee8.js */ "./node_modules/@ionic/core/dist/esm/core-57385ee8.js");
 /* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
 /* harmony import */ var _helpers_e0fdb9d0_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-e0fdb9d0.js */ "./node_modules/@ionic/core/dist/esm/helpers-e0fdb9d0.js");
-/* harmony import */ var _animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation-86ecfd53.js */ "./node_modules/@ionic/core/dist/esm/animation-86ecfd53.js");
+/* harmony import */ var _animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation-573f179d.js */ "./node_modules/@ionic/core/dist/esm/animation-573f179d.js");
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 /* harmony import */ var _overlays_12eacdf8_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./overlays-12eacdf8.js */ "./node_modules/@ionic/core/dist/esm/overlays-12eacdf8.js");
 /* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
 /* harmony import */ var _framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./framework-delegate-c2e2e1f4.js */ "./node_modules/@ionic/core/dist/esm/framework-delegate-c2e2e1f4.js");
-/* harmony import */ var _index_cd19f367_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index-cd19f367.js */ "./node_modules/@ionic/core/dist/esm/index-cd19f367.js");
+/* harmony import */ var _index_4f661cec_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index-4f661cec.js */ "./node_modules/@ionic/core/dist/esm/index-4f661cec.js");
 
 
 
@@ -33,9 +33,9 @@ __webpack_require__.r(__webpack_exports__);
  * iOS Modal Enter Animation
  */
 const iosEnterAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const baseAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
     backdropAnimation
         .addElement(baseEl.querySelector('ion-backdrop'))
         .fromTo('opacity', 0.01, 0.4);
@@ -107,9 +107,9 @@ const iosEnterAnimation = (baseEl) => {
  * iOS Modal Leave Animation
  */
 const iosLeaveAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const baseAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
     const wrapperEl = baseEl.querySelector('.modal-wrapper');
     const wrapperElRect = wrapperEl.getBoundingClientRect();
     backdropAnimation
@@ -130,9 +130,9 @@ const iosLeaveAnimation = (baseEl) => {
  * Md Modal Enter Animation
  */
 const mdEnterAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const baseAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
     backdropAnimation
         .addElement(baseEl.querySelector('ion-backdrop'))
         .fromTo('opacity', 0.01, 0.32);
@@ -154,9 +154,9 @@ const mdEnterAnimation = (baseEl) => {
  * Md Modal Leave Animation
  */
 const mdLeaveAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_86ecfd53_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const baseAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_573f179d_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
     const wrapperEl = baseEl.querySelector('.modal-wrapper');
     backdropAnimation
         .addElement(baseEl.querySelector('ion-backdrop'))
@@ -234,7 +234,7 @@ const Modal = class {
         }
         const componentProps = Object.assign(Object.assign({}, this.componentProps), { modal: this.el });
         this.usersElement = await Object(_framework_delegate_c2e2e1f4_js__WEBPACK_IMPORTED_MODULE_7__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
-        await Object(_index_cd19f367_js__WEBPACK_IMPORTED_MODULE_8__["d"])(this.usersElement);
+        await Object(_index_4f661cec_js__WEBPACK_IMPORTED_MODULE_8__["d"])(this.usersElement);
         return Object(_overlays_12eacdf8_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation);
     }
     /**

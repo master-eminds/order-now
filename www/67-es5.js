@@ -54,6 +54,11 @@ var SplitPane = /** @class */ (function () {
             this.rmL = undefined;
         }
     };
+    SplitPane.prototype.componentWillLoad = function () {
+        if (this.contentId === undefined) {
+            console.warn("[DEPRECATED][ion-split-pane] Using the [main] attribute is deprecated, please use the \"contentId\" property instead:\nBEFORE:\n  <ion-split-pane>\n    ...\n    <div main>...</div>\n  </ion-split-pane>\n\nAFTER:\n  <ion-split-pane contentId=\"main-content\">\n    ...\n    <div id=\"main-content\">...</div>\n  </ion-split-pane>\n");
+        }
+    };
     SplitPane.prototype.updateState = function () {
         var _this = this;
         if (this.rmL) {

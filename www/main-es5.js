@@ -12,6 +12,10 @@ var map = {
 		"./src/app/auth/auth.module.ts",
 		"auth-auth-module"
 	],
+	"./restaurant-menu/menu-products/menu-products.module": [
+		"./src/app/restaurant-menu/menu-products/menu-products.module.ts",
+		"restaurant-menu-menu-products-menu-products-module"
+	],
 	"./welcome/welcome.module": [
 		"./src/app/welcome/welcome.module.ts",
 		"welcome-welcome-module"
@@ -474,7 +478,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu side=\"end\" max-edge-start=\"50\">\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item [routerLink]=\"page.url\" [routerDirection]=\"'root'\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n        <ion-chip>\n          <ion-avatar>\n            <img [src]=\"authService.currentUserValue.imageUrl\">\n          </ion-avatar>\n          <ion-label>{{authService.currentUserValue.name}}</ion-label>\n        </ion-chip>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
 
 /***/ }),
 
@@ -503,7 +507,8 @@ var routes = [
         canActivate: [_routing_interceptor__WEBPACK_IMPORTED_MODULE_3__["RoutingInterceptior"]]
     },
     { path: '', loadChildren: './welcome/welcome.module#WelcomePageModule' },
-    { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' }
+    { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
+    { path: 'menu-products', loadChildren: './restaurant-menu/menu-products/menu-products.module#MenuProductsPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -568,6 +573,28 @@ var AppComponent = /** @class */ (function () {
         this.translate = translate;
         this.authService = authService;
         this.router = router;
+        this.appPages = [
+            {
+                title: 'Restaurants',
+                url: 'tabs',
+                icon: 'restaurant'
+            },
+            {
+                title: 'Order Status',
+                url: 'tabs/tabs/order-status',
+                icon: 'clipboard'
+            },
+            {
+                title: 'Account',
+                url: 'user-profile',
+                icon: 'person'
+            },
+            {
+                title: 'Logout',
+                url: 'auth',
+                icon: 'log-out'
+            }
+        ];
         this.initializeApp();
         translate.addLangs(['en', 'ro']);
         translate.setDefaultLang('en');
@@ -777,6 +804,7 @@ var AuthService = /** @class */ (function () {
                     case 3:
                         _b.sent();
                         this.currentUserSubject.next(googleUser);
+                        this.router.navigate(['tabs']);
                         return [3 /*break*/, 11];
                     case 4: return [4 /*yield*/, FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS })];
                     case 5:
@@ -789,6 +817,7 @@ var AuthService = /** @class */ (function () {
                                         case 1:
                                             _a.sent();
                                             this.currentUserSubject.next(res);
+                                            this.router.navigate(['tabs']);
                                             return [2 /*return*/];
                                     }
                                 });
@@ -963,6 +992,95 @@ var RestaurantService = /** @class */ (function () {
                 slides: [],
                 description: "Complexul Turistic Cornul Vanatorului vine in ajutorul vostru pentru evenimentele speciale din viata,\n     cu meniuri pregatite cu grija, sali moderne si armonioase si multe surprize pe care va invitam sa le descoperiti"
             }];
+        this.MENUS = [{
+                id: 0,
+                name: 'Daily',
+                image: './../../assets/menus/menu1.jpg',
+                menuProducts: [
+                    {
+                        id: 0,
+                        name: 'Cow Soup & Rice with Chicken Breast',
+                        price: 15.90,
+                        image: './../../assets/daily-product.jpg'
+                    },
+                    {
+                        id: 1,
+                        name: 'Vegetables Soup & Spaghetti Bolognese ',
+                        price: 18.50,
+                        image: './../../assets/daily-product1.jpg'
+                    }
+                ]
+            },
+            {
+                id: 1,
+                name: 'Italian',
+                image: './../../assets/menus/menu2.jpg',
+                menuProducts: [
+                    {
+                        id: 0,
+                        name: 'Pizza Quattro Formaggi',
+                        description: 'description-test',
+                        price: 17.50,
+                        image: './../../assets/italian-product1.jpg'
+                    },
+                    {
+                        id: 1,
+                        name: 'Pizza Margherita',
+                        description: 'description-test',
+                        price: 19.00,
+                        image: './../../assets/italian-product2.jpg'
+                    },
+                    {
+                        id: 2,
+                        name: 'Lasagne',
+                        description: 'description-test',
+                        price: 18.50,
+                        image: './../../assets/italian-product3.jpg'
+                    },
+                    {
+                        id: 3,
+                        name: 'Spaghetti Carbonara',
+                        description: 'description-test',
+                        price: 17.90,
+                        image: './../../assets/italian-product4.jpg'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Asian',
+                image: './../../assets/menus/menu3.jpg'
+            },
+            {
+                id: 3,
+                name: 'Vegan',
+                image: './../../assets/menus/menu4.jpg'
+            },
+            {
+                id: 4,
+                name: 'Meat',
+                image: './../../assets/menus/menu5.jpg'
+            },
+            {
+                id: 5,
+                name: 'Vegetarian',
+                image: './../../assets/menus/menu6.jpg'
+            },
+            {
+                id: 6,
+                name: 'Breakfast',
+                image: './../../assets/menus/menu7.jpg'
+            },
+            {
+                id: 7,
+                name: 'Drinks',
+                image: './../../assets/menus/menu8.jpg'
+            },
+            {
+                id: 8,
+                name: 'Sweets',
+                image: './../../assets/menus/menu9.jpg'
+            }];
     }
     RestaurantService.prototype.getRestaurants = function () {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(this.RESTAURANTS);
@@ -971,7 +1089,13 @@ var RestaurantService = /** @class */ (function () {
         // return of(this.RESTAURANTS).pipe(
         //   find((restaurant:any) => restaurant.id === id)
         // );
-        return this.RESTAURANTS.find(function (rest) { return rest.id === id; });
+        return this.RESTAURANTS.find(function (res) { return res.id === id; });
+    };
+    RestaurantService.prototype.getMenus = function () {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(this.MENUS);
+    };
+    RestaurantService.prototype.getMenu = function (id) {
+        return this.MENUS.find(function (res) { return res.id === id; });
     };
     RestaurantService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1094,7 +1218,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/miordach/Desktop/practice/order-now/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/miordach/Desktop/workspace/order-now/src/main.ts */"./src/main.ts");
 
 
 /***/ })

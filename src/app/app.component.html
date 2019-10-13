@@ -13,6 +13,15 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-chip>
+          <ion-avatar>
+            <img [src]="authService.currentUserValue?.imageUrl">
+          </ion-avatar>
+          <ion-label>{{authService.currentUserValue?.name}}</ion-label>
+        </ion-chip>
+        <ion-button (click)="authService.logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>

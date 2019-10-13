@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
+		35054F0F2353ADCB00D37445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35054F0E2353ADCB00D37445 /* GoogleService-Info.plist */; };
+		35054F122353AF8E00D37445 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35054F112353AF8E00D37445 /* FBSDKCoreKit.framework */; };
+		35054F142353AF8E00D37445 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35054F132353AF8E00D37445 /* FBSDKLoginKit.framework */; };
+		35054F162353AFAA00D37445 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35054F152353AFAA00D37445 /* FacebookCore.framework */; };
+		35054F182353AFAA00D37445 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35054F172353AFAA00D37445 /* FacebookLogin.framework */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
 		504EC3081FED79650016851F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EC3071FED79650016851F /* AppDelegate.swift */; };
 		504EC30D1FED79650016851F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30B1FED79650016851F /* Main.storyboard */; };
@@ -19,6 +24,12 @@
 
 /* Begin PBXFileReference section */
 		2FAD9762203C412B000D30F8 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
+		35054F0D2353A46300D37445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35054F0E2353ADCB00D37445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35054F112353AF8E00D37445 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35054F132353AF8E00D37445 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35054F152353AFAA00D37445 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35054F172353AFAA00D37445 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50379B222058CBB4000EE86E /* capacitor.config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capacitor.config.json; sourceTree = "<group>"; };
 		504EC3041FED79650016851F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504EC3071FED79650016851F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35054F162353AFAA00D37445 /* FacebookCore.framework in Frameworks */,
+				35054F182353AFAA00D37445 /* FacebookLogin.framework in Frameworks */,
+				35054F122353AF8E00D37445 /* FBSDKCoreKit.framework in Frameworks */,
+				35054F142353AF8E00D37445 /* FBSDKLoginKit.framework in Frameworks */,
 				A084ECDBA7D38E1E42DFC39D /* Pods_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +62,10 @@
 		27E2DDA53C4D2A4D1A88CE4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35054F152353AFAA00D37445 /* FacebookCore.framework */,
+				35054F172353AFAA00D37445 /* FacebookLogin.framework */,
+				35054F112353AF8E00D37445 /* FBSDKCoreKit.framework */,
+				35054F132353AF8E00D37445 /* FBSDKLoginKit.framework */,
 				AF277DCFFFF123FFC6DF26C7 /* Pods_App.framework */,
 			);
 			name = Frameworks;
@@ -55,6 +74,7 @@
 		504EC2FB1FED79650016851F = {
 			isa = PBXGroup;
 			children = (
+				35054F0E2353ADCB00D37445 /* GoogleService-Info.plist */,
 				504EC3061FED79650016851F /* App */,
 				504EC3051FED79650016851F /* Products */,
 				7F8756D8B27F46E3366F6CEA /* Pods */,
@@ -73,6 +93,7 @@
 		504EC3061FED79650016851F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				35054F0D2353A46300D37445 /* GoogleService-Info.plist */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
@@ -161,6 +182,7 @@
 				50379B232058CBB4000EE86E /* capacitor.config.json in Resources */,
 				504EC30D1FED79650016851F /* Main.storyboard in Resources */,
 				2FAD9763203C412B000D30F8 /* config.xml in Resources */,
+				35054F0F2353ADCB00D37445 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
