@@ -9,18 +9,20 @@ ion-content {
             max-height: 25vh;
         }
 
+        .product-details-row {
+            background:rgba(255,255,255, 0.8);
+            border-radius: 5%;
+            .product-name-container {
+                margin: auto;
+            }
+        }
+
         ion-grid {
             ion-row:first-child {
                 ion-col{
                     padding: 0
                 } 
             }
-           ion-row:nth-child(2) {
-            background:rgba(255,255,255, 0.8);
-            ion-col {
-                padding: 0;
-            }
-           }
         }
         .product-name {
             font-size: 15px;

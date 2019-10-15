@@ -1,3 +1,4 @@
+import { FadeComponent } from './../fade/fade.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MenuProductsPage]
+  exports : [FadeComponent],
+  declarations: [MenuProductsPage, FadeComponent]
 })
 export class MenuProductsPageModule {}

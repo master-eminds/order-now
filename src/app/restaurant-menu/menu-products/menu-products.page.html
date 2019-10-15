@@ -1,55 +1,67 @@
 <ion-header>
   <ion-toolbar color="secondary">
-      <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="start">
-          <ion-back-button defaulthref=""></ion-back-button>
-        </ion-buttons>
-        <ion-title>{{menu.name}}</ion-title>
+      <ion-back-button defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{menu.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col *ngFor="let product of menu.menuProducts" size="12">
-              <ion-card>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col *ngFor="let product of menu.menuProducts" size="12">
+        <ion-card>
+          <ion-grid>
+            <ion-row class="product-details-row">
+              <ion-col size="12">
+                <img [src]="product.image" />
+              </ion-col>
+              <ion-col class="product-details-col" size="12">
                 <ion-grid>
-                  <ion-row>
-                    <ion-col size="12">
-                        <img [src]="product.image"/>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row class="ion-align-items-start ion-justify-content-start">
-                    <ion-col>
-                      <ion-button class="ion-align-selft-start" color="primary" fill="clear" size="large" (click)="addProduct(product)">
+                  <ion-row class="ion-align-items-center ion-justify-content-center">
+                    <ion-col size="2">
+                      <ion-button class="ion-align-selft-start" color="primary" fill="clear" size="small"
+                        (click)="addProduct(product)">
                         <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
                       </ion-button>
                     </ion-col>
-                    <ion-col class="ion-align-self-start">
+                    <ion-col size="7" class="ion-align-self-start product-name-container">
                       <ion-row>
                         <ion-col align-self-start size="12" class="product-name">{{product.name}}</ion-col>
-                        <ion-col align-self-start size="12" class="prodcut-description">{{product.description}}</ion-col>
+                        <ion-col align-self-start size="12" class="prodcut-description">{{product.description}}
+                        </ion-col>
                       </ion-row>
                     </ion-col>
-                    <ion-col class="ion-align-self-end">
+                    <ion-col size="3" class="ion-align-self-end">
                       <ion-row class="ion-align-items-end">
                         <ion-col size="12" class="product-price">{{product.price}} | RON</ion-col>
                         <ion-col size="12" class="product-details">
-                          <ion-button color="secondary" fill="clear" (click)="product.showDetails = !product.showDetails">
+                          <ion-button color="secondary" fill="clear"
+                            (click)="product.showDetails = !product.showDetails" size="small">
                             <ion-icon slot="icon-only" name="arrow-dropdown"></ion-icon>
                           </ion-button>
                         </ion-col>
                       </ion-row>
-                      <ion-row *ngIf="product.showDetails">
-                        <h1>Product details</h1>
-                      </ion-row>
                     </ion-col>
                   </ion-row>
                 </ion-grid>
-                </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+              </ion-col>
+              <app-fade [show]="product.showDetails">
+
+                <ion-col>
+                  <h1>Product details</h1>
+                  <h2>somethin</h2>
+                  <h3>something else</h3>
+                </ion-col>
+              </app-fade>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
