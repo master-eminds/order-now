@@ -341,9 +341,9 @@ const blockedTags = ['script', 'style', 'iframe', 'meta', 'link', 'object', 'emb
 
 /***/ }),
 
-/***/ "./node_modules/@ionic/core/dist/esm/index-4f661cec.js":
+/***/ "./node_modules/@ionic/core/dist/esm/index-35276576.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/index-4f661cec.js ***!
+  !*** ./node_modules/@ionic/core/dist/esm/index-35276576.js ***!
   \*************************************************************/
 /*! exports provided: d, l, s, t */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -354,16 +354,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return lifecycle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setPageHidden; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return transition; });
-/* harmony import */ var _core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-57385ee8.js */ "./node_modules/@ionic/core/dist/esm/core-57385ee8.js");
+/* harmony import */ var _core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-ca0488fc.js */ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js");
 /* harmony import */ var _constants_3c3e1099_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants-3c3e1099.js */ "./node_modules/@ionic/core/dist/esm/constants-3c3e1099.js");
 
 
 
-const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-56d4bc47-js */ "ios-transition-56d4bc47-js").then(__webpack_require__.bind(null, /*! ./ios.transition-56d4bc47.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-56d4bc47.js"));
-const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-3d062e94-js */ "md-transition-3d062e94-js").then(__webpack_require__.bind(null, /*! ./md.transition-3d062e94.js */ "./node_modules/@ionic/core/dist/esm/md.transition-3d062e94.js"));
+const iosTransitionAnimation = () => __webpack_require__.e(/*! import() | ios-transition-836e46fb-js */ "ios-transition-836e46fb-js").then(__webpack_require__.bind(null, /*! ./ios.transition-836e46fb.js */ "./node_modules/@ionic/core/dist/esm/ios.transition-836e46fb.js"));
+const mdTransitionAnimation = () => __webpack_require__.e(/*! import() | md-transition-5091809d-js */ "md-transition-5091809d-js").then(__webpack_require__.bind(null, /*! ./md.transition-5091809d.js */ "./node_modules/@ionic/core/dist/esm/md.transition-5091809d.js"));
 const transition = (opts) => {
     return new Promise((resolve, reject) => {
-        Object(_core_57385ee8_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
+        Object(_core_ca0488fc_js__WEBPACK_IMPORTED_MODULE_0__["w"])(() => {
             beforeTransition(opts);
             runTransition(opts).then(result => {
                 if (result.animation) {

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './auth.service';
-import { TabsPage } from './tabs/tabs.page';
 import { WelcomePage } from './welcome/welcome.page';
 import { Router } from '@angular/router';
 
@@ -37,7 +36,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     public translate: TranslateService,
     public authService: AuthService,
-    private router: Router
+    private router: Router,
+    public menuController: MenuController
   ) {
     this.initializeApp();
     translate.addLangs(['en', 'ro']);

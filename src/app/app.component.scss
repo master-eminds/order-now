@@ -1,0 +1,23 @@
+.app-component {
+    ion-header {
+        height: 6.6%;
+        background-color: var(--ion-color-secondary);
+    }
+
+    ion-avatar {
+        margin: auto;
+        height: 80px;
+        width: 80px;
+    }
+
+    ion-col {
+        text-align: center;
+        a {
+            font-size:12px;
+            padding: 0;
+        }
+    }
+    .view-profile-col {
+        margin-top: -15px;
+    }
+}

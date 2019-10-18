@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
@@ -14,7 +15,7 @@ export class TabsPage {
   @ViewChild('tabs', {static: false}) tabs: IonTabs;
   currentTab: any;
 
-  constructor(private barcodeScanner: BarcodeScanner, private route: Router) {}
+  constructor(private barcodeScanner: BarcodeScanner, private route: Router, public authService: AuthService) {}
 
   getSelectedTab() {
     this.currentTab = this.tabs.getSelected();
