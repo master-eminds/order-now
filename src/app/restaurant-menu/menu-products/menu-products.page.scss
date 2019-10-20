@@ -1,7 +1,16 @@
+ion-toolbar {
+    --background-color: transparent;
+    --ion-color-base: transparent !important;
+  }
+  
 ion-content {
     --background: url('../../../assets/login-wallpaper.jpg') no-repeat center center / cover;
     --background-size:cover;
 
+    ion-searchbar {
+        background: rgba(255, 255, 255, 0.8);
+    }
+    
     ion-card {
         margin: 0;
 

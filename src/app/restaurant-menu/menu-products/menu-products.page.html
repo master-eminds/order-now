@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar color="secondary">
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -8,12 +8,13 @@
     </ion-buttons>
     <ion-title>{{menu.name}}</ion-title>
   </ion-toolbar>
+  <ion-searchbar showCancelButton="true" [(ngModel)]="searchTerm" (ionInput)="filterItems(searchTerm)"></ion-searchbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <ion-grid>
     <ion-row class="ion-align-items-center">
-      <ion-col *ngFor="let product of menu.menuProducts" size="12">
+      <ion-col *ngFor="let product of filteredProducts" size="12">
         <ion-card>
           <ion-grid>
             <ion-row class="product-details-row">

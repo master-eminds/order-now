@@ -5,6 +5,11 @@
     --background-size:cover;
 }
 
+ion-toolbar {
+    --background-color: transparent;
+    --ion-color-base: transparent !important;
+}
+
 ion-card {
     margin: 0;
     position: realtive;

@@ -1,15 +1,15 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar color="secondary">
       <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button color="secondary"></ion-menu-button>
       </ion-buttons>
-    <ion-title>
+    <ion-title color="secondary">
       Menus
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="menus-page">
+<ion-content class="menus-page" fullscreen>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let menu of restaurantMenus$ | async" size="6">
