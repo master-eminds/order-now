@@ -1,8 +1,16 @@
 <ion-header>
   <ion-toolbar color="secondary">
-      <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
-      </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['payment']">
+        <div class="payment-btn-container">
+          <ion-icon name="card"></ion-icon>
+          <p>Pay now</p>
+        </div>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
       Your Order
       <div class="total-order"> TOTAL: {{ total | currency }}</div>
@@ -12,13 +20,13 @@
 
 <ion-content class="order-page-content">
   <ion-list>
-    <ion-item-sliding *ngFor="let order of orderList; let index = index;" >
+    <ion-item-sliding *ngFor="let order of orderList; let index = index;">
       <ion-item detail="true" detail-icon="arrow-back">
         <div class="item-avatar-container">
-            <ion-avatar item-start>
-                <img [src]="order.image">
-              </ion-avatar>
-              <p [ngStyle]="{'color':order.status === 'pending' ? '#FFFF4C' : 'green' }">{{order.status}}</p>
+          <ion-avatar item-start>
+            <img [src]="order.image">
+          </ion-avatar>
+          <p [ngStyle]="{'color':order.status === 'pending' ? '#FFFF4C' : 'green' }">{{order.status}}</p>
         </div>
         <div class="item-name">
           <p>{{order.name}}</p>
@@ -28,12 +36,12 @@
           <p>{{ order.price | currency }}</p>
         </div>
         <div class="item-quantity">
-            <p>Quantity</p>
-            <div>
-                <ion-icon name="add-circle-outline" (click)="incrementQuantity(order)"></ion-icon>
-                {{order.cantitate}}
-              <ion-icon name="remove-circle-outline" (click)="decrementQuantity(order)"></ion-icon>
-            </div>
+          <p>Quantity</p>
+          <div>
+            <ion-icon name="add-circle-outline" (click)="incrementQuantity(order)"></ion-icon>
+            {{order.cantitate}}
+            <ion-icon name="remove-circle-outline" (click)="decrementQuantity(order)"></ion-icon>
+          </div>
         </div>
       </ion-item>
       <ion-item-options>
@@ -42,8 +50,8 @@
           More
         </ion-button>
         <ion-button class="btn-resize" color="danger" [disabled]="order.status === 'done'"
-         (click)="removeProduct(index)" size="large" icon-start>
-         <ion-icon name="trash"></ion-icon>
+          (click)="removeProduct(index)" size="large" icon-start>
+          <ion-icon name="trash"></ion-icon>
           Remove
         </ion-button>
       </ion-item-options>

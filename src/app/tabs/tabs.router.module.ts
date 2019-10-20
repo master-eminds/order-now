@@ -1,3 +1,4 @@
+import { PaymentPageModule } from './../payment/payment.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -53,6 +54,11 @@ const routes: Routes = [
               import('../order-status/order-status.module').then(m => m.OrderStatusPageModule)
           }
         ]
+      },
+      {
+        path: 'order-status/payment',
+        loadChildren: () =>
+              import('../payment/payment.module').then(m => m.PaymentPageModule),
       },
       {
         path: '',

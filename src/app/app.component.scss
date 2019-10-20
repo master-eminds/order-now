@@ -8,6 +8,9 @@
         margin: auto;
         height: 80px;
         width: 80px;
+        img {
+            border: 2px solid white;
+        }
     }
 
     ion-col {
@@ -17,7 +20,8 @@
             padding: 0;
         }
     }
+
     .view-profile-col {
-        margin-top: -15px;
+        margin-top: -12px;
     }
 }

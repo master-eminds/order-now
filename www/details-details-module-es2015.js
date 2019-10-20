@@ -29,7 +29,7 @@ module.exports = "<ion-slides pager=\"true\" [options]=\"slideOpts\">\n    <ion-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"secondary\">\n      <ion-buttons slot=\"end\">\n          <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n    <ion-buttons slot=\"start\">\n          <ion-back-button defaulthref=\"\"></ion-back-button>\n        </ion-buttons>\n        <ion-title>Details Page</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <app-details-card [restaurant]=\"restaurant\"></app-details-card>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"secondary\">\n      <ion-buttons slot=\"end\">\n          <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n    <ion-buttons slot=\"start\">\n          <ion-back-button defaulthref=\"\"></ion-back-button>\n        </ion-buttons>\n        <ion-title>Details Page</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"padding\">\n  <app-details-card [restaurant]=\"restaurant\"></app-details-card>\n</ion-content>\n"
 
 /***/ }),
 

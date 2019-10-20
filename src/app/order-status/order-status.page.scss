@@ -8,6 +8,21 @@
     flex-direction: column;
 }
 
+ion-header {
+    .payment-btn-container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        ion-icon {
+            font-size: 25px;
+        }
+        p {
+            font-size: 8px;
+            margin: 0 0 3px 0;
+        }
+    }
+}
+
 .order-page-content {
     ion-item {
         display: flex;
