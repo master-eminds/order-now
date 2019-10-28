@@ -16,5 +16,13 @@
     "variables": {
       "REVERSE_CLIENT_ID": "com.googleusercontent.apps.145226042019-0pdhvrvvpm7t0r80klo0qiijb0i087j6"
     }
+  },
+  "cordova-plugin-ionic-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-keyboard@^2.0.5"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

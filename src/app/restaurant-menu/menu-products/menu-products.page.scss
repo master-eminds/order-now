@@ -1,16 +1,25 @@
-ion-toolbar {
-    --background-color: transparent;
-    --ion-color-base: transparent !important;
-  }
-  
-ion-content {
-    --background: url('../../../assets/login-wallpaper.jpg') no-repeat center center / cover;
-    --background-size:cover;
+ion-header {
+    ion-toolbar {
+        --background-color: transparent;
+        --ion-color-base: transparent !important;
+    }
 
     ion-searchbar {
-        background: rgba(255, 255, 255, 0.8);
+        --color: white;
+        --icon-color: white;
     }
-    
+
+    .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+}
+
+ion-content {
+    --background: url('../../../assets/login-wallpaper.jpg') no-repeat center center / cover;
+    --background-size: cover;
+
     ion-card {
         margin: 0;
 
@@ -19,8 +28,9 @@ ion-content {
         }
 
         .product-details-row {
-            background:rgba(255,255,255, 0.8);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 5%;
+
             .product-name-container {
                 margin: auto;
             }
@@ -28,14 +38,15 @@ ion-content {
 
         ion-grid {
             ion-row:first-child {
-                ion-col{
+                ion-col {
                     padding: 0
-                } 
+                }
             }
         }
+
         .product-name {
             font-size: 15px;
-            color:black;
+            color: black;
         }
 
         .product-price {

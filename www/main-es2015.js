@@ -12,6 +12,10 @@ var map = {
 		"./src/app/auth/auth.module.ts",
 		"auth-auth-module"
 	],
+	"./payment/payment.module": [
+		"./src/app/payment/payment.module.ts",
+		"payment-payment-module"
+	],
 	"./restaurant-menu/menu-products/menu-products.module": [
 		"./src/app/restaurant-menu/menu-products/menu-products.module.ts",
 		"restaurant-menu-menu-products-menu-products-module"
@@ -472,7 +476,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app class=\"app-component\">\n  <ion-split-pane contentId=\"menu-content\">\n    <ion-menu side=\"end\" max-edge-start=\"50\" contentId=\"menu-content\" padding>\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content color=\"secondary\">\n        <ion-grid fixed=\"true\"> \n          <ion-row class=\"ion-align-items-center ion-justify-content-center\">\n            <ion-col size=\"6\" class=\"ion-align-self-center\">\n              <ion-avatar>\n                <img [src]=\"authService.currentUserValue?.imageUrl\">\n              </ion-avatar>\n            </ion-col>\n            <ion-col size=\"12\"  class=\"ion-align-self-center\">\n                <ion-label>{{authService.currentUserValue?.name}}</ion-label>\n              </ion-col>\n              <ion-col class=\"view-profile-col\" size=\"12\"  class=\"ion-align-self-center\">\n                <a href=\"\">view profile</a>\n              </ion-col>\n            </ion-row>\n        </ion-grid>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item *ngIf=\"page.url\" [routerLink]=\"page.url\" [routerDirection]=\"'root'\" color=\"secondary\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n      <ion-toolbar color=\"secondary\">\n        <ion-button fill=\"solid\" expand=\"block\" (click)=\"authService.logout(); menuController.close();\">\n          <ion-icon slot=\"end\" name=\"log-out\"></ion-icon>\n          <ion-label>Logout</ion-label>\n        </ion-button>\n      </ion-toolbar>\n    </ion-menu>\n    <ion-router-outlet main id=\"menu-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
+module.exports = "<ion-app class=\"app-component\">\n  <ion-split-pane contentId=\"menu-content\">\n    <ion-menu side=\"end\" max-edge-start=\"50\" contentId=\"menu-content\" padding>\n      <ion-header>\n        <ion-title> Menu </ion-title>\n      </ion-header>\n      <ion-content color=\"secondary\">\n        <ion-grid fixed=\"true\">\n          <ion-row class=\"ion-align-items-center ion-justify-content-center\">\n            <ion-col size=\"6\" class=\"ion-align-self-center\">\n              <ion-avatar>\n                <img [src]=\"authService.currentUserValue?.imageUrl\">\n              </ion-avatar>\n            </ion-col>\n            <ion-col size=\"12\" class=\"ion-align-self-center\">\n              <ion-label>{{authService.currentUserValue?.name}}</ion-label>\n            </ion-col>\n            <ion-col size=\"12\" class=\"ion-align-self-center view-profile-col\">\n              <a href=\"\">view profile</a>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n        <ion-list>\n          <ion-menu-toggle *ngFor=\"let page of appPages\">\n            <ion-item *ngIf=\"page.url\" [routerLink]=\"page.url\" [routerDirection]=\"'root'\" color=\"secondary\">\n              <ion-icon slot=\"start\" [name]=\"page.icon\"></ion-icon>\n              <ion-label>{{page.title}}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n      <ion-toolbar color=\"secondary\">\n          <ion-button color=\"dark\" fill=\"solid\" expand=\"block\">\n              <ion-icon slot=\"end\" name=\"card\"></ion-icon>\n              <ion-label>Pay order</ion-label>\n            </ion-button>\n        <ion-button fill=\"solid\" expand=\"block\" (click)=\"authService.logout(); menuController.close();\">\n          <ion-icon slot=\"end\" name=\"log-out\"></ion-icon>\n          <ion-label>Logout</ion-label>\n        </ion-button>\n        <ion-button *ngIf=\"!authService.currentUserValue\" fill=\"solid\" expand=\"block\" [routerLink]=\"['/auth']\">\n            <ion-icon slot=\"end\" name=\"log-in\"></ion-icon>\n            <ion-label>Login</ion-label>\n          </ion-button>\n      </ion-toolbar>\n    </ion-menu>\n    <ion-router-outlet main id=\"menu-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
 
 /***/ }),
 
@@ -502,7 +506,8 @@ const routes = [
     },
     { path: '', loadChildren: './welcome/welcome.module#WelcomePageModule' },
     { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
-    { path: 'menu-products', loadChildren: './restaurant-menu/menu-products/menu-products.module#MenuProductsPageModule' }
+    { path: 'menu-products', loadChildren: './restaurant-menu/menu-products/menu-products.module#MenuProductsPageModule' },
+    { path: 'payment', loadChildren: './payment/payment.module#PaymentPageModule' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -526,7 +531,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".app-component ion-header {\n  height: 6.6%;\n  background-color: var(--ion-color-secondary);\n}\n.app-component ion-avatar {\n  margin: auto;\n  height: 80px;\n  width: 80px;\n}\n.app-component ion-col {\n  text-align: center;\n}\n.app-component ion-col a {\n  font-size: 12px;\n  padding: 0;\n}\n.app-component .view-profile-col {\n  margin-top: -15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3dvcmtzcGFjZS9vcmRlci1ub3cvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDSTtFQUNJLFlBQUE7RUFDQSw0Q0FBQTtBQ0FSO0FER0k7RUFDSSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNEUjtBRElJO0VBQ0ksa0JBQUE7QUNGUjtBREdRO0VBQ0ksZUFBQTtFQUNBLFVBQUE7QUNEWjtBRElJO0VBQ0ksaUJBQUE7QUNGUiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hcHAtY29tcG9uZW50IHtcbiAgICBpb24taGVhZGVyIHtcbiAgICAgICAgaGVpZ2h0OiA2LjYlO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc2Vjb25kYXJ5KTtcbiAgICB9XG5cbiAgICBpb24tYXZhdGFyIHtcbiAgICAgICAgbWFyZ2luOiBhdXRvO1xuICAgICAgICBoZWlnaHQ6IDgwcHg7XG4gICAgICAgIHdpZHRoOiA4MHB4O1xuICAgIH1cblxuICAgIGlvbi1jb2wge1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgIGEge1xuICAgICAgICAgICAgZm9udC1zaXplOjEycHg7XG4gICAgICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICB9XG4gICAgfVxuICAgIC52aWV3LXByb2ZpbGUtY29sIHtcbiAgICAgICAgbWFyZ2luLXRvcDogLTE1cHg7XG4gICAgfVxufSIsIi5hcHAtY29tcG9uZW50IGlvbi1oZWFkZXIge1xuICBoZWlnaHQ6IDYuNiU7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWlvbi1jb2xvci1zZWNvbmRhcnkpO1xufVxuLmFwcC1jb21wb25lbnQgaW9uLWF2YXRhciB7XG4gIG1hcmdpbjogYXV0bztcbiAgaGVpZ2h0OiA4MHB4O1xuICB3aWR0aDogODBweDtcbn1cbi5hcHAtY29tcG9uZW50IGlvbi1jb2wge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uYXBwLWNvbXBvbmVudCBpb24tY29sIGEge1xuICBmb250LXNpemU6IDEycHg7XG4gIHBhZGRpbmc6IDA7XG59XG4uYXBwLWNvbXBvbmVudCAudmlldy1wcm9maWxlLWNvbCB7XG4gIG1hcmdpbi10b3A6IC0xNXB4O1xufSJdfQ== */"
+module.exports = ".app-component ion-header {\n  height: 6.6%;\n  background-color: var(--ion-color-secondary);\n}\n.app-component ion-avatar {\n  margin: auto;\n  height: 80px;\n  width: 80px;\n}\n.app-component ion-avatar img {\n  border: 2px solid white;\n}\n.app-component ion-col {\n  text-align: center;\n}\n.app-component ion-col a {\n  font-size: 12px;\n  padding: 0;\n}\n.app-component .view-profile-col {\n  margin-top: -12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9taW9yZGFjaC9EZXNrdG9wL3dvcmtzcGFjZS9vcmRlci1ub3cvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDSTtFQUNJLFlBQUE7RUFDQSw0Q0FBQTtBQ0FSO0FER0k7RUFDSSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNEUjtBREVRO0VBQ0ksdUJBQUE7QUNBWjtBRElJO0VBQ0ksa0JBQUE7QUNGUjtBREdRO0VBQ0ksZUFBQTtFQUNBLFVBQUE7QUNEWjtBREtJO0VBQ0ksaUJBQUE7QUNIUiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hcHAtY29tcG9uZW50IHtcbiAgICBpb24taGVhZGVyIHtcbiAgICAgICAgaGVpZ2h0OiA2LjYlO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc2Vjb25kYXJ5KTtcbiAgICB9XG5cbiAgICBpb24tYXZhdGFyIHtcbiAgICAgICAgbWFyZ2luOiBhdXRvO1xuICAgICAgICBoZWlnaHQ6IDgwcHg7XG4gICAgICAgIHdpZHRoOiA4MHB4O1xuICAgICAgICBpbWcge1xuICAgICAgICAgICAgYm9yZGVyOiAycHggc29saWQgd2hpdGU7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBpb24tY29sIHtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICBhIHtcbiAgICAgICAgICAgIGZvbnQtc2l6ZToxMnB4O1xuICAgICAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIC52aWV3LXByb2ZpbGUtY29sIHtcbiAgICAgICAgbWFyZ2luLXRvcDogLTEycHg7XG4gICAgfVxufSIsIi5hcHAtY29tcG9uZW50IGlvbi1oZWFkZXIge1xuICBoZWlnaHQ6IDYuNiU7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWlvbi1jb2xvci1zZWNvbmRhcnkpO1xufVxuLmFwcC1jb21wb25lbnQgaW9uLWF2YXRhciB7XG4gIG1hcmdpbjogYXV0bztcbiAgaGVpZ2h0OiA4MHB4O1xuICB3aWR0aDogODBweDtcbn1cbi5hcHAtY29tcG9uZW50IGlvbi1hdmF0YXIgaW1nIHtcbiAgYm9yZGVyOiAycHggc29saWQgd2hpdGU7XG59XG4uYXBwLWNvbXBvbmVudCBpb24tY29sIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmFwcC1jb21wb25lbnQgaW9uLWNvbCBhIHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBwYWRkaW5nOiAwO1xufVxuLmFwcC1jb21wb25lbnQgLnZpZXctcHJvZmlsZS1jb2wge1xuICBtYXJnaW4tdG9wOiAtMTJweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -541,13 +546,15 @@ module.exports = ".app-component ion-header {\n  height: 6.6%;\n  background-col
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_native_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/keyboard */ "./node_modules/@ionic-native/keyboard/index.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -582,6 +589,7 @@ let AppComponent = class AppComponent {
                 icon: 'person'
             }
         ];
+        _ionic_native_keyboard__WEBPACK_IMPORTED_MODULE_1__["Keyboard"].disableScroll(false);
         this.initializeApp();
         translate.addLangs(['en', 'ro']);
         translate.setDefaultLang('en');
@@ -602,27 +610,27 @@ let AppComponent = class AppComponent {
     }
 };
 AppComponent.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
-    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
-    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"] },
+    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"] },
+    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"] },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-root',
         template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
         styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
-        _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
-        _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
-        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"],
-        _auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
+        _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"],
+        _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"],
+        _auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"]])
 ], AppComponent);
 
 
@@ -687,7 +695,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         entryComponents: [],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot(),
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"].forRoot({
+                scrollAssist: false
+            }),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],

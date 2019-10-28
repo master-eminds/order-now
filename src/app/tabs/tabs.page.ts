@@ -1,5 +1,6 @@
+import { OnInit } from '@angular/core';
 import { AuthService } from './../auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Component, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
@@ -11,12 +12,17 @@ const { Toast } = Plugins;
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {
+export class TabsPage implements OnInit {
   @ViewChild('tabs', {static: false}) tabs: IonTabs;
+  scanBtn: any;
   currentTab: any;
 
-  constructor(private barcodeScanner: BarcodeScanner, private route: Router, public authService: AuthService) {}
+  constructor(private barcodeScanner: BarcodeScanner,
+              private route: Router,
+              public authService: AuthService) {}
 
+  ngOnInit() {
+  }
   getSelectedTab() {
     this.currentTab = this.tabs.getSelected();
   }

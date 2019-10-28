@@ -21,23 +21,36 @@ ion-header {
             margin: 0 0 3px 0;
         }
     }
+
+    ion-searchbar {
+        // --background: rgba(black, 0.6);
+        --color: white;
+        --icon-color: white;
+    }
+
+    ion-toolbar {
+        --background-color: transparent;
+        --ion-color-base: transparent !important;
+      }    
 }
 
 .order-page-content {
-    ion-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    --background: url('../../assets/login-wallpaper.jpg') no-repeat center center / cover;
+    --background-size:cover;
 
+    ion-list {
+        background: rgba(black, 0.7);
+        color:white;
+    }
+    ion-item {
+        color: white;
         .item-avatar-container {
-            flex-basis: 20%;
-            height: 75%;
             display: flex;
             flex-direction: column;
             align-items: center;
 
             ion-avatar {
-                border: 1px solid var(--ion-color-dark);
+                border: 2px solid var(--ion-color-dark);
             }
 
             p {
@@ -49,9 +62,20 @@ ion-header {
         }
 
         .item-name {
-            flex-basis: 30%;
-            font-size: 17px;
+            font-size: 15px;
+            font-weight: bold;
             text-align: center;
+            p {
+                margin: 2px 0;
+            }
+        }
+
+        .item-price {
+            text-align: center;
+            p {
+                font-size:12px;
+                margin: 2px 0;
+            }
         }
 
         div.item-name~div {
@@ -59,18 +83,22 @@ ion-header {
         }
 
         .item-quantity {
+            text-align: center;
             height: 100%;
+            p {
+                font-size: 12px;
+                margin: 2px 0;
+            }
 
             div {
                 display: flex;
                 flex-direction: row;
-                align-items: center;
-                margin-bottom: 5px;
+                justify-content: center;
             }
 
             ion-icon {
-                font-size: 25px;
-                padding: 5px;
+                font-size: 18px;
+                padding: 2px;
             }
         }
     }

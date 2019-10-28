@@ -8,7 +8,10 @@
     </ion-buttons>
     <ion-title>{{menu.name}}</ion-title>
   </ion-toolbar>
-  <ion-searchbar showCancelButton="true" [(ngModel)]="searchTerm" (ionInput)="filterItems(searchTerm)"></ion-searchbar>
+  <ion-searchbar showCancelButton="true" [formControl]="searchControl" (ionChange)="onSearchInput()"></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
 </ion-header>
 
 <ion-content fullscreen>
@@ -33,7 +36,8 @@
                     <ion-col size="7" class="ion-align-self-start product-name-container">
                       <ion-row>
                         <ion-col class="ion-align-self-start" size="12" class="product-name">{{product.name}}</ion-col>
-                        <ion-col class="ion-align-self-start" size="12" class="prodcut-description">{{product.description}}
+                        <ion-col class="ion-align-self-start" size="12" class="prodcut-description">
+                          {{product.description}}
                         </ion-col>
                       </ion-row>
                     </ion-col>

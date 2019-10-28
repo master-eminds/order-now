@@ -1,10 +1,10 @@
+import { Keyboard } from '@ionic-native/keyboard';
 import { Component } from '@angular/core';
 import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './auth.service';
-import { WelcomePage } from './welcome/welcome.page';
 import { Router } from '@angular/router';
 
 @Component({
@@ -39,6 +39,7 @@ export class AppComponent {
     private router: Router,
     public menuController: MenuController
   ) {
+    Keyboard.disableScroll(false);
     this.initializeApp();
     translate.addLangs(['en', 'ro']);
     translate.setDefaultLang('en');

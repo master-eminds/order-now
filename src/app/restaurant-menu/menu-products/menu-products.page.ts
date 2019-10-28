@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { FormControl } from "@angular/forms";
+import { debounceTime } from "rxjs/operators";
 
 @Component({
   selector: "app-menu-products",
@@ -8,11 +10,14 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class MenuProductsPage implements OnInit {
   menu: any = null;
-  searchTerm = '';
   products: any;
   filteredProducts: any;
+  searching: any = false;
+  public searchControl: FormControl;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    this.searchControl = new FormControl();
+  }
 
   ngOnInit() {
     this.route.snapshot.data.menu.menuProducts.map(prod => {
@@ -20,11 +25,22 @@ export class MenuProductsPage implements OnInit {
     });
     this.menu = this.route.snapshot.data.menu;
     this.products = this.menu.menuProducts;
-    this.filterItems(this.searchTerm);
+    this.filterItems('');
+
+    this.searchControl.valueChanges
+      .pipe(debounceTime(500))
+      .subscribe(search => {
+        this.filterItems(search);
+        this.searching = false;
+      });
   }
 
   addProduct(prod) {
     console.log(prod);
+  }
+
+  onSearchInput() {
+    this.searching = true;
   }
 
   filterItems(searchTerm) {
