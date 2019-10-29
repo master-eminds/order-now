@@ -1,4 +1,6 @@
+import { FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
+import { debounceTime } from 'rxjs/operators';
 
 const orderList = [
   {
@@ -81,11 +83,37 @@ const orderList = [
 })
 export class OrderStatusPage {
   orderList = orderList;
+  filteredList: any;
+  searchControl: FormControl;
   total = 0;
+  searching = false;
+
   constructor() {
     orderList.forEach((order: any ) => {
       this.total += order.cantitate * order.price;
     });
+    this.searchControl = new FormControl();
+  }
+
+  ngOnInit() {
+    this.filterItems('');
+
+    this.searchControl.valueChanges
+      .pipe(debounceTime(500))
+      .subscribe(search => {
+        this.filterItems(search);
+        this.searching = false;
+      });
+  }
+
+  filterItems(searchTerm) {
+    this.filteredList = this.orderList.filter(item => {
+      return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+  }
+
+  onSearchInput() {
+    this.searching = true;
   }
 
   incrementQuantity(order) {

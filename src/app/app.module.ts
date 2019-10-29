@@ -24,9 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({
-      scrollAssist: false
-    }),
+    IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

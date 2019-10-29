@@ -16,12 +16,15 @@
       <div class="total-order"> TOTAL: {{ total | currency }}</div>
     </ion-title>
   </ion-toolbar>
-  <ion-searchbar showCancelButton="always"></ion-searchbar>
+  <ion-searchbar showCancelButton="true" [formControl]="searchControl" (ionChange)="onSearchInput()"></ion-searchbar>
+  <!-- <div *ngIf="true" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div> -->
 </ion-header>
 
 <ion-content class="order-page-content" fullscreen>
   <ion-list>
-    <ion-item-sliding *ngFor="let order of orderList; let index = index;">
+    <ion-item-sliding *ngFor="let order of filteredList; let index = index;">
       <ion-item class="item-product" detail="true" detail-icon="arrow-back" color="none">
         <ion-grid>
           <ion-row class="ion-align-items-center ion-justify-content-center">

@@ -31,16 +31,24 @@ ion-header {
     ion-toolbar {
         --background-color: transparent;
         --ion-color-base: transparent !important;
-      }    
+      }
+
+      .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
 }
 
 .order-page-content {
     --background: url('../../assets/login-wallpaper.jpg') no-repeat center center / cover;
     --background-size:cover;
+    position: fixed;
 
     ion-list {
         background: rgba(black, 0.7);
         color:white;
+        padding-top: 30%;
     }
     ion-item {
         color: white;
