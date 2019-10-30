@@ -24,5 +24,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-apple-wallet": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-apple-wallet"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-applepay": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-applepay"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

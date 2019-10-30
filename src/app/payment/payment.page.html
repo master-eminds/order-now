@@ -1,15 +1,44 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="end">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-      <ion-title>Payment</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header translucent=true>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <form #cardForm="ngForm" onsubmit="processForm(event)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <div>
+          <p>Payment details</p>
+          <p><b>VISA, MASTERCARD, VISAElectron</b></p>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Card number <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text"></ion-input>
+      </ion-item>
+      <ion-item >
+        <div class="card-details">
+            <div>
+                <ion-label>Expiration date</ion-label>
+                <ion-datetime display-format="MM/YY" picker-format="MM/YY" [min]="minDate" [max]="2050"
+                  monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+              </div>
+              <div>
+                <ion-label position="floating">
+                  Card number
+                </ion-label>
+                <ion-input type="number"></ion-input>
+              </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
