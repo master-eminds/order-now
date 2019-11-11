@@ -22,8 +22,7 @@
         <ion-label position="floating">Card number</ion-label>
         <ion-input formControlName="card_number" type="text">
         </ion-input>
-        <p *ngIf="paymentForm.controls['card_number'].errors && paymentForm.controls['card_number'].dirty"
-          class="error" padding>Card number is not valid.</p>
+        <p *ngIf="cardMessage" class="error" padding>{{cardMessage}}</p>
       </ion-item>
     </ion-list>
     <ion-row>
