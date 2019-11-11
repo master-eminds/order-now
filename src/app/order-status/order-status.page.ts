@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../auth.service';
 import { FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
@@ -88,7 +90,7 @@ export class OrderStatusPage {
   total = 0;
   searching = false;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     orderList.forEach((order: any ) => {
       this.total += order.cantitate * order.price;
     });
@@ -140,6 +142,14 @@ export class OrderStatusPage {
     //allow removing if  order is in pending
     this.orderList.splice(index, 1);
     this.changeTotal();
+  }
+
+  proceedToPayment() {
+    if (this.authService.currentUserValue && this.authService.currentUserValue.hasCard) {
+      console.log('Select payment way/provider');
+    }  else {
+      this.router.navigate(['/payment']);
+    }
   }
 
 }

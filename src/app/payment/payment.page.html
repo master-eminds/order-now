@@ -11,34 +11,45 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <form #cardForm="ngForm" onsubmit="processForm(event)">
-    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+  <form [formGroup]="paymentForm">
+    <ion-list>
       <ion-item>
-        <div>
-          <p>Payment details</p>
-          <p><b>VISA, MASTERCARD, VISAElectron</b></p>
-        </div>
+        <ion-label position="floating">Card holder</ion-label>
+        <ion-input formControlName="card_holder" type="text">
+        </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Card number <ion-text color="danger">*</ion-text>
-        </ion-label>
-        <ion-input required type="text"></ion-input>
-      </ion-item>
-      <ion-item >
-        <div class="card-details">
-            <div>
-                <ion-label>Expiration date</ion-label>
-                <ion-datetime display-format="MM/YY" picker-format="MM/YY" [min]="minDate" [max]="2050"
-                  monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
-              </div>
-              <div>
-                <ion-label position="floating">
-                  Card number
-                </ion-label>
-                <ion-input type="number"></ion-input>
-              </div>
-        </div>
+        <ion-label position="floating">Card number</ion-label>
+        <ion-input formControlName="card_number" type="text">
+        </ion-input>
+        <p *ngIf="paymentForm.controls['card_number'].errors && paymentForm.controls['card_number'].dirty"
+          class="error" padding>Card number is not valid.</p>
       </ion-item>
     </ion-list>
+    <ion-row>
+      <ion-col size="6">
+          <ion-item>
+              <ion-label position="floating">Expiration date</ion-label>
+              <ion-datetime formControlName="card_expiration_date"  [min]="minDate"
+                display-format="MM/YY" picker-format="MM/YY"  [max]="2050"
+                monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des">
+              </ion-datetime>
+          </ion-item>
+      </ion-col>
+      <ion-col size="6">
+          <ion-item>
+              <ion-label position="floating">CVC</ion-label>
+              <ion-input formControlName="card_cvc" type="text">
+              </ion-input>
+          </ion-item>
+          <p *ngIf="paymentForm.controls['card_cvc'].errors && paymentForm.controls['card_cvc'].dirty"
+          class="error" padding>CVC is not valid.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" type="submit" [disabled]="!paymentForm.valid" expand="block">Save payment card</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>

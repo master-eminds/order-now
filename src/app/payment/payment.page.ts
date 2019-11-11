@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplePay } from '@ionic-native/apple-pay/ngx';
 import { formatDate } from '@angular/common';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 const format = 'yyyy-MM-dd';
 const locale = 'en-US';
 
@@ -10,6 +11,7 @@ const locale = 'en-US';
   styleUrls: ['./payment.page.scss']
 })
 export class PaymentPage implements OnInit {
+  paymentForm: FormGroup;
   minDate = '';
   monthNames = [
     'Jan',
@@ -26,28 +28,29 @@ export class PaymentPage implements OnInit {
     'Dec'
   ];
 
-  constructor(private applePay: ApplePay) {}
+  constructor(private fb: FormBuilder) {}
   /**
    *  IF PAYMENT METHOD IS SET DISPLAY CHECKOUT AND ALLOW USER TO PAY
-   *  ELSE 
+   *  ELSE
    *  LET USER ADD HIS CARD DETAILS AND THEN PROCEED TO CHECKOUT
    */
 
   ngOnInit() {
     this.minDate = formatDate(new Date(), format, locale);
     console.log(this.minDate);
-    this.applePay
-      .canMakePayments()
-      .then(message => {
-        // Apple Pay is enabled and a supported card is setup. Expect:
-        // 'This device can make payments and has a supported card'
-        console.log(message);
-      })
-      .catch(message => {
-        // There is an issue, examine the message to see the details, will be:
-        // 'This device cannot make payments.''
-        // 'This device can make payments but has no supported cards'
-        console.log(message);
-      });
+    this.paymentForm = this.fb.group({
+      card_holder: ['', Validators.required],
+      card_number: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]],
+      card_expiration_date: ['', [Validators.required]],
+      card_cvc: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(3)]]
+    });
+
+    const card_number = this.paymentForm.get('card_number');
+    card_number.valueChanges.pipe(
+      debounceTime(1000)
+    ).subscribe((res) => {
+      console.log(res);
+    });
+
   }
 }

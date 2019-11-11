@@ -4,7 +4,7 @@
       <ion-menu-button color="secondary"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['payment']" color="secondary">
+      <ion-button (click)="proceedToPayment()" color="secondary">
         <div class="payment-btn-container">
           <ion-icon name="card"></ion-icon>
           <p>Pay now</p>
