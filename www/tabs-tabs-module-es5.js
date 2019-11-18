@@ -358,6 +358,12 @@ var routes = [
                 },
             },
             {
+                path: 'user-profile',
+                loadChildren: function () {
+                    return __webpack_require__.e(/*! import() | user-profile-user-profile-module */ "user-profile-user-profile-module").then(__webpack_require__.bind(null, /*! ../user-profile/user-profile.module */ "./src/app/user-profile/user-profile.module.ts")).then(function (m) { return m.UserProfilePageModule; });
+                },
+            },
+            {
                 path: '',
                 redirectTo: 'tabs/restaurans-list',
                 pathMatch: 'full'

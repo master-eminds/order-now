@@ -19,18 +19,12 @@ ion-header {
 ion-content {
     --background: url('../../../assets/login-wallpaper.jpg') no-repeat center center / cover;
     --background-size: cover;
-   position: fixed;
 
-    .product-col {
-        max-height: 25vh;
-    }
     ion-card {
         margin: 0;
 
         img {
-            max-width: 100%;
-            height: auto;
-            width: auto\9; /* ie8 */
+            max-height: 25vh;
         }
 
         .product-details-row {

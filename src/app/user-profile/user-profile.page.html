@@ -1,0 +1,65 @@
+<ion-header translucent>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="secondary">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form [formGroup]="profileForm">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4">
+          <ion-avatar>
+            <img [src]="currentUser?.imageUrl">
+          </ion-avatar>
+          <ion-button class="edit-picture" size="small" color="secondary">Edit picture</ion-button>
+        </ion-col>
+        <ion-col size="8">
+          <ion-item>
+            <ion-label position="floating">FirstName</ion-label>
+            <ion-input multiple="true" formControlName="firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">LastName</ion-label>
+            <ion-input multiple="true" formControlName="lastName"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input multiple="true" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Phone number</ion-label>
+            <ion-input multiple="true" formControlName="phone"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col *ngIf="!currentUser.card" size="4">
+          <ion-button  color="secondary" [routerLink]="['/payment']">Add card</ion-button>
+        </ion-col>
+        <ion-col *ngIf="currentUser.card" size="4">
+          <ion-button [routerLink]="['/history-orders']">
+              <ion-icon name="paper"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button color="primary">Save changes</ion-button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

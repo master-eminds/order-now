@@ -61,6 +61,11 @@ const routes: Routes = [
               import('../payment/payment.module').then(m => m.PaymentPageModule),
       },
       {
+        path: 'user-profile',
+        loadChildren: () =>
+              import('../user-profile/user-profile.module').then(m => m.UserProfilePageModule),
+      },
+      {
         path: '',
         redirectTo: 'tabs/restaurans-list',
         pathMatch: 'full'
