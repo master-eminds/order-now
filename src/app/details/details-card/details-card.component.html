@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-card class="welcome-card">
+    <!-- <img [src]="restaurant.image" alt="" /> -->
+    <app-slide-header [slides]="restaurant.slides"></app-slide-header>
+    <ion-card-header class="card-header">
+      <ion-card-subtitle>
+        {{restaurant.subtitle}}
+      </ion-card-subtitle>
+      <ion-card-title>Welcome to {{restaurant.name}} </ion-card-title>
+      <div class="rating-container">
+        <rating [(ngModel)]="restaurant.rate" readonly="false" size="small" (ngModelChange)="onRateChange($event)">
+        </rating>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{restaurant.description | truncate : 150}} </p>
+    </ion-card-content>
+    <ion-row class="social-container">
+      <ion-col>
+        <ion-button  color="secondary" class="btn-t" icon-start clear small (click)="increaseLikes(restaurant)">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{restaurant.likes}} Likes</div>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="secondary" icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </ion-button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

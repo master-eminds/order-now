@@ -1,0 +1,66 @@
+<ion-header translucent>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="proceedToPayment()" color="secondary">
+        <div class="payment-btn-container">
+          <ion-icon name="card"></ion-icon>
+          <p>Pay now</p>
+        </div>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Your Order
+      <div class="total-order"> TOTAL: {{ total | currency }}</div>
+    </ion-title>
+  </ion-toolbar>
+  <ion-searchbar showCancelButton="true" [formControl]="searchControl" (ionChange)="onSearchInput()"></ion-searchbar>
+  <!-- <div *ngIf="true" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div> -->
+</ion-header>
+
+<ion-content class="order-page-content" fullscreen>
+  <ion-list>
+    <ion-item-sliding *ngFor="let order of filteredList; let index = index;">
+      <ion-item class="item-product" detail="true" detail-icon="arrow-back" color="none">
+        <ion-grid>
+          <ion-row class="ion-align-items-center ion-justify-content-center">
+            <ion-col class="item-avatar-container" size="2">
+              <ion-avatar item-start [ngStyle]="{'border-color':order.status === 'pending' ? '#FFBF00' : '#0ec254' }">
+                <img [src]="order.image">
+              </ion-avatar>
+            </ion-col>
+            <ion-col class="item-name" size="4">
+              <p>{{order.name}}</p>
+            </ion-col>
+
+            <ion-col class="item-quantity" size="3">
+              <p>Quantity</p>
+              <div>
+                <ion-icon name="add-circle-outline" (click)="incrementQuantity(order)"></ion-icon>
+                {{order.cantitate}}
+                <ion-icon name="remove-circle-outline" (click)="decrementQuantity(order)"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col class="item-price" size="3">
+              <p>Price</p>
+              <p>{{ order.price | currency }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options>
+        <ion-button class="btn-resize" color="light" size="large" icon-start>
+          <ion-icon slot="icon-only" name="ios-more"></ion-icon>
+        </ion-button>
+        <ion-button class="btn-resize" color="danger" [disabled]="order.status === 'done'"
+          (click)="removeProduct(index)" size="large">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

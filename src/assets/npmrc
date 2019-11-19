@@ -1,0 +1,4 @@
+@uxp:registry= https://alm-npmjs.misys.global.ad/nexus/repository/npm_group/
+@uxp-tools:registry= https://alm-npmjs.misys.global.ad/nexus/repository/npm_group/
+@pricing-analytics:registry=https://alm-npmjs.misys.global.ad/nexus/repository/npm_group/
+registry=https://alm-npmjs.misys.global.ad/nexus/repository/npm_group/

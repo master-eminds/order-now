@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { RoutingInterceptior } from './routing-interceptor';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate : [RoutingInterceptior]
+  },
+  { path: '', loadChildren: './welcome/welcome.module#WelcomePageModule' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
+  { path: 'menu-products', loadChildren: './restaurant-menu/menu-products/menu-products.module#MenuProductsPageModule' },
+  { path: 'payment', loadChildren: './payment/payment.module#PaymentPageModule' }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

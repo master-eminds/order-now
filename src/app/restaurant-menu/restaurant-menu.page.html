@@ -1,0 +1,25 @@
+<ion-header translucent>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="end">
+          <ion-menu-button color="secondary"></ion-menu-button>
+      </ion-buttons>
+    <ion-title color="secondary">
+      Menus
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="menus-page" fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let menu of restaurantMenus$ | async" size="6">
+          <ion-card [routerLink]="['menu', menu.id]">
+              <img [src]="menu.image"/>
+              <div class="card-title">
+                <p>{{menu.name}}</p>
+                </div>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

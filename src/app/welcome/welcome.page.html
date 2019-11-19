@@ -1,0 +1,74 @@
+<ion-header>
+      <ion-toolbar>
+            <ion-title>Preview</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen scroll-y="false" class="welcome-page">
+      <ion-slides class="welcome-page__slides" pager="true">
+            <ion-slide>
+                  <ion-grid fixed="true">
+                        <ion-row class="ion-align-items-center ion-justify-content-center">
+                              <ion-col size="12">
+                                    <p class="brand-banner">
+                                          Place your order faster than ever
+                                          <span class="brand-name">
+                                                ORDER NOW
+                                          </span>
+                                          &mdash; no Account required &mdash;
+                                    </p>
+                              </ion-col>
+                              <ion-col size="12">
+                                    <p>The application is specially designed to automate your order management. It helps your
+                                          waiters to take their orders precisely and convey them to the kitchen so that all
+                                          your dine-in and takeaway orders get properly organised.
+                                    </p>
+                              </ion-col>
+                        </ion-row>
+                  </ion-grid>
+
+
+            </ion-slide>
+            <ion-slide>
+                  <img src="../../assets/welcome-page2.gif" />
+                  <h2>How to use our app</h2>
+                  <p>
+                        <b>Use QR Scan button</b> at the bottom of the application in order to scan the QR code and preview
+                        the menu for your favourite restaurant. </p>
+            </ion-slide>
+            <ion-slide>
+                  <ion-grid fixed="true">
+                        <ion-row class="ion-align-items-stretch">
+                              <ion-col size="12">
+                                    <h2>{{ 'READY_TO_ORDER' | translate}}</h2>
+                              </ion-col>
+                              <ion-col size="12">
+                                    <ion-button class="try-button" color="secondary" [routerLink]="['auth']" size="default">
+                                          <ion-icon slot="end" name="log-in"></ion-icon>
+                                          {{ 'CONTINUE' | translate}}
+                                    </ion-button>
+                              </ion-col>
+                              <ion-col size="12">
+                                    <ion-row class="ion-justify-content-end language-actions-container">
+                                          <ion-col size="4">
+                                                <ion-button fill="clear" (click)="changeLanguage('en')" size="large">
+                                                      <ion-icon [ngStyle]="{'border-color': translate.store.currentLang === 'en' ? '#08a8bc' : 'white' }" slot="icon-only" src="./../../assets/en-flag.svg">
+                                                      </ion-icon>
+                                                </ion-button>
+                                          </ion-col>
+                                          <ion-col size="4">
+                                                <p> {{ 'SELECT_LANG' | translate}} </p>
+                                          </ion-col>
+                                          <ion-col size="4">
+                                                <ion-button fill="clear" (click)="changeLanguage('ro')" size="large">
+                                                      <ion-icon [ngStyle]="{'border-color': translate.store.currentLang === 'ro' ? '#08a8bc' : 'white' }" slot="icon-only" src="./../../assets/ro-flag.svg">
+                                                      </ion-icon>
+                                                </ion-button>
+                                          </ion-col>
+                                    </ion-row>
+                              </ion-col>
+                        </ion-row>
+                  </ion-grid>
+            </ion-slide>
+      </ion-slides>
+</ion-content>

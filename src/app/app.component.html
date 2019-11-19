@@ -1,3 +1,49 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app class="app-component">
+  <ion-split-pane contentId="menu-content">
+    <ion-menu side="end" max-edge-start="50" contentId="menu-content" padding>
+      <ion-header>
+        <ion-title> Menu </ion-title>
+      </ion-header>
+      <ion-content color="secondary">
+        <ion-grid fixed="true">
+          <ion-row class="ion-align-items-center ion-justify-content-center">
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-avatar>
+                <img [src]="authService.currentUserValue?.imageUrl">
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="12" class="ion-align-self-center">
+              <ion-label>{{authService.currentUserValue?.name}}</ion-label>
+            </ion-col>
+            <ion-col size="12" class="ion-align-self-center view-profile-col">
+              <a (click)=" menuController.close();" [routerLink]="['tabs/tabs/user-profile']">view profile</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list>
+          <ion-menu-toggle *ngFor="let page of appPages">
+            <ion-item *ngIf="page.url" [routerLink]="page.url" [routerDirection]="'root'" color="secondary">
+              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-label>{{page.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-toolbar color="secondary">
+          <ion-button color="dark" fill="solid" expand="block">
+              <ion-icon slot="end" name="card"></ion-icon>
+              <ion-label>Pay order</ion-label>
+            </ion-button>
+        <ion-button fill="solid" expand="block" (click)="authService.logout(); menuController.close();">
+          <ion-icon slot="end" name="log-out"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-button>
+        <ion-button *ngIf="!authService.currentUserValue" fill="solid" expand="block" [routerLink]="['/auth']">
+            <ion-icon slot="end" name="log-in"></ion-icon>
+            <ion-label>Login</ion-label>
+          </ion-button>
+      </ion-toolbar>
+    </ion-menu>
+    <ion-router-outlet main id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

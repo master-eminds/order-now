@@ -1,1 +1,22 @@
+.tabs-content {
+  ion-tab-button:nth-child(3) {
+    padding-left: 15%;
+  }
+  .scan-button {
+    animation: shadow-pulse 1s infinite;
+    border-radius: 50%;
+  }
 
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 0 0px rgba(229, 197, 0, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba(229, 197, 0, 0.2);
+    }
+  }
+}
+
+.scroll-content {
+  padding-bottom: 0 !important;
+}

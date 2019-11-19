@@ -1,0 +1,38 @@
+ion-header {
+    ion-toolbar {
+        --background-color: transparent;
+        --ion-color-base: transparent !important;
+      }
+}
+
+ion-content {
+    --background: url('../../assets/login-wallpaper.jpg') no-repeat center center / cover;
+    --background-size:cover;
+
+    .card-details {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    form {
+        padding: 10px;
+        background: #ffffff;
+        width: 90%;
+        margin: auto;
+        border-radius: 5%;
+        opacity: 0.9;
+        margin-top: 15%;
+
+        ion-list {
+            margin-bottom: 0;
+        }
+
+        .error {
+            font-size: 9px;
+            color: var(--ion-color-danger);
+            padding: 0;
+            text-align: end;
+        }
+    }
+}

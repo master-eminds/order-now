@@ -1,12 +1,55 @@
-import { Component } from '@angular/core';
+import { Keyboard } from '@ionic-native/keyboard';
+import { OnInit } from '@angular/core';
+import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
+import { Component, ViewChild } from '@angular/core';
+import { IonTabs } from '@ionic/angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Plugins } from '@capacitor/core';
+const { Toast } = Plugins;
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {
+export class TabsPage implements OnInit {
+  @ViewChild('tabs', { static: false }) tabs: IonTabs;
+  @ViewChild('scanBtn', { static: false }) scanBtn: any;
+  currentTab: any;
 
-  constructor() {}
+  constructor(
+    private barcodeScanner: BarcodeScanner,
+    private route: Router,
+    public authService: AuthService
+  ) {
+      Keyboard.onKeyboardWillHide().subscribe(() => {
+          this.scanBtn.el.style.visibility = 'visible';
+      });
+      Keyboard.onKeyboardDidShow().subscribe(() => {
+        this.scanBtn.el.style.visibility = 'hidden';
+    });
+  }
 
+  ngOnInit() {}
+
+  getSelectedTab() {
+    this.currentTab = this.tabs.getSelected();
+  }
+
+  performScan() {
+    this.barcodeScanner
+      .scan()
+      .then((barcodeData: any) => {
+        Toast.show({
+          duration: 'long',
+          text: JSON.stringify(barcodeData)
+        });
+        console.log('Barcode data', barcodeData);
+        this.route.navigate(['/details/' + JSON.parse(barcodeData.text).id]);
+      })
+      .catch(err => {
+        console.log('Error', err);
+      });
+  }
 }

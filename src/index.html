@@ -3,14 +3,16 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <title>Order Now</title>
 
   <base href="/" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="google-signin-client_id" content="145226042019-u5dcg9edl0qfjqookqq1q7n3qm3eggs9.apps.googleusercontent.com">
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,6 +21,27 @@
 
 <body>
   <app-root></app-root>
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1153499074849281',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+        
+      FB.AppEvents.logPageView();   
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 
 </html>

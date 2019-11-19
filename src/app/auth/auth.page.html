@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Authentication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="auth-content">
+  <ion-grid class="auth-grid">
+    <ion-row class="ion-align-items-center ion-justify-content-center auth-description-row">
+        <ion-col size="10">
+            <form class="auth-form" [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+              <ion-item>
+                <ion-label position="floating">Username (Email)</ion-label>
+                <ion-input multiple="true" formControlName="email"></ion-input>
+              </ion-item>
+    
+              <div *ngIf="submitted && frm.email.errors" class="invalid-feedback">
+                <span *ngIf="frm.email.errors.required">
+                  <p style="color:red">Email is required!</p>
+                </span>
+                <span *ngIf="frm.email.errors.email">
+                  <p style="color:red">Email must be a valid email address!</p>
+                </span>
+              </div>
+    
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+    
+              <div *ngIf="submitted && frm.password.errors" class="invalid-feedback">
+                <span *ngIf="frm.password.errors.required">
+                  <p style="color:red">Password is required!</p>
+                </span>
+                <span *ngIf="frm.password.errors.minlength">
+                  <p style="color:red">Password must be at least 6 characters!</p>
+                </span>
+              </div>
+    
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-button expand="block" size="default" type="submit">Authenticate
+                      <ion-spinner name="bubbles" *ngIf="loading"></ion-spinner>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-col>
+      <ion-col size="12">
+        <div class="authentication-container-description">
+          <p>
+            Social Login is single sign-on for end users. Using existing login information from a social network provider like Facebook
+            or Google, the user can sign into a third party application instead of creating a new account specifically for
+            that application. This simplifies registrations and logins for end users. You can also authenticate via custom
+            email adress or you can still
+            <br>
+            <a (click)="authService.signIn()">
+              <strong>use it without account </strong>
+            </a>
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center auth-social-media-container">
+      <ion-col size="6">
+        <ion-button fill="clear" (click)="authService.signIn('GOOGLE')" size="large">
+          <ion-icon slot="icon-only" src="./../../assets/google-plus.svg"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button fill="clear" (click)="authService.signIn('FACEBOOK')" size="large">
+          <ion-icon slot="icon-only" src="./../../assets/facebook.svg"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

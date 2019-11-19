@@ -1,20 +1,30 @@
-<ion-tabs>
+<ion-content class="tabs-content">
+  <ion-tabs #tabs (ionTabsDidChange)="getSelectedTab()">
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="restaurants-list">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Restaurants</ion-label>
+      </ion-tab-button>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1">
-      <ion-icon name="pizza"></ion-icon>
-      <ion-label>Restaurants</ion-label>
-    </ion-tab-button>
+      <ion-tab-button tab="restaurant-menu">
+        <ion-icon name="restaurant"></ion-icon>
+        <ion-label>Menu</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="tab2">
-      <ion-icon name="globe"></ion-icon>
-      <ion-label>Online Order</ion-label>
-    </ion-tab-button>
+      <ion-tab-button tab="order-status">
+        <ion-icon name="clipboard"></ion-icon>
+        <ion-label>Order Status</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
-      <ion-icon name="clipboard"></ion-icon>
-      <ion-label>Order Status</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-
-</ion-tabs>
+      <ion-tab-button tab="user-profile">
+          <ion-icon name="contact"></ion-icon>
+          <ion-label>Account</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+    <ion-fab #scanBtn vertical="bottom" horizontal="center" slot="fixed" >
+      <ion-fab-button class="scan-button" color="secondary" (click)="performScan()">
+        <ion-icon name="qr-scanner"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

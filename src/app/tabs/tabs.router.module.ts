@@ -1,57 +1,80 @@
+import { PaymentPageModule } from './../payment/payment.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-
+import { RestaurantResolver } from './../restaurant-resolver.service';
+import { MenuResolver } from '../menu-resolver.service';
 const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'restaurants-list',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../restaurants-list/restaurants-list.module').then(m => m.RestaurantsListPageModule)
           }
         ]
       },
       {
-        path: 'tab1/details',
+        path: 'restaurants-list/details/:id',
         loadChildren: () =>
-              import('../details/details.module').then(m => m.DetailsPageModule)
+              import('../details/details.module').then(m => m.DetailsPageModule),
+        resolve: {
+          restaurant: RestaurantResolver
+        }
       },
       {
-        path: 'tab2',
+        path: 'restaurant-menu',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../restaurant-menu/restaurant-menu.module').then(m => m.RestaurantMenuPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'restaurant-menu/menu/:id',
+        loadChildren: () =>
+              import('../restaurant-menu/menu-products/menu-products.module').then(m => m.MenuProductsPageModule),
+        resolve: {
+          menu: MenuResolver
+        }
+      },
+      {
+        path: 'order-status',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../order-status/order-status.module').then(m => m.OrderStatusPageModule)
           }
         ]
+      },
+      {
+        path: 'order-status/payment',
+        loadChildren: () =>
+              import('../payment/payment.module').then(m => m.PaymentPageModule),
+      },
+      {
+        path: 'user-profile',
+        loadChildren: () =>
+              import('../user-profile/user-profile.module').then(m => m.UserProfilePageModule),
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'tabs/restaurans-list',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: 'tabs/restaurants-list',
     pathMatch: 'full'
   }
 ];

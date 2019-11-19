@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-
-  constructor() { }
+  restaurant: any;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.restaurant = this.route.snapshot.data.restaurant;
   }
 
 }

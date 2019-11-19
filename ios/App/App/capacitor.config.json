@@ -1,7 +1,0 @@
-{
-  "appId": "com.ordernow.app",
-  "appName": "order-now",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}

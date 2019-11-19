@@ -1,0 +1,191 @@
+
+ion-toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+  color: white;
+}
+
+.welcome-page {
+    --background: url('../../assets/login-wallpaper.jpg') no-repeat center center / cover;
+    --background-size:cover;
+
+  ion-slides {
+    height:100%;
+
+    h2 {
+      color: white;
+    }
+
+    ion-row {
+      height: 90%;
+    }
+  }
+
+  ion-slide {
+    background-color:rgba(0,0,0, 0.6);
+
+    ion-grid {
+      ion-row {
+        align-content: center;
+      }
+    }
+    flex-direction: column;
+    p {
+      font-size: 15px;
+      color:white;;
+      padding: 5px;
+    }
+  }
+
+  ion-slide:first-child {
+     img {
+      max-height: 50%;
+      max-width: 100%;
+      margin: 0;
+     }
+  }
+  
+  ion-slide:nth-child(3) {
+    img {
+      width: 80%;
+    }
+
+    .language-actions-container {
+      ion-icon {
+        border: 2px solid white;
+        border-radius: 50%;
+      }
+      p {
+        color: white;
+      }
+    }
+  }
+
+  // Continue button effect
+  @keyframes text {
+    0% {
+      color: black;
+      margin-bottom: -40px;
+    }
+    30% {
+      letter-spacing: 25px;
+      margin-bottom: -40px;
+    }
+    85% {
+      letter-spacing: 8px;
+      margin-bottom: -40px;
+    }
+  }
+
+  .try-button {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
+  }
+  @-webkit-keyframes glowing {
+    0% {
+      background-color: var(--ion-color-secondary);
+      -webkit-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      -webkit-box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      -webkit-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+  }
+
+  @-moz-keyframes glowing {
+    0% {
+      background-color: var(--ion-color-secondary);
+      -moz-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      -moz-box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      -moz-box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+  }
+
+  @-o-keyframes glowing {
+    0% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+  }
+
+  @keyframes glowing {
+    0% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+    50% {
+      background-color: var(--ion-color-secondary-shade);
+      box-shadow: 0 0 40px var(--ion-color-secondary-shade);
+    }
+    100% {
+      background-color: var(--ion-color-secondary);
+      box-shadow: 0 0 3px var(--ion-color-secondary);
+    }
+  }
+}
+
+// ORDER NOW Text effect
+
+.brand-banner {
+  font-size: 10px !important;
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	border: 4px double rgba(255,255,255,.25);
+	border-width: 4px 0;
+  
+  span {
+  	font: 700 5em/1 "Oswald", sans-serif;
+  	letter-spacing: 0;
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5);
+
+/* Clip Background Image */
+
+	  background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+
+/* Animate Background Image */
+
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  }
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
