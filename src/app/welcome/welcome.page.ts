@@ -1,5 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './welcome.page.html',
   styleUrls: ['./welcome.page.scss'],
 })
-export class WelcomePage implements OnInit {
+export class WelcomePage {
   constructor(public translate: TranslateService) {
-  }
-
-  ngOnInit() {
   }
 
   changeLanguage(lang) {
