@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { FormControl } from "@angular/forms";
 import { debounceTime } from "rxjs/operators";
+import { DomController } from '@ionic/angular';
 
 @Component({
   selector: "app-menu-products",
@@ -15,7 +16,7 @@ export class MenuProductsPage implements OnInit {
   searching: any = false;
   public searchControl: FormControl;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private domCtrl: DomController) {
     this.searchControl = new FormControl();
   }
 
@@ -33,6 +34,19 @@ export class MenuProductsPage implements OnInit {
         this.filterItems(search);
         this.searching = false;
       });
+  }
+
+  ionViewWillEnter() {
+    this.updateBackground();
+  }
+
+  updateBackground() {
+    const content = document.querySelector('.menu-products-page');
+    const innerScroll = content.shadowRoot.querySelector('.inner-scroll');
+
+    this.domCtrl.write(() => {
+      (innerScroll as any).style.background = "url('./../../assets/login-wallpaper.jpg') no-repeat center center / cover";
+    });
   }
 
   addProduct(prod) {

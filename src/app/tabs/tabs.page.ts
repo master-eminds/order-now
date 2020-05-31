@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { Component, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { Plugins } from '@capacitor/core';
-const { Toast } = Plugins;
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -21,7 +20,8 @@ export class TabsPage implements OnInit {
   constructor(
     private barcodeScanner: BarcodeScanner,
     private route: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    private toast: ToastController
   ) {
       Keyboard.onKeyboardWillHide().subscribe(() => {
           this.scanBtn.el.style.visibility = 'visible';
@@ -41,9 +41,9 @@ export class TabsPage implements OnInit {
     this.barcodeScanner
       .scan()
       .then((barcodeData: any) => {
-        Toast.show({
-          duration: 'long',
-          text: JSON.stringify(barcodeData)
+        this.toast.create({
+          duration: 2000,
+          message: JSON.stringify(barcodeData)
         });
         console.log('Barcode data', barcodeData);
         this.route.navigate(['/details/' + JSON.parse(barcodeData.text).id]);

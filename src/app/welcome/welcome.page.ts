@@ -1,7 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Plugins } from '@capacitor/core';
 
 
 @Component({

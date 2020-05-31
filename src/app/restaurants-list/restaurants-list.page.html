@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen *ngIf="restaurants$ | async as restaurants">
+<ion-content fullscreen *ngIf="restaurants$ | async as restaurants" class="restaurants-list-page">
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col size="12" *ngFor="let restaurant of restaurants">

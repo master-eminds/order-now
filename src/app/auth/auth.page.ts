@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { DomController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AuthPage implements OnInit {
   submitted = false;
@@ -18,7 +20,8 @@ export class AuthPage implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
-              public authService: AuthService
+              public authService: AuthService,
+              private domCtrl: DomController
     ) {
   }
 
@@ -27,6 +30,11 @@ export class AuthPage implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     }, {});
+
+  }
+
+  ionViewWillEnter() {
+    this.updateBackground();
   }
 
   onSubmit(value: any): void {
@@ -53,4 +61,13 @@ export class AuthPage implements OnInit {
     }
 
     get frm() { return this.authForm.controls; }
+
+    updateBackground() {
+      const content = document.querySelector('.auth-content');
+      const innerScroll = content.shadowRoot.querySelector('.inner-scroll');
+
+      this.domCtrl.write(() => {
+        (innerScroll as any).style.background = "url('./../../assets/login-wallpaper.jpg') no-repeat center center / cover";
+      });
+    }
 }

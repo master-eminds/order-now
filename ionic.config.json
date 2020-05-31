@@ -1,7 +1,6 @@
 {
   "name": "order-now",
   "integrations": {
-    "capacitor": {},
     "cordova": {}
   },
   "type": "angular"

@@ -3,6 +3,7 @@ import { AuthService } from './../auth.service';
 import { FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
+import { DomController } from '@ionic/angular';
 
 const orderList = [
   {
@@ -90,7 +91,9 @@ export class OrderStatusPage {
   total = 0;
   searching = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService,
+              private domCtrl: DomController,
+              private router: Router) {
     orderList.forEach((order: any ) => {
       this.total += order.cantitate * order.price;
     });
@@ -106,6 +109,10 @@ export class OrderStatusPage {
         this.filterItems(search);
         this.searching = false;
       });
+  }
+
+  ionViewWillEnter() {
+    this.updateBackground();
   }
 
   filterItems(searchTerm) {
@@ -150,6 +157,15 @@ export class OrderStatusPage {
     }  else {
       this.router.navigate(['/payment']);
     }
+  }
+
+  updateBackground() {
+    const content = document.querySelector('.order-page-content');
+    const innerScroll = content.shadowRoot.querySelector('.inner-scroll');
+
+    this.domCtrl.write(() => {
+      (innerScroll as any).style.background = "url('./../../assets/login-wallpaper.jpg') no-repeat center center / cover";
+    });
   }
 
 }
