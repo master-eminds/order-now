@@ -6,7 +6,6 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate : [RoutingInterceptior]
   },
   { path: '', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },

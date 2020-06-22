@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": "https://eminds-278314.appspot.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "cookiePathRewrite": "/"
+  }
+}
+

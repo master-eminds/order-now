@@ -1,3 +1,4 @@
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,8 +18,10 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { IonicStorageModule } from '@ionic/storage';
+
+import { Facebook } from '@ionic-native/facebook/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +54,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    GooglePlus,
+    Facebook,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RestaurantResolver
   ],

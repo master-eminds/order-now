@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { Storage } from '@ionic/storage';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+
 const FACEBOOK_PERMISSIONS = ['email', 'user_birthday', 'user_photos', 'user_gender'];
 const FACEBOOK_FIELDS = 'id,first_name,last_name,name,email,picture';
-import { Storage } from '@ionic/storage';
 
 declare var FB;
 
@@ -15,7 +19,10 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   public currentUser: Observable<any>;
 
-  constructor(private router: Router, private storage: Storage) {
+  constructor(private router: Router,
+              private googlePlus: GooglePlus,
+              private facebookApi: Facebook,
+              private storage: Storage) {
     this.storage.get('currentUser').then(res => {
       this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(res));
       this.currentUser = this.currentUserSubject.asObservable();
@@ -29,24 +36,31 @@ export class AuthService {
   async signIn(provider) {
     switch (provider) {
       case 'GOOGLE':
-        // const googleUser = await GoogleAuth.signIn();
-        // await Storage.set({ key: 'currentUser', value: JSON.stringify(googleUser) });
-        // this.currentUserSubject.next(googleUser);
-        // this.router.navigate(['tabs']);
+        this.googlePlus.login({})
+        .then(res => {
+          this.storage.set('currentUser', JSON.stringify(res));
+          this.currentUserSubject.next(res);
+          this.router.navigate(['tabs']);
+          alert(JSON.stringify(res));
+        })
+        .catch(err => console.error(err));
         break;
       case 'FACEBOOK':
-        // const result = await FacebookLogin.login({ permissions: FACEBOOK_PERMISSIONS }) as FacebookLoginResponse;
-        // if (result) {
-        //   // FB.api(path, method, params, callback)
-        //   await FB.api('/me', 'get', { fields: FACEBOOK_FIELDS }, async (res) => {
-        //         res.imageUrl = res.picture.data.url;
-        //         await Storage.set({key: 'currentUser', value: JSON.stringify(res)});
-        //         this.currentUserSubject.next(res);
-        //         this.router.navigate(['tabs']);
-        //       });
-        // } else {
-        //     console.log('Facebook API failed');
-        // }
+        this.facebookApi.login(FACEBOOK_PERMISSIONS)
+        .then((res: any) => {
+          if (res) {
+            this.facebookApi.api(`/me?fields=${FACEBOOK_FIELDS}`, FACEBOOK_PERMISSIONS).then(res => {
+                res.imageUrl = res.picture.data.url;
+                this.storage.set('currentUser', JSON.stringify(res));
+                this.currentUserSubject.next(res);
+                this.router.navigate(['tabs']);
+            });
+            alert('Logged into Facebook! \n' + res);
+          } else {
+            alert('Facebook API failed');
+          }
+        })
+        .catch(e => console.log('Error logging into Facebook', e));
         break;
       default:
         const dummyUser = { id: Math.random(), dummyUser: true };

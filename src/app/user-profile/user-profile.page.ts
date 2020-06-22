@@ -1,5 +1,5 @@
 import { AuthService } from './../auth.service';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DomController } from '@ionic/angular';
 
@@ -11,13 +11,14 @@ import { DomController } from '@ionic/angular';
 export class UserProfilePage implements OnInit {
   currentUser = null;
   profileForm: FormGroup;
+
   constructor(private authService: AuthService, private domCtrl: DomController,  private fb: FormBuilder) { }
 
   ngOnInit() {
     this.authService.currentUser.subscribe(res => {
       this.currentUser = res;
     });
-    console.log(this.currentUser);
+    alert(this.currentUser);
 
     this.profileForm = this.fb.group({
       email: [this.currentUser.email, [Validators.required, Validators.email]],
@@ -32,7 +33,7 @@ export class UserProfilePage implements OnInit {
   }
 
   updateBackground() {
-    const content = document.querySelector('.restaurants-list-page');
+    const content = document.querySelector('.user-profile-page');
     const innerScroll = content.shadowRoot.querySelector('.inner-scroll');
 
     this.domCtrl.write(() => {

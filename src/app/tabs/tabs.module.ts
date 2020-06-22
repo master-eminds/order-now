@@ -1,3 +1,4 @@
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { TabsPage } from './tabs.page';
     FormsModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [TabsPage],
+  providers: [QRScanner]
 })
 export class TabsPageModule {}

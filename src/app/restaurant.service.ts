@@ -188,9 +188,6 @@ export class RestaurantService {
   }
 
   getRestaurant(id) {
-    // return of(this.RESTAURANTS).pipe(
-    //   find((restaurant:any) => restaurant.id === id)
-    // );
     return this.RESTAURANTS.find(res => res.id === id);
   }
 

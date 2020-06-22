@@ -8,8 +8,7 @@ import { DomController } from '@ionic/angular';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
-  styleUrls: ['./auth.page.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./auth.page.scss']
 })
 export class AuthPage implements OnInit {
   submitted = false;

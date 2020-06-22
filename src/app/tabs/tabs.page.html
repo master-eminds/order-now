@@ -1,4 +1,4 @@
-<ion-content class="tabs-content">
+<ion-content class="tabs-content" transprent>
   <ion-tabs #tabs (ionTabsDidChange)="getSelectedTab()">
     <ion-tab-bar slot="bottom" color="primary">
       <ion-tab-button tab="restaurants-list">
@@ -22,9 +22,10 @@
         </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-    <ion-fab #scanBtn vertical="bottom" horizontal="center" slot="fixed" >
-      <ion-fab-button class="scan-button" color="secondary" (click)="performScan()">
-        <ion-icon name="qr-scanner"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+
+  <ion-fab #scanBtn vertical="bottom" horizontal="center" slot="fixed" >
+    <ion-fab-button class="scan-button" color="secondary" (click)="performScan()">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
