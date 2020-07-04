@@ -26,6 +26,7 @@
     "@ionic-native/core": "^5.26.0",
     "@ionic-native/facebook": "^5.26.0",
     "@ionic-native/google-plus": "^5.26.0",
+    "@ionic-native/http": "^5.27.0",
     "@ionic-native/ionic-webview": "^5.26.0",
     "@ionic-native/keyboard": "^5.26.0",
     "@ionic-native/qr-scanner": "^5.26.0",
@@ -42,8 +43,10 @@
     "cordova-apple-wallet": "^3.1.2",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-advanced-http": "^2.5.1",
     "cordova-plugin-applepay": "^5.0.0",
     "cordova-plugin-facebook4": "^6.4.0",
+    "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-googleplus": "^8.5.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^5.0.0",
@@ -100,7 +103,8 @@
         "APP_NAME": "com.ordernow.app",
         "FACEBOOK_HYBRID_APP_EVENTS": "false",
         "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
-      }
+      },
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "ios"

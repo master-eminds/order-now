@@ -14,12 +14,7 @@ export class WelcomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.testApi().subscribe(res => {
-      alert(res);
-      console.log(res);
-    }, err => {
-        console.log(err);
-    });
+    this.apiService.testApi();
   }
 
   changeLanguage(lang) {

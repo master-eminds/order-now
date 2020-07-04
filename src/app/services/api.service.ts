@@ -1,27 +1,27 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Accept': 'text/html, application/xhtml+xml, */*',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }),
-    responseType: 'text'
-  };
+  
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private http: HTTP) { }
 
   testApi() {
-    return this.httpClient.get('/api/test', {
+    const httpOptions = {
       headers: new HttpHeaders({
-        'Accept': 'text/html, application/xhtml+xml, */*',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }),
-      responseType: 'text'
-    });
+        'Content-Type': 'application/json'
+      })
+    };
+  
+    this.http.get('https://eminds-278314.appspot.com', httpOptions, {}).then(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    })
   }
 }
