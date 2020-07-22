@@ -22,7 +22,6 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
 
-import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,7 +56,6 @@ import { HTTP } from '@ionic-native/http/ngx';
     BarcodeScanner,
     GooglePlus,
     Facebook,
-    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RestaurantResolver
   ],

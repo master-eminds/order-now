@@ -5,6 +5,7 @@
   .scan-button {
     animation: shadow-pulse 1s infinite;
     border-radius: 50%;
+    margin-bottom: 45px; // to be refatored
   }
 
   @keyframes shadow-pulse {

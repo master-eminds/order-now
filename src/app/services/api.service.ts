@@ -1,27 +1,36 @@
+import { Platform } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { HTTP } from '@ionic-native/http/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  
 
-  constructor(private httpClient: HttpClient, private http: HTTP) { }
+  constructor(private platform: Platform,
+              private httpBrowser: HttpClient) { }
 
   testApi() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-  
-    this.http.get('https://eminds-278314.appspot.com', httpOptions, {}).then(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    })
-  }
+
+    // if(this.platform.is('mobileweb')) {
+      this.httpBrowser.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(res => {
+        alert(JSON.stringify(res));
+        console.log(res);
+      }, err => {
+        alert(err);
+      });
+    // } else {
+    //   const httpOptions = {
+    //     headers: new HttpHeaders({
+    //       'Content-Type': 'application/json'
+    //     })
+    //   };
+    //   this.httpMobile.get('https://jsonplaceholder.typicode.com/todos/1', httpOptions, {}).then(res => {
+    //     console.log(res);
+    //   }, err => {
+    //     console.log(err);
+    //   })
+    // }
+    }
 }
