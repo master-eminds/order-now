@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../services';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { DomController } from '@ionic/angular';

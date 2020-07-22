@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../../services';
 import { FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';

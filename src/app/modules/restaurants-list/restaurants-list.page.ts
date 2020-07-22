@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { RestaurantService } from '../restaurant.service';
+import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from './../../services';
 import { Observable } from 'rxjs';
 import { DomController } from '@ionic/angular';
 

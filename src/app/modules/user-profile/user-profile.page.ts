@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from './../../services';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DomController } from '@ionic/angular';

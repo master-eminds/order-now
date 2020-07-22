@@ -2,8 +2,8 @@ import { PaymentPageModule } from './../payment/payment.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { RestaurantResolver } from './../restaurant-resolver.service';
-import { MenuResolver } from '../menu-resolver.service';
+import { RestaurantResolver, MenuResolver } from './../../resolvers';
+
 const routes: Routes = [
   {
     path: 'tabs',

@@ -1,7 +1,7 @@
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Keyboard } from '@ionic-native/keyboard';
 import { OnInit } from '@angular/core';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../../services';
 import { Router } from '@angular/router';
 import { Component, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';

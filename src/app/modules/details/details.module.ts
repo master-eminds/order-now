@@ -1,28 +1,29 @@
+import { RestaurantService } from './../../services';
+import { DetailsCardModule } from './details-card/details-card.module';
+import { DetailsCardComponent } from './details-card/details-card.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
-import { WelcomePage } from './welcome.page';
-import { SharedModule } from '../shared-translate.module';
+import { DetailsPage } from './details.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: WelcomePage
+    component: DetailsPage
   }
 ];
 
 @NgModule({
   imports: [
+    DetailsCardModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [WelcomePage]
+  declarations: [DetailsPage]
 })
-export class WelcomePageModule {}
+export class DetailsPageModule {}

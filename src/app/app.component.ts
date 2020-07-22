@@ -3,7 +3,7 @@ import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
