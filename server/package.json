@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Order now mock server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start-dev": "nodemon server.js --ignore 'db.json'"
+  },
+  "author": "Mihai Alexandru Iordache",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1",
+    "nodemon": "^2.0.4"
+  }
+}

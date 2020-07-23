@@ -14,7 +14,7 @@ export class ApiService {
   testApi() {
 
     // if(this.platform.is('mobileweb')) {
-      this.httpBrowser.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(res => {
+      this.httpBrowser.get('api/restaurants').subscribe(res => {
         alert(JSON.stringify(res));
         console.log(res);
       }, err => {

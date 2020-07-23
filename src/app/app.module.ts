@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { RestaurantResolver } from './resolvers/restaurant-resolver.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { HttpInterceptorService } from './interceptors/http-interceptor.service';
 
 
 @NgModule({
@@ -57,6 +58,11 @@ import { Facebook } from '@ionic-native/facebook/ngx';
     GooglePlus,
     Facebook,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: HttpInterceptorService, 
+      multi: true 
+    },
     RestaurantResolver
   ],
   bootstrap: [AppComponent]
