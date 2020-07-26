@@ -1,6 +1,4 @@
-import { RestaurantService } from './../../services';
 import { DetailsCardModule } from './details-card/details-card.module';
-import { DetailsCardComponent } from './details-card/details-card.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

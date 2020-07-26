@@ -33,7 +33,7 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  async signIn(provider) {
+  async signIn(provider?) {
     switch (provider) {
       case 'GOOGLE':
         this.googlePlus.login({})
@@ -47,7 +47,7 @@ export class AuthService {
         break;
       case 'FACEBOOK':
         this.facebookApi.login(FACEBOOK_PERMISSIONS)
-        .then((res: any) => {
+        .then((res: any) => {  
           if (res) {
             this.facebookApi.api(`/me?fields=${FACEBOOK_FIELDS}`, FACEBOOK_PERMISSIONS).then(res => {
                 res.imageUrl = res.picture.data.url;

@@ -35,4 +35,5 @@
             <string>To scan barcodes</string>
         </edit-config>
     </platform>
+    <allow-navigation href="http://localhost:8101" sessionid="f060c8aa" />
 </widget>

@@ -1,5 +1,5 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from './../../services';
 import { Observable } from 'rxjs';
 import { DomController } from '@ionic/angular';
 
@@ -10,10 +10,10 @@ import { DomController } from '@ionic/angular';
 })
 export class RestaurantMenuPage implements OnInit {
   restaurantMenus$: Observable<any>;
-  constructor(private restaurantService: RestaurantService, private domCtrl: DomController) { }
+  constructor(private apiService: ApiService, private domCtrl: DomController) { }
 
   ngOnInit(): void {
-    this.restaurantMenus$ = this.restaurantService.getMenus();
+    this.restaurantMenus$ = this.apiService.getMenus();
   }
 
   ionViewWillEnter() {

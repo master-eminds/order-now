@@ -1,36 +1,29 @@
-import { Platform } from '@ionic/angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ApiService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private platform: Platform,
-              private httpBrowser: HttpClient) { }
+  getRestaurants() {
+    return this.httpClient.get("api/restaurants");
+  }
 
-  testApi() {
+  getRestaurant(id) {
+    return this.httpClient.get(`api/restaurants/${id}`);
+  }
 
-    // if(this.platform.is('mobileweb')) {
-      this.httpBrowser.get('api/restaurants').subscribe(res => {
-        alert(JSON.stringify(res));
-        console.log(res);
-      }, err => {
-        alert(err);
-      });
-    // } else {
-    //   const httpOptions = {
-    //     headers: new HttpHeaders({
-    //       'Content-Type': 'application/json'
-    //     })
-    //   };
-    //   this.httpMobile.get('https://jsonplaceholder.typicode.com/todos/1', httpOptions, {}).then(res => {
-    //     console.log(res);
-    //   }, err => {
-    //     console.log(err);
-    //   })
-    // }
-    }
+  getMenus() {
+    return this.httpClient.get("api/menus");
+  }
+
+  getMenu(id) {
+    return this.httpClient.get(`api/menus/${id}`);
+  }
+
+  getOrderList() {
+    return this.httpClient.get('api/orders');
+  }
 }

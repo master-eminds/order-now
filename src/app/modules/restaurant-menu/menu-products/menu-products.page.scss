@@ -13,7 +13,7 @@ ion-header {
         width: 100%;
         text-align: center;
         padding: 10px;
-      }
+    }
 }
 
 ion-content {
@@ -41,6 +41,10 @@ ion-content {
                 ion-col {
                     padding: 0
                 }
+
+                ion-col:last-child {
+                    padding-top: 10px;
+                }
             }
         }
 
@@ -51,6 +55,26 @@ ion-content {
 
         .product-price {
             color: var(--ion-color-primary);
+            font-weight: bold;
+            font-size: 15px;
         }
+
+        .product-description {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    ::ng-deep {
+        app-fade {
+            padding: 0 20px 20px 10px;
+        }
+
+        ion-icon {
+            font-size: 30px;
+        }
+        
     }
 }

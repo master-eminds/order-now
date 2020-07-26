@@ -18,7 +18,6 @@ export class UserProfilePage implements OnInit {
     this.authService.currentUser.subscribe(res => {
       this.currentUser = res;
     });
-    alert(this.currentUser);
 
     this.profileForm = this.fb.group({
       email: [this.currentUser.email, [Validators.required, Validators.email]],

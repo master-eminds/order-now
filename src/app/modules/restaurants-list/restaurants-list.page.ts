@@ -1,5 +1,5 @@
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from './../../services';
 import { Observable } from 'rxjs';
 import { DomController } from '@ionic/angular';
 
@@ -10,14 +10,14 @@ import { DomController } from '@ionic/angular';
 })
 export class RestaurantsListPage implements OnInit {
   restaurants$: Observable<any>;
-  constructor(private restaurantService: RestaurantService, private domCtrl: DomController) {
+  constructor(private apiService: ApiService, private domCtrl: DomController) {
    }
 
    ngOnInit() {
-     this.restaurants$ = this.restaurantService.getRestaurants();
+     this.restaurants$ = this.apiService.getRestaurants();
    }
 
-   ionViewWillEnter() {
+   ionView() {
     this.updateBackground();
   }
 

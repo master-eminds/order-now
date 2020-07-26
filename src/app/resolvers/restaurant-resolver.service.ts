@@ -1,4 +1,4 @@
-import { RestaurantService } from '../services/restaurant.service';
+import { ApiService } from './../services/api.service';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
@@ -7,10 +7,9 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 })
 export class RestaurantResolver implements Resolve<any> {
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private apiService: ApiService) { }
 
   resolve(route: ActivatedRouteSnapshot) {
-    console.log('RestaurantResolver');
-    return this.restaurantService.getRestaurant(+route.paramMap.get('id'));
+    return this.apiService.getRestaurant(+route.paramMap.get('id'));
   }
 }
